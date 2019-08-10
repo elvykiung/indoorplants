@@ -15,14 +15,13 @@ The project eventualy will suggest user using soil moister meter to check if the
 
 - React.js
 - Mongodb
-- React Native
-- [Expo.io](https://expo.io/)
+-
 
 # challenge for the app
 
 - cross referance data( most of the plants have server different name, diffrent site have diffrent care tips)
 - water perdiction since it is very depend on the user location, house condition, plants size and soil type etc.
-- work on mobile app for the first time
+  -mobile first design
 
 # Deployment
 
