@@ -6,7 +6,7 @@ const plantSchema = new Schema({
   commonName: { type: String, required: false },
   description: { type: String, required: true },
   image: { type: String, required: true },
-  imageAlt: { type: String, required: true },
+  imageAlt: { type: String, required: false },
   title: { type: String, required: true }
 });
 
