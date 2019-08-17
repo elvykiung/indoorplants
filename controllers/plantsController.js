@@ -27,13 +27,36 @@ module.exports = {
       title
     });
 
-    newPlant
-      .save()
-      .then(() => res.json("Plant added!"))
-      .catch(err => res.status(400).json("Error: " + err));
+    newPlant.save().then(() => res.json("Plant added!"));
   },
 
   scrapePlants: function(req, res) {
-    axios.get("http://www.costafarms.com/api/plantlibrary").then(dbModel => res.json(dbModel.data));
+    axios
+      .get("http://www.costafarms.com/api/plantlibrary")
+      .then(function(data) {
+        for (let i = 0; i < data.data.items.length; i++) {
+          const element = data.data.items[i];
+
+          const scientificName = element.scientificName;
+          const commonName = element.commonName;
+          const description = element.features;
+          const image = element.imageName;
+          const imageAlt = element.imageAlt;
+          const title = element.token;
+
+          const newPlant = new db({
+            scientificName,
+            commonName,
+            description,
+            image,
+            imageAlt,
+            title
+          });
+
+          newPlant.save();
+        }
+      })
+      .then(() => res.json("Plant added!"))
+      .catch(err => res.json(err));
   }
 };

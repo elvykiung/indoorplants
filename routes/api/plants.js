@@ -9,6 +9,6 @@ router
   .post(plantsController.create);
 
 // Matches with "/api/scrape
-router.route("/scrape").get(plantsController.scrapePlants);
+// router.route("/scrape").get(plantsController.scrapePlants);
 
 module.exports = router;
