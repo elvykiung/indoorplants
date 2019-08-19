@@ -1,7 +1,7 @@
 {
-  "name": "mern",
+  "name": "IndoorPlants",
   "version": "0.1.0",
-  "description": "Mern Demo",
+  "description": "IndoorPlants",
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
