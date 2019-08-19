@@ -1,18 +1,27 @@
-import React, { Component } from "react";
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "bootswatch/dist/minty/bootstrap.min.css";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Welcome to React</h2>
-        </div>
-        <p>
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+// import LoginHome from './pages/LoginHome';
+import myPlants from "./pages/MyPlants";
+import SearchMain from "./pages/SearchMain";
+import DiscoveryMain from "./pages/DiscoveryMain";
+import StickyBottom from "./components/Nav";
+
+function App() {
+  return (
+    <Router>
+      <div>
+        <Switch>
+          {/* <Route exact path="/" component={LoginHome} /> */}
+          <Route exact path="/myPlants" component={myPlants} />
+          <Route exact path="/search" component={SearchMain} />
+          <Route exact path="/discovery" component={DiscoveryMain} />
+        </Switch>
+        <StickyBottom />
       </div>
-    );
-  }
+    </Router>
+  );
 }
 
 export default App;
