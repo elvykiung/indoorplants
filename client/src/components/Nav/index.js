@@ -1,2 +1,26 @@
 // Sticky bottom navbar
 //  Set route to each page "/myPlants", "/search", "/discover"
+import React from "react";
+import Nav from "react-bootstrap/Nav";
+// import Navbar from "react-bootstrap/Navbar";
+import "./style.css";
+
+function StickyBottom() {
+  return (
+    <div className="fixed-bottom">
+      <Nav className="navbar justify-content-center font-weight-bold">
+        <Nav.Item>
+          <Nav.Link href="/myPlants">My Plants</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="/search">Search</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link href="/discovery">Discovery</Nav.Link>
+        </Nav.Item>
+      </Nav>
+    </div>
+  );
+}
+
+export default StickyBottom;
