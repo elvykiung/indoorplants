@@ -8,6 +8,7 @@ import SearchMain from "./pages/SearchMain";
 import DiscoveryMain from "./pages/DiscoveryMain";
 import StickyBottom from "./components/Nav";
 
+
 function App() {
   return (
     <Router>
