@@ -80,7 +80,8 @@ module.exports = {
 
   getCostalFarmData: function(req, res) {
     axios
-      .get("http://www.costafarms.com/api/plantlibrary")
+      // .get("http://www.costafarms.com/api/plantlibrary")
+      .get("http://www.costafarms.com/api/plantlibrary?$skip=300")
       .then(function(data) {
         for (let i = 0; i < data.data.items.length; i++) {
           const element = data.data.items[i];
@@ -102,10 +103,12 @@ module.exports = {
               title
             },
             { new: true, upsert: true }
-          );
+          )
+            .then(() => console.log(title))
+            .catch(err => console.log(err));
         }
       })
-      .then(() => res.json("Plant added!"))
+      .then(() => res.json("Plant!"))
       .catch(err => res.json(err));
   }
 };
