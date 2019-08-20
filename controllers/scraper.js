@@ -76,5 +76,36 @@ module.exports = {
       })
       .then(() => res.json("Plant added!"))
       .catch(err => res.json(err));
+  },
+
+  getCostalFarmData: function(req, res) {
+    axios
+      .get("http://www.costafarms.com/api/plantlibrary")
+      .then(function(data) {
+        for (let i = 0; i < data.data.items.length; i++) {
+          const element = data.data.items[i];
+          const scientificName = element.scientificName;
+          const commonName = element.commonName;
+          const description = element.features;
+          const image = element.imageName;
+          const imageAlt = element.imageAlt;
+          const title = element.token;
+
+          db.findOneAndUpdate(
+            { title: title },
+            {
+              scientificName,
+              commonName,
+              description,
+              image,
+              imageAlt,
+              title
+            },
+            { new: true, upsert: true }
+          );
+        }
+      })
+      .then(() => res.json("Plant added!"))
+      .catch(err => res.json(err));
   }
 };

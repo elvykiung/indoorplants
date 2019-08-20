@@ -12,7 +12,7 @@ router
 // Matches with "/api/scrape
 router
   .route("/scrape")
-  .get(plantsController.scrapePlants)
+  .get(scrapePlants.getCostalFarmData)
   .post(scrapePlants.updateDetailController);
 
 module.exports = router;
