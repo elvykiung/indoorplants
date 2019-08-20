@@ -6,17 +6,18 @@
 // icons on water need, light need and growth care need level
 
 import React from "react";
-//import "./style.css";
+import ListGroup from 'react-bootstrap/ListGroup';
+
 
 // This component exports both the List and ListItem components
 
-export const List = ({ children }) => (
-    <ul className="list-group">
-        {children}
-    </ul>
-);
+function ListItems(props){
+    return(
+      <ListGroup>
+          <ListGroup.Item>{props.children}</ListGroup.Item>
+      </ListGroup>
 
-export function ListItem({ children }) {
-    return <li className="list-group-item">{children}</li>;
+    )
 }
 
+export default ListItems;

@@ -23,6 +23,7 @@ if (process.env.NODE_ENV === "production") {
 
 // Connect to the Mongo Atlas DB
 const uri = process.env.ATLAS_URI;
+console.log(uri);
 
 mongoose.connect(uri || "mongodb://localhost/IndoorPlants", { useNewUrlParser: true, useCreateIndex: true });
 

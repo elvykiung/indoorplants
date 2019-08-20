@@ -15,4 +15,10 @@ router
   .get(scrapePlants.getCostalFarmData)
   .post(scrapePlants.updateDetailController);
 
+  // Matches with "/api/plants/:title"
+router
+.route("/plants/:title")
+.get(plantsController.findByName)
+
+
 module.exports = router;

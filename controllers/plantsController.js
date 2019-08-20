@@ -8,6 +8,15 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
+  findByName: function(req, res) {
+    db.find({title:req.params.title})
+    .sort({ date: -1 })
+    .then(data => res.json(data))
+    .catch(err => res.status(422).json(err));
+
+  },
+
+
   create: function(req, res) {
     const scientificName = req.body.scientificName;
     const commonName = req.body.commonName;
@@ -31,4 +40,6 @@ module.exports = {
       .then(() => res.json("Plant added!"))
       .catch(err => console.log(err));
   }
+
+
 };
