@@ -4,13 +4,29 @@
 //   list card component
 //   sticky bottom navbar
 import React, { Component } from "react";
+import SearchBar from "../components/SearchBar";
+import SearchButton from "../components/SearchButton";
+
 
 class SearchMain extends Component {
   state = {};
   render() {
     return (
+     <div className="container">
       <div>
-        <p>This is Search Page</p>
+        <SearchForm
+            name="title"
+            value={this.state.title}
+            onChange = {this.handleInputChange}
+            />
+            <SearchButton
+            onClick={this.handleFormSubmit}
+            className="btn btn-info"
+            >
+            Search
+            </SearchButton>
+
+      </div>
       </div>
     );
   }
