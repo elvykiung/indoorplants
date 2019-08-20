@@ -15,7 +15,7 @@ router
   .get(plantsController.scrapePlants)
   .post(scrapePlants.updateDetailController);
 
-  // Matches with "/api/plants/:name"
+  // Matches with "/api/plants/:title"
 router
 .route("/plants/:title")
 .get(plantsController.findByName)
