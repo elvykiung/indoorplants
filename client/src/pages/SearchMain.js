@@ -7,6 +7,8 @@ import React, { Component } from "react";
 import SearchBar from "../components/SearchBar";
 import SearchButton from "../components/SearchButton";
 import API from "../utils/API";
+import ListItems from "../components/ListItems";
+import ListGroup from "react-bootstrap/ListGroup";
 
 
 
@@ -43,7 +45,7 @@ class SearchMain extends Component {
 
           this.setState({
             ifResults: true,
-            results: res.data.items
+            results: res.data
           });
         })
         .catch(err => console.log(err));
@@ -66,8 +68,43 @@ class SearchMain extends Component {
             >
             Search
             </SearchButton>
-
       </div>
+      <div >
+                <div className="col-10 col-centered card-content mb-4">
+              {this.state.ifResults ?(
+                <div>
+                <h1 className="heading-title mx-sm-3 mb-2 text-center">Search Results</h1>
+                <ListItems>
+                    {this.state.results.map((plant)=>(
+                        <ListGroup.Item key={plant._id}>
+                            <div className="order-div">
+                                <h3>{plant.scientificName} (Sientific Name)</h3>
+                                <h3>{plant.commonName} (Common Name)</h3>
+                                <p>{plant.waterReq} (Water Requirements)</p>
+                                <p>{plant.lightReq} (Water Requirements)</p>
+                                <p>{plant.specialFeatures} (Special Features)</p>
+                                <p>
+                                <img align="left" style={{paddingRight:10}}
+                                    src={plant.image} alt={plant.imageAlt}
+                                />
+                                    {plant.fullDescription}
+                                </p>
+                            </div>
+                        </ListGroup.Item>
+                    ))}
+                </ListItems>
+                </div>
+                ) :(
+                    <div>
+                    </div>
+                    
+
+                )
+                }
+
+                </div>
+                </div>
+
       </div>
     );
   }
