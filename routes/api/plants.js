@@ -1,6 +1,7 @@
 // database route goes here
 const router = require("express").Router();
 const plantsController = require("../../controllers/plantsController");
+const scrapePlants = require("../../controllers/scraper");
 
 // Matches with "/api/plants
 router
@@ -9,6 +10,9 @@ router
   .post(plantsController.create);
 
 // Matches with "/api/scrape
-// router.route("/scrape").get(plantsController.scrapePlants);
+router
+  .route("/scrape")
+  .get(plantsController.scrapePlants)
+  .post(scrapePlants.updateDetailController);
 
 module.exports = router;

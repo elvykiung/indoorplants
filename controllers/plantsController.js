@@ -1,8 +1,5 @@
 const db = require("../models/plant");
 const axios = require("axios");
-// var cheerio = require("cheerio");
-// const dotenv = require("dotenv");
-// dotenv.config();
 
 module.exports = {
   findAll: function(req, res) {
@@ -10,6 +7,7 @@ module.exports = {
       .then(data => res.json(data))
       .catch(err => res.status(422).json(err));
   },
+
   create: function(req, res) {
     const scientificName = req.body.scientificName;
     const commonName = req.body.commonName;
@@ -18,16 +16,20 @@ module.exports = {
     const imageAlt = req.body.imageAlt;
     const title = req.body.token;
 
-    const newPlant = new db({
-      scientificName,
-      commonName,
-      description,
-      image,
-      imageAlt,
-      title
-    });
-
-    newPlant.save().then(() => res.json("Plant added!"));
+    db.findOneAndUpdate(
+      { title: title },
+      {
+        scientificName,
+        commonName,
+        description,
+        image,
+        imageAlt,
+        title
+      },
+      { new: true, upsert: true }
+    )
+      .then(() => res.json("Plant added!"))
+      .catch(err => console.log(err));
   },
 
   scrapePlants: function(req, res) {
@@ -36,7 +38,6 @@ module.exports = {
       .then(function(data) {
         for (let i = 0; i < data.data.items.length; i++) {
           const element = data.data.items[i];
-
           const scientificName = element.scientificName;
           const commonName = element.commonName;
           const description = element.features;
@@ -44,16 +45,18 @@ module.exports = {
           const imageAlt = element.imageAlt;
           const title = element.token;
 
-          const newPlant = new db({
-            scientificName,
-            commonName,
-            description,
-            image,
-            imageAlt,
-            title
-          });
-
-          newPlant.save();
+          db.findOneAndUpdate(
+            { title: title },
+            {
+              scientificName,
+              commonName,
+              description,
+              image,
+              imageAlt,
+              title
+            },
+            { new: true, upsert: true }
+          );
         }
       })
       .then(() => res.json("Plant added!"))
