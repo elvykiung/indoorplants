@@ -18,7 +18,7 @@ function App() {
           <Route exact path="/myPlants" component={myPlants} />
           <Route exact path="/search" component={SearchMain} />
           <Route exact path="/discovery" component={DiscoveryMain} />
-          <Route exact path="/Easy-to-growth-Plants" component={DiscoverListItemsPage} />
+          <Route exact path="/(easy-to-grow |decorative| rare)/" component={DiscoverListItemsPage} />
         </Switch>
         <StickyBottom />
       </div>
