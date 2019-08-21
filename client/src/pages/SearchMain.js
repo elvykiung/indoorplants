@@ -81,11 +81,11 @@ class SearchMain extends Component {
                                 <h3>{plant.scientificName} (Sientific Name)</h3>
                                 <h3>{plant.commonName} (Common Name)</h3>
                                 <p>{plant.waterReq} (Water Requirements)</p>
-                                <p>{plant.lightReq} (Water Requirements)</p>
+                                <p>{plant.lightReq} (Light Requirements)</p>
                                 <p>{plant.specialFeatures} (Special Features)</p>
                                 <p>
-                                <img align="left" style={{paddingRight:10}}
-                                    src={plant.image} alt={plant.imageAlt}
+                                <img align="left" style={{paddingRight:10, height:"auto", width:"30%"}}
+                                    src={"http://www.costafarms.com/CostaFarms/" + plant.image} alt={plant.imageAlt}
                                 />
                                     {plant.fullDescription}
                                 </p>
