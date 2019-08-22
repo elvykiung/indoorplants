@@ -8,6 +8,9 @@ import SearchBar from "../components/SearchBar";
 import SearchButton from "../components/SearchButton";
 import API from "../utils/API";
 import ListItems from "../components/ListItems";
+import Container from "react-bootstrap/Container";
+import Jumbotron from "react-bootstrap/Jumbotron";
+
 
 
 
@@ -54,7 +57,11 @@ class SearchMain extends Component {
 
   render() {
     return (
-     <div className="container">
+     <Container>
+        <Jumbotron fluid className="text-center">
+          <h1 className="text-primary">Search Your Plants</h1>
+        </Jumbotron>
+
       <div>
         <SearchBar
             name="title"
@@ -97,7 +104,7 @@ class SearchMain extends Component {
                 </div>
                 </div>
 
-      </div>
+     </Container>
     );
   }
 }
