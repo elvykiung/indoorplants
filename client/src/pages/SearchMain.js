@@ -19,7 +19,6 @@ class SearchMain extends Component {
     title: "",
     ifResults: false,
     results: [],
-    plants: [],
     target: "",
 
   };
