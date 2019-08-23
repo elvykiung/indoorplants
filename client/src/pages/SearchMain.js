@@ -8,7 +8,9 @@ import SearchBar from "../components/SearchBar";
 import SearchButton from "../components/SearchButton";
 import API from "../utils/API";
 import ListItems from "../components/ListItems";
-import ListGroup from "react-bootstrap/ListGroup";
+import Container from "react-bootstrap/Container";
+import Jumbotron from "react-bootstrap/Jumbotron";
+
 
 
 
@@ -17,7 +19,6 @@ class SearchMain extends Component {
     title: "",
     ifResults: false,
     results: [],
-    plants: [],
     target: "",
 
   };
@@ -55,7 +56,11 @@ class SearchMain extends Component {
 
   render() {
     return (
-     <div className="container">
+     <Container>
+        <Jumbotron fluid className="text-center">
+          <h1 className="text-primary">Search Your Plants</h1>
+        </Jumbotron>
+
       <div>
         <SearchBar
             name="title"
@@ -74,25 +79,18 @@ class SearchMain extends Component {
               {this.state.ifResults ?(
                 <div>
                 <h1 className="heading-title mx-sm-3 mb-2 text-center">Search Results</h1>
-                <ListItems>
-                    {this.state.results.map((plant)=>(
-                        <ListGroup.Item key={plant._id}>
-                            <div className="order-div">
-                                <h3>{plant.scientificName} (Sientific Name)</h3>
-                                <h3>{plant.commonName} (Common Name)</h3>
-                                <p>{plant.waterReq} (Water Requirements)</p>
-                                <p>{plant.lightReq} (Light Requirements)</p>
-                                <p>{plant.specialFeatures} (Special Features)</p>
-                                <p>
-                                <img align="left" style={{paddingRight:10, height:"auto", width:"30%"}}
-                                    src={"http://www.costafarms.com/CostaFarms/" + plant.image} alt={plant.imageAlt}
-                                />
-                                    {plant.fullDescription}
-                                </p>
-                            </div>
-                        </ListGroup.Item>
-                    ))}
-                </ListItems>
+
+                  {this.state.results.map(plant => {
+                    return <ListItems 
+                           key={plant._id} 
+                           images={"http://www.costafarms.com/CostaFarms/" + plant.image}
+                           commonName={plant.commonName}
+                           scientificName={plant.scientificName}
+                           description={plant.fullDescription}
+                           />
+
+                  })}
+                  
                 </div>
                 ) :(
                     <div>
@@ -105,7 +103,7 @@ class SearchMain extends Component {
                 </div>
                 </div>
 
-      </div>
+     </Container>
     );
   }
 }

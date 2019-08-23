@@ -2,22 +2,31 @@ const db = require("../models/plant");
 const axios = require("axios");
 
 module.exports = {
-  findAll: function(req, res) {
+  findAll: function (req, res) {
     db.find()
       .then(data => res.json(data))
       .catch(err => res.status(422).json(err));
   },
 
-  findByName: function(req, res) {
-    db.find({title:req.params.title})
-    .sort({ date: -1 })
-    .then(data => res.json(data))
-    .catch(err => res.status(422).json(err));
+  findByName: function (req, res) {
+    // "$regex": doing partial title search with mongoose
+    db.find({ title: {"$regex":req.params.title} })
+      .sort({ date: -1 })
+      .then(data => res.json(data))
+      .catch(err => res.status(422).json(err));
 
   },
 
 
-  create: function(req, res) {
+  findByCategory: function (req, res) {
+    db.find({ category: req.params.category })
+      .sort({ date: -1 })
+      .then(data => res.json(data))
+      .catch(err => res.status(422).json(err));
+  },
+
+
+  create: function (req, res) {
     const scientificName = req.body.scientificName;
     const commonName = req.body.commonName;
     const description = req.body.features;
