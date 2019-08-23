@@ -9,12 +9,14 @@ module.exports = {
   },
 
   findByName: function (req, res) {
-    db.find({ title: req.params.title })
+    // "$regex": doing partial title search with mongoose
+    db.find({ title: {"$regex":req.params.title} })
       .sort({ date: -1 })
       .then(data => res.json(data))
       .catch(err => res.status(422).json(err));
 
   },
+
 
   findByCategory: function (req, res) {
     db.find({ category: req.params.category })

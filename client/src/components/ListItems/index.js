@@ -18,12 +18,12 @@ function ListItems(props) {
   return (
     <div style={{ margin: "2%" }}>
       <Row>
-        <Col xs="12" lg="3">
-          <Image src={props.images} rounded />
+        <Col xs="12" md="auto">
+          <h4 style={{fontWeight:"bold"}}>Title {props.commonName} </h4>
+          <h6 style={{fontWeight:"bold"}}>Title {props.scientificName}</h6>
         </Col>
-        <Col xs="10" md="auto">
-          <h4>Title {props.commonName}</h4>
-          <p>Title {props.scientificName}</p>
+        <Col xs="12" md="auto">
+          <Image align="left" src={props.images} style={{borderRadius:"4px",border: "1px solid #ddd", padding: "5px", width:"30%", height:"auto"}}/>
           <p>Title {props.description}</p>
         </Col>
         <Col xs lg="2">
