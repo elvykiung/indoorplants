@@ -12,6 +12,7 @@ import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 // import ListItems from "../components/ListItems";
 import API from "../utils/API";
+import Image from "react-bootstrap/Image";
 
 class DetailPlant extends Component {
   constructor() {
@@ -20,6 +21,7 @@ class DetailPlant extends Component {
       plant: {}
     };
   }
+<<<<<<< HEAD
 
   componentDidMount() {
     this.getPlantsbyID();
@@ -43,15 +45,49 @@ class DetailPlant extends Component {
       .catch(err => console.log(err));
   };
 
+=======
+
+  componentDidMount() {
+    this.getPlantsbyID();
+  }
+
+  getPlantsbyID = () => {
+    API.getPlantsbyID(this.props.match.params.plantName)
+      .then(res => {
+        // res.data is an array of plants
+        // this should only have 1 plant because we are
+        // querying by name
+        if (res.data.length > 0) {
+          // only get the first plant and keep it
+          this.setState({
+            plant: res.data[0]
+          });
+        }
+        console.log(this.state.plant);
+      })
+      .catch(err => console.log(err));
+  };
+
+>>>>>>> master
   render() {
     return (
       <Container>
         <Row>
           <Col size="md-12">
             <Card>
+<<<<<<< HEAD
          
               <p>{this.state.plant.commonName}</p>
               <p>{this.state.plant.description}</p>
+=======
+              {/* {this.props.match.params.plantName} */}
+
+              <p>Common Name: {this.state.plant.commonName}</p>
+              <p>Scientific Name: {this.state.plant.scientificName}</p>
+              <p>Description{this.state.plant.fullDescription}</p>
+              <Image align="left" src={this.state.plant.images}  />
+              
+>>>>>>> master
               {console.log("inside render: " + JSON.stringify(this.state.plant))}
               {/* {console.log(this.props.match.params.plantName)}
               {this.state.plants.length ? (

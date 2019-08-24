@@ -10,7 +10,6 @@ import DiscoverListItemsPage from "./pages/DiscoverListItemsPage";
 import DetailPlant from "./pages/DetailPlant";
 import StickyBottom from "./components/Nav";
 
-
 function App() {
   return (
     <Router>

@@ -2,29 +2,34 @@ const db = require("../models/plant");
 const axios = require("axios");
 
 module.exports = {
-  findAll: function (req, res) {
+  findAll: function(req, res) {
     db.find()
       .then(data => res.json(data))
       .catch(err => res.status(422).json(err));
   },
 
-  findByName: function (req, res) {
+  findByName: function(req, res) {
     // "$regex": doing partial title search with mongoose
-    db.find({ title: {"$regex":req.params.title} })
+    db.find({ title: { $regex: req.params.title } })
       .sort({ date: -1 })
       .then(data => res.json(data))
       .catch(err => res.status(422).json(err));
-
+  },
+  findByID: function(req, res) {
+    db.find({ _id: req.params.id })
+      .sort({ date: -1 })
+      .then(data => res.json(data))
+      .catch(err => res.status(422).json(err));
   },
 
-
-  findByCategory: function (req, res) {
+  findByCategory: function(req, res) {
     db.find({ category: req.params.category })
       .sort({ date: -1 })
       .then(data => res.json(data))
       .catch(err => res.status(422).json(err));
   },
 
+<<<<<<< HEAD
   findByID: function (req, res) {
     db.find({ id: req.params.id })
       .sort({ date: -1 })
@@ -34,6 +39,9 @@ module.exports = {
 
 
   create: function (req, res) {
+=======
+  create: function(req, res) {
+>>>>>>> master
     const scientificName = req.body.scientificName;
     const commonName = req.body.commonName;
     const description = req.body.features;
@@ -56,6 +64,4 @@ module.exports = {
       .then(() => res.json("Plant added!"))
       .catch(err => console.log(err));
   }
-
-
 };

@@ -11,18 +11,13 @@ import ListItems from "../components/ListItems";
 import Container from "react-bootstrap/Container";
 import Jumbotron from "react-bootstrap/Jumbotron";
 
-
-
-
 class SearchMain extends Component {
   state = {
     title: "",
     ifResults: false,
     results: [],
-    target: "",
-
+    target: ""
   };
-
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -34,18 +29,15 @@ class SearchMain extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.title) {
-
       var title = this.state.title.trim();
       // replacing spaces with a hyphen
-      title = title.replace(/ /g,"-");
+      title = title.replace(/ /g, "-");
       console.log("title is: " + title);
 
       API.getPlantsbyName(title)
         .then(res => {
-
           // console.log(res.data);
           // console.log("Plant name is:" + this.state.title);
-
 
           this.setState({
             ifResults: true,
@@ -56,33 +48,26 @@ class SearchMain extends Component {
     }
   };
 
-
   render() {
     return (
-     <Container>
+      <Container>
         <Jumbotron fluid className="text-center">
           <h1 className="text-primary">Search Your Plants</h1>
         </Jumbotron>
 
-      <div>
-        <SearchBar
-            name="title"
-            value={this.state.title}
-            onChange = {this.handleInputChange}
-            />
-            <SearchButton
-            onClick={this.handleFormSubmit}
-            className="btn btn-info"
-            >
+        <div>
+          <SearchBar name="title" value={this.state.title} onChange={this.handleInputChange} />
+          <SearchButton onClick={this.handleFormSubmit} className="btn btn-info">
             Search
-            </SearchButton>
-      </div>
-      <div >
-                <div className="col-10 col-centered card-content mb-4">
-              {this.state.ifResults ?(
-                <div>
+          </SearchButton>
+        </div>
+        <div>
+          <div className="col-10 col-centered card-content mb-4">
+            {this.state.ifResults ? (
+              <div>
                 <h1 className="heading-title mx-sm-3 mb-2 text-center">Search Results</h1>
 
+<<<<<<< HEAD
                   {this.state.results.map(plant => {
                     return <ListItems 
                            key={plant._id} 
@@ -110,6 +95,18 @@ class SearchMain extends Component {
                 </div>
 
      </Container>
+=======
+                {this.state.results.map(plant => {
+                  return <ListItems key={plant._id} images={"http://www.costafarms.com/CostaFarms/" + plant.image} commonName={plant.commonName} scientificName={plant.scientificName} description={plant.fullDescription} title={plant.title} id={plant._id} />;
+                })}
+              </div>
+            ) : (
+              <div />
+            )}
+          </div>
+        </div>
+      </Container>
+>>>>>>> master
     );
   }
 }
