@@ -10,7 +10,6 @@ import DiscoverListItemsPage from "./pages/DiscoverListItemsPage";
 import DetailPlant from "./pages/DetailPlant";
 import StickyBottom from "./components/Nav";
 
-
 function App() {
   return (
     <Router>
@@ -23,7 +22,7 @@ function App() {
           <Route exact path={"/easy-to-grow"} component={() => <DiscoverListItemsPage category={"easy-to-grow"} />} />
           <Route exact path={"/decorative"} component={() => <DiscoverListItemsPage category={"decorative"} />} />
           <Route exact path={"/rare"} component={() => <DiscoverListItemsPage category={"rare"} />} />
-          <Route path={"/plants/:plantName"} component={DetailPlant} />
+          <Route path={"/:plantName"} component={DetailPlant} />
         </Switch>
         <StickyBottom />
       </div>
