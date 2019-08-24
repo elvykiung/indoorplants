@@ -11,26 +11,27 @@ import Row from "react-bootstrap/Row";
 // import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 
 // This component exports both the List and ListItem components
 
 function ListItems(props) {
   return (
-    <div style={{ margin: "2%" }}>
-      <Row>
-        <Col xs="12" md="auto">
-          <h4 style={{fontWeight:"bold"}}>{props.commonName} </h4>
-          <h6 style={{fontWeight:"bold"}}>(Scientific Name: {props.scientificName})</h6>
-        </Col>
-        <Col xs="12" md="auto">
-          <Image align="left" src={props.images} style={{borderRadius:"4px",border: "1px solid #ddd", padding: "5px", width:"30%", height:"auto"}}/>
-          <p> {props.description}</p>
-        </Col>
-        <Col xs lg="2">
-          <Button variant="outline-primary">See detail</Button>
-        </Col>
-      </Row>
-    </div>
+    <Card border="primary" style={{ margin: "2%", padding: "10px 10px 10px 10px"}}>
+        <Row>
+          <Col xs="12" md="auto">
+            <h4 style={{fontWeight:"bold"}}>{props.commonName} </h4>
+            <h6 style={{fontWeight:"bold"}}>(Scientific Name: {props.scientificName})</h6>
+          </Col>
+          <Col xs="12" md="auto">
+            <Image align="left" src={props.images} style={{borderRadius:"4px",border: "1px solid #ddd", padding: "5px", width:"30%", height:"auto"}}/>
+            <p> {props.description}</p>
+          </Col>
+          <Col xs lg="2">
+            <Button variant="outline-primary">See detail</Button>
+          </Col>
+        </Row>
+    </Card>
   );
 }
 
