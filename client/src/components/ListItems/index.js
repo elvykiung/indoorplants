@@ -12,6 +12,7 @@ import Row from "react-bootstrap/Row";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 
 // This component exports both the List and ListItem components
 
@@ -28,7 +29,11 @@ function ListItems(props) {
             <p> {props.description}</p>
           </Col>
           <Col xs lg="2">
-            <Button variant="outline-primary">See detail</Button>
+            <Button>
+            <Link className="text-white" to={"/plants/" + props.title}>
+              See detail
+              </Link>
+              </Button>
           </Col>
         </Row>
     </Card>

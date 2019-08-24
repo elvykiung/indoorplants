@@ -7,7 +7,9 @@ import myPlants from "./pages/MyPlants";
 import SearchMain from "./pages/SearchMain";
 import DiscoveryMain from "./pages/DiscoveryMain";
 import DiscoverListItemsPage from "./pages/DiscoverListItemsPage";
+import DetailPlant from "./pages/DetailPlant";
 import StickyBottom from "./components/Nav";
+
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
           <Route exact path={"/easy-to-grow"} component={() => <DiscoverListItemsPage category={"easy-to-grow"} />} />
           <Route exact path={"/decorative"} component={() => <DiscoverListItemsPage category={"decorative"} />} />
           <Route exact path={"/rare"} component={() => <DiscoverListItemsPage category={"rare"} />} />
+          <Route path={"/plants/:plantName"} component={DetailPlant} />
         </Switch>
         <StickyBottom />
       </div>

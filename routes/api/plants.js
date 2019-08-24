@@ -22,7 +22,7 @@ router
 
 //matches with "/api/plants/:category"
 router
-  .route("/plants/:category")
+  .route("/plants/category/:category")
   .get(plantsController.findByCategory)
 
 module.exports = router;

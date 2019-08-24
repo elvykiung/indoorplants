@@ -43,8 +43,8 @@ class SearchMain extends Component {
       API.getPlantsbyName(title)
         .then(res => {
 
-          console.log(res.data);
-          console.log("Plant name is:" + this.state.title);
+          // console.log(res.data);
+          // console.log("Plant name is:" + this.state.title);
 
 
           this.setState({
@@ -90,6 +90,7 @@ class SearchMain extends Component {
                            commonName={plant.commonName}
                            scientificName={plant.scientificName}
                            description={plant.fullDescription}
+                           title={plant.title}
                            />
 
                   })}
