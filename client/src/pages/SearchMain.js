@@ -45,9 +45,14 @@ class SearchMain extends Component {
           });
         })
         .catch(err => console.log(err));
+   }
+  };
+ 
+  handleEnterPress = event => {
+    if (event.key === "Enter"){
+      this.handleFormSubmit(event);
     }
   };
-
 
 
   render() {
@@ -58,7 +63,7 @@ class SearchMain extends Component {
         </Jumbotron>
 
         <div>
-          <SearchBar name="title" value={this.state.title} onChange={this.handleInputChange} />
+          <SearchBar name="title" value={this.state.title} onChange={this.handleInputChange} onKeyPress={this.handleEnterPress} />
           <SearchButton onClick={this.handleFormSubmit} className="btn btn-info">
             Search
           </SearchButton>
