@@ -32,7 +32,7 @@ class SearchMain extends Component {
       var title = this.state.title.trim();
       // replacing spaces with a hyphen
       title = title.replace(/ /g, "-");
-      console.log("title is: " + title);
+      // console.log("title is: " + title);
 
       API.getPlantsbyName(title)
         .then(res => {
@@ -47,6 +47,8 @@ class SearchMain extends Component {
         .catch(err => console.log(err));
     }
   };
+
+
 
   render() {
     return (
@@ -68,7 +70,13 @@ class SearchMain extends Component {
                 <h1 className="heading-title mx-sm-3 mb-2 text-center">Search Results</h1>
 
                 {this.state.results.map(plant => {
+                  if (plant.category && plant.category[0] === "rare"){
+                  return <ListItems key={plant._id} images={plant.image} commonName={plant.commonName} scientificName={plant.scientificName} description={plant.fullDescription} title={plant.title} id={plant._id} />;
+                  } else {
                   return <ListItems key={plant._id} images={"http://www.costafarms.com/CostaFarms/" + plant.image} commonName={plant.commonName} scientificName={plant.scientificName} description={plant.fullDescription} title={plant.title} id={plant._id} />;
+
+                  }
+                
                 })}
               </div>
             ) : (
