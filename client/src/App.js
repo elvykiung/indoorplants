@@ -17,7 +17,7 @@ function App() {
       <div>
         <Switch>
           {/* <Route exact path="/" component={LoginHome} /> */}
-          <Route exact path="/myPlants" component={myPlants} />
+          <Route exact path="/myPlants" component={myPlantsMain} />
           <Route exact path="/search" component={SearchMain} />
           <Route exact path="/discovery" component={DiscoveryMain} />
           <Route exact path={"/easy-to-grow"} component={() => <DiscoverListItemsPage category={"easy-to-grow"} />} />
