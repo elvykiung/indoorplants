@@ -50,8 +50,15 @@ class MyPlantsMain extends Component {
                                         images={"http://www.costafarms.com/CostaFarms/" + user.plant.image}
                                         commonName={user.plant.commonName}
                                         scientificName={user.plant.scientificName}
-                                        //description={user.plant.fullDescription}
                                         title={user.plant.title}
+                                        button={
+                                            <SearchButton
+                                                onClick={this.handleFormSubmit}
+                                                className="btn btn-info"
+                                                as="a" href="/myplants" style={{ margin: "auto" }}
+                                            >
+                                                View Detail
+                                            </SearchButton>}
                                     />
 
                                 })}
