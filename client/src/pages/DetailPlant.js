@@ -49,7 +49,7 @@ class DetailPlant extends Component {
         <Row>
           <Col size="md-12">
             <Card>
-            {this.props.match.params.plantName}
+         
               <p>{this.state.plant.commonName}</p>
               <p>{this.state.plant.description}</p>
               {console.log("inside render: " + JSON.stringify(this.state.plant))}

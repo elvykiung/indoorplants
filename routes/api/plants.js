@@ -27,7 +27,7 @@ router
 
   //matches with "/api/plants/:id"
 router
-.route("/plants/id:id")
+.route("api/plants/id/:id")
 .get(plantsController.findByID)
 
 module.exports = router;
