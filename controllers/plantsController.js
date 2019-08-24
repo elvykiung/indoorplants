@@ -25,6 +25,13 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
+  findByID: function (req, res) {
+    db.find({ _id: req.params.id })
+      .sort({ date: -1 })
+      .then(data => res.json(data))
+      .catch(err => res.status(422).json(err));
+  },
+
 
   create: function (req, res) {
     const scientificName = req.body.scientificName;

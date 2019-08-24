@@ -25,4 +25,9 @@ router
   .route("/plants/category/:category")
   .get(plantsController.findByCategory)
 
+  //matches with "/api/plants/:id"
+router
+.route("/plants/id:id")
+.get(plantsController.findByID)
+
 module.exports = router;

@@ -11,6 +11,10 @@ export default {
         return axios.get("api/plants/" + name);
     },
 
+    // Gets plant by id
+    getPlantsbyID: function (id) {
+        return axios.get("api/plants/id/" + id);
+    },
     //these routes are not necessary for the MVP but we will use them later:
 
     // Gets all plants saved to user

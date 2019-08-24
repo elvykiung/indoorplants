@@ -88,6 +88,8 @@ class SearchMain extends Component {
                            scientificName={plant.scientificName}
                            description={plant.fullDescription}
                            title={plant.title}
+                           id={plant._id}
+
                            />
 
                   })}
