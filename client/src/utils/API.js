@@ -3,7 +3,7 @@ import axios from "axios";
 export default {
     // Gets plants from db category (discover)
     getPlants: function (category) {
-        return axios.get("/api/plants/" + category);
+        return axios.get("/api/plants/category/" + category);
     },
 
     // Gets plants from db by name (search)

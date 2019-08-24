@@ -52,16 +52,12 @@ class Plants extends Component {
               {this.state.plants.length ? (
                 <Container>
                   {this.state.plants.map(plant => (
-                    <ListItems key={plant._id}
-                      commonName={plant.commonName}
-                      scientificName={plant.scientificName}
-                      images={plant.image}
-                      description={plant.description} />
+                    <ListItems key={plant._id} commonName={plant.commonName} scientificName={plant.scientificName} images={plant.image} description={plant.description} title={plant.title} />
                   ))}
                 </Container>
               ) : (
-                  <h2 className="text-center">No Plants Match Your Criteria</h2>
-                )}
+                <h2 className="text-center">No Plants Match Your Criteria</h2>
+              )}
             </Card>
           </Col>
         </Row>

@@ -5,50 +5,34 @@
 //   ( Later feature) Add Plant button to insert data to user collation database
 //   Sticky bottom navbar
 import React, { Component } from "react";
-import Plant from "../components/Plant";
-import Nav from "../components/Nav/";
 import API from "../utils/API";
 
-class PlantDetails extends Component {
-    state = {
-        PlantDetails: []
-    };
+class DetailPlant extends Component {
+  state = {
+    results: []
+  };
 
-    componentDidMount() {
-        this.getPlants();
-    }
+  componentDidMount() {
+    API.getPlantsbyName(this.props.match.params.plantName)
+      .then(res => {
+        console.log(res.data);
 
-    getPlants = () => {
-        API.getPlants()
-            .then(res =>
-                this.setState({
-                    plants: res.data
-                })
-            )
-            .catch(err => console.log(err));
-    };
+        this.setState({
+          results: res.data
+        });
+      })
+      .catch(err => console.log(err));
+  }
 
-
-    render() {
-        return (
-            <Container>
-                <Row>
-                    <Col size="md-12">
-                        <Card title="Plants" icon="download">
-                                        <Plant
-                                            key={plant._id}
-                                            commonName={plant.commonName}
-                                            scientificName={plant.scientificName}
-                                            image={plant.image}
-                                            description={plant.description}
-                                        />
-                        </Card>
-                    </Col>
-                </Row>
-                <Nav />
-            </Container>
-        );
-    }
+  render() {
+    return (
+      //this is test data can be deleted
+      <div>
+        <p>This is detail page</p>
+        <h2>{this.props.match.params.plantName}</h2>
+      </div>
+    );
+  }
 }
 
-export default PlantDeatails;
+export default DetailPlant;
