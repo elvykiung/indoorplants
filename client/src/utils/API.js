@@ -15,7 +15,7 @@ export default {
 
     // Gets all plants saved to user
     getMyPlants: function () {
-        return axios.get("/api/userplants");
+        return axios.get("/api/user/plants" + user);
     },
     // Deletes the saved plant with the given id
     deletePlant: function (id) {
