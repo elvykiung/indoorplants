@@ -5,6 +5,9 @@
 //   ( Later feature) Add Plant button to insert data to user collation database
 //   Sticky bottom navbar
 import React, { Component } from "react";
+import AddButton from "../components/AddButton/AddButton";
+import Container from "react-bootstrap/Container";
+import Card from "react-bootstrap/Card";
 import API from "../utils/API";
 
 class DetailPlant extends Component {
@@ -26,11 +29,23 @@ class DetailPlant extends Component {
 
   render() {
     return (
-      //this is test data can be deleted
-      <div>
-        <p>This is detail page</p>
-        <h2>{this.props.match.params.plantName}</h2>
-      </div>
+      <Container>
+      <Card as="a" href="/easy-to-grow" style={{ margin: "auto" }}>
+        <Card.Img src="#" alt="My Plant" />
+        <Card.ImgOverlay>
+          <Card className="text-white text-center" style={{ "font-size": "4vw", margin: "10%", fontWeight: "bold" }}>
+          </Card>
+        </Card.ImgOverlay>
+      </Card>
+  
+         <div> 
+            <AddButton
+            onClick={this.handleFormSubmit}
+            className="btn btn-info">
+            Add Plant
+            </AddButton>
+         </div>
+    </Container>
     );
   }
 }
