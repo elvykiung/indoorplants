@@ -35,7 +35,10 @@ class SearchMain extends Component {
     event.preventDefault();
     if (this.state.title) {
 
-      const title = this.state.title.trim();
+      var title = this.state.title.trim();
+      // replacing spaces with a hyphen
+      title = title.replace(/ /g,"-");
+      console.log("title is: " + title);
 
       API.getPlantsbyName(title)
         .then(res => {
