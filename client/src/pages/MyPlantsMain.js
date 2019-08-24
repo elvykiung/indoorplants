@@ -1,9 +1,6 @@
 import React, { Component } from "react";
 import Jumbotron from "react-bootstrap/Jumbotron";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-import Card from "react-bootstrap/Card";
 
 import API from "../utils/API";
 import ListItems from "../components/ListItems";
@@ -51,14 +48,6 @@ class MyPlantsMain extends Component {
                                         commonName={user.plant.commonName}
                                         scientificName={user.plant.scientificName}
                                         title={user.plant.title}
-                                        button={
-                                            <SearchButton
-                                                onClick={this.handleFormSubmit}
-                                                className="btn btn-info"
-                                                as="a" href="/myplants" style={{ margin: "auto" }}
-                                            >
-                                                View Detail
-                                            </SearchButton>}
                                     />
 
                                 })}
