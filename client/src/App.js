@@ -3,12 +3,13 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "bootswatch/dist/minty/bootstrap.min.css";
 
 // import LoginHome from './pages/LoginHome';
-import myPlants from "./pages/MyPlants";
+// import myPlants from "./pages/MyPlants";
 import SearchMain from "./pages/SearchMain";
 import DiscoveryMain from "./pages/DiscoveryMain";
 import DiscoverListItemsPage from "./pages/DiscoverListItemsPage";
 import DetailPlant from "./pages/DetailPlant";
 import StickyBottom from "./components/Nav";
+import MyPlantsDetail from "./pages/MyPlantsDetailPage";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
       <div>
         <Switch>
           {/* <Route exact path="/" component={LoginHome} /> */}
-          <Route exact path="/myPlants" component={myPlants} />
+          <Route exact path="/myPlants" component={MyPlantsDetail} />
           <Route exact path="/search" component={SearchMain} />
           <Route exact path="/discovery" component={DiscoveryMain} />
           <Route exact path={"/easy-to-grow"} component={() => <DiscoverListItemsPage category={"easy-to-grow"} />} />
