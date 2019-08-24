@@ -12,6 +12,7 @@ import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 // import ListItems from "../components/ListItems";
 import API from "../utils/API";
+import Image from "react-bootstrap/Image";
 
 class DetailPlant extends Component {
   constructor() {
@@ -49,8 +50,12 @@ class DetailPlant extends Component {
           <Col size="md-12">
             <Card>
               {/* {this.props.match.params.plantName} */}
-              <p>{this.state.plant.commonName}</p>
-              <p>{this.state.plant.description}</p>
+
+              <p>Common Name: {this.state.plant.commonName}</p>
+              <p>Scientific Name: {this.state.plant.scientificName}</p>
+              <p>Description{this.state.plant.fullDescription}</p>
+              <Image align="left" src={this.state.plant.images}  />
+              
               {console.log("inside render: " + JSON.stringify(this.state.plant))}
               {/* {console.log(this.props.match.params.plantName)}
               {this.state.plants.length ? (
