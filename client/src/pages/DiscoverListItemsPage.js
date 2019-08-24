@@ -48,7 +48,7 @@ class Plants extends Component {
         </Row>
         <Row>
           <Col size="md-12">
-            <Card title="Plants" icon="download">
+            <Card >
               {this.state.plants.length ? (
                 <Container>
                   {this.state.plants.map(plant => (
