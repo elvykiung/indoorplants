@@ -16,13 +16,10 @@ router
   .post(scrapePlants.updateDetailController);
 
 // Matches with "/api/plants/:title"
-router
-  .route("/plants/:title")
-  .get(plantsController.findByName)
+router.route("/plants/:title").get(plantsController.findByName);
 
 //matches with "/api/plants/:category"
-router
-  .route("/plants/category/:category")
-  .get(plantsController.findByCategory)
+router.route("/plants/category/:category").get(plantsController.findByCategory);
 
+router.route("/plants/id/:id").get(plantsController.findByID);
 module.exports = router;

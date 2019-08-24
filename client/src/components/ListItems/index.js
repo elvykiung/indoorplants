@@ -29,7 +29,7 @@ function ListItems(props) {
         </Col>
         <Col xs lg="2">
           <Button>
-            <Link className="text-white" to={"/plants/" + props.title}>
+            <Link className="text-white" to={"/" + props.id}>
               See detail
             </Link>
           </Button>
