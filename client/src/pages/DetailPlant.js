@@ -5,32 +5,62 @@
 //   ( Later feature) Add Plant button to insert data to user collation database
 //   Sticky bottom navbar
 import React, { Component } from "react";
+import AddButton from "../components/AddButton/AddButton";
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Card from "react-bootstrap/Card";
+import ListItems from "../components/ListItems";
 import API from "../utils/API";
 
 class DetailPlant extends Component {
-  state = {
-    results: []
-  };
+    state = {
+      plants: [] 
+    };
+  
+    componentDidMount() {
+      this.getPlantsbyName();
+    }
+  
+    getPlantsbyName = () => {
+      API.getPlantsbyName(this.props.name)
+        .then(res =>
+          this.setState({
+            plants: res.data
+          })
+        )
+        .catch(err => console.log(err));
+    };
+  
 
-  componentDidMount() {
-    API.getPlantsbyName(this.props.match.params.plantName)
-      .then(res => {
-        console.log(res.data);
-
-        this.setState({
-          results: res.data
-        });
-      })
-      .catch(err => console.log(err));
-  }
-
+   
+  
+   
   render() {
     return (
-      //this is test data can be deleted
-      <div>
-        <p>This is detail page</p>
-        <h2>{this.props.match.params.plantName}</h2>
-      </div>
+      <Container>
+        <Row>
+          <Col size="md-12">
+            <Card >
+              {this.state.plants.length ? (
+                <Container>
+                  {this.state.plants(plant => (
+                    <ListItems key={plant._id} commonName={plant.commonName} scientificName={plant.scientificName} images={plant.image} description={plant.description} title={plant.title} />
+                  ))}
+                </Container>
+              ) : (
+                <h2 className="text-center">No Plants Match Your Criteria</h2>
+              )}
+            </Card>
+          </Col>
+        </Row>
+         <div>
+            <AddButton
+            onClick={this.handleFormSubmit}
+            className="btn btn-info"> Add Plant </AddButton>    
+       </div>
+
+      </Container>
     );
   }
 }
