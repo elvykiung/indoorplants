@@ -17,9 +17,9 @@ export default {
   },
 
     // Gets all plants saved to user
-    getMyPlants: function () {
-        return axios.get("/api/user/plants" + user);
-    },
+    // getMyPlants: function () {
+    //     return axios.get("/api/user/plants" + user);
+    // },
     // Deletes the saved plant with the given id
     deletePlant: function (id) {
         return axios.delete("/api/delete/plants/" + id);
@@ -28,3 +28,4 @@ export default {
     savePlant: function (plantData) {
         return axios.post("/api/save/plants", plantData);
     }
+  }

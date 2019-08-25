@@ -53,7 +53,8 @@ class DetailPlant extends Component {
 
               <p>Common Name: {this.state.plant.commonName}</p>
               <p>Scientific Name: {this.state.plant.scientificName}</p>
-              <p>Description{this.state.plant.fullDescription}</p>
+              <p>Description: {this.state.plant.fullDescription}</p>
+              <p>Care Instructions: {this.state.plant.growInstructions}</p>
               <Image align="left" src={this.state.plant.images}  />
               
               {console.log("inside render: " + JSON.stringify(this.state.plant))}

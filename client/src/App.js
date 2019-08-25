@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "bootswatch/dist/minty/bootstrap.min.css";
 
 // import LoginHome from './pages/LoginHome';
-import myPlants from "./pages/MyPlants";
+// import myPlants from "./pages/MyPlants";
 import SearchMain from "./pages/SearchMain";
 import DiscoveryMain from "./pages/DiscoveryMain";
 import DiscoverListItemsPage from "./pages/DiscoverListItemsPage";

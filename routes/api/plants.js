@@ -21,13 +21,5 @@ router.route("/plants/:title").get(plantsController.findByName);
 //matches with "/api/plants/:category"
 router.route("/plants/category/:category").get(plantsController.findByCategory);
 
-<<<<<<< HEAD
-  //matches with "/api/plants/:id"
-router
-.route("api/plants/id/:id")
-.get(plantsController.findByID)
-
-=======
 router.route("/plants/id/:id").get(plantsController.findByID);
->>>>>>> master
 module.exports = router;

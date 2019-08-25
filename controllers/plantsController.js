@@ -29,19 +29,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
-<<<<<<< HEAD
-  findByID: function (req, res) {
-    db.find({ id: req.params.id })
-      .sort({ date: -1 })
-      .then(data => res.json(data))
-      .catch(err => res.status(422).json(err));
-  },
-
-
-  create: function (req, res) {
-=======
   create: function(req, res) {
->>>>>>> master
     const scientificName = req.body.scientificName;
     const commonName = req.body.commonName;
     const description = req.body.features;
