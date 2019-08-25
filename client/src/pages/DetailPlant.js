@@ -50,12 +50,12 @@ class DetailPlant extends Component {
           <Col size="md-12">
             <Card>
               {/* {this.props.match.params.plantName} */}
-
-              <p>Common Name: {this.state.plant.commonName}</p>
-              <p>Scientific Name: {this.state.plant.scientificName}</p>
-              <p>Description: {this.state.plant.fullDescription}</p>
-              <p>Care Instructions: {this.state.plant.growInstructions}</p>
-              <Image align="left" src={this.state.plant.images}  />
+              <Image align="left" src={this.state.plant.image}  />
+              <h3 className="text-center">{this.state.plant.commonName}</h3>
+              <h4 className="text-center">({this.state.plant.scientificName})</h4>
+              <p><h4>Description: </h4>{this.state.plant.fullDescription}</p>
+              <p><h4>Care Instructions: </h4>{this.state.plant.growInstructions}</p>
+             
               
               {console.log("inside render: " + JSON.stringify(this.state.plant))}
               {/* {console.log(this.props.match.params.plantName)}
