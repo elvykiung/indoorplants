@@ -2,10 +2,30 @@ import React, { Component } from "react";
 import Container from "react-bootstrap/Container";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Image from "react-bootstrap/Image";
-import Nav from "react-bootstrap/Nav";
+import NavUser from "../components/NavUser";
+import UserToDo from "../components/PlantToDoList";
+import UserPlantsHistory from "../components/UserPlantsHistory";
+import DetailPlant from "./DetailPlant";
 
 class MyPlantsDetail extends Component {
-  state = {};
+  state = {
+    currentPage: "todo"
+  };
+
+  handleTabChange = page => {
+    this.setState({ currentPage: page });
+  };
+
+  renderPage = () => {
+    if (this.state.currentPage === "todo") {
+      return <UserToDo />;
+    } else if (this.state.currentPage === "history") {
+      return <UserPlantsHistory />;
+    } else if (this.state.currentPage === "DetailPlant") {
+      return <DetailPlant />;
+    }
+  };
+
   render() {
     return (
       <Container className="text-center">
@@ -13,20 +33,10 @@ class MyPlantsDetail extends Component {
           <h1>Plat Name</h1>
         </Jumbotron>
 
-        <Image src="https://houseraccoon.com/wp-content/uploads/2019/05/Monstera-Deliciosa-Albo-Variegata.jpg" rounded />
+        <Image src="https://houseraccoon.com/wp-content/uploads/2019/05/Monstera-Deliciosa-Albo-Variegata.jpg" rounded style={{ height: "450px" }} />
 
-        <Nav justify variant="tabs" defaultActiveKey="/todo">
-          <Nav.Item>
-            <Nav.Link href="/todo">To Do</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link href="/history">History</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            {/* href={"/plants/" + props.title} */}
-            <Nav.Link href="/plants/">Plant Info</Nav.Link>
-          </Nav.Item>
-        </Nav>
+        <NavUser currentPage={this.state.currentPage} handleTabChange={this.handleTabChange} />
+        {this.renderPage()}
       </Container>
     );
   }
