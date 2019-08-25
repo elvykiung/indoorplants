@@ -1,17 +1,20 @@
 import axios from "axios";
 
 export default {
-    // Gets plants from db category (discover)
-    getPlants: function (category) {
-        return axios.get("/api/plants/category/" + category);
-    },
+  // Gets plants from db category (discover)
+  getPlants: function(category) {
+    return axios.get("/api/plants/category/" + category);
+  },
 
-    // Gets plants from db by name (search)
-    getPlantsbyName: function (name) {
-        return axios.get("api/plants/" + name);
-    },
+  // Gets plants from db by name (search)
+  getPlantsbyName: function(name) {
+    return axios.get("api/plants/" + name);
+  },
 
-    //these routes are not necessary for the MVP but we will use them later:
+  // Gets plant by id
+  getPlantsbyID: function(id) {
+    return axios.get("api/plants/id/" + id);
+  },
 
     // Gets all plants saved to user
     getMyPlants: function () {
@@ -25,4 +28,3 @@ export default {
     savePlant: function (plantData) {
         return axios.post("/api/save/plants", plantData);
     }
-};
