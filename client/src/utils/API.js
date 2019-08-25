@@ -11,20 +11,10 @@ export default {
     return axios.get("api/plants/" + name);
   },
 
-<<<<<<< HEAD
-    // Gets plant by id
-    getPlantsbyID: function (id) {
-        
-        return axios.get("api/plants/id/" + id);
-
-    },
-    //these routes are not necessary for the MVP but we will use them later:
-=======
   // Gets plant by id
   getPlantsbyID: function(id) {
     return axios.get("api/plants/id/" + id);
   },
->>>>>>> master
 
     // Gets all plants saved to user
     getMyPlants: function () {
