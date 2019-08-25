@@ -74,35 +74,6 @@ class SearchMain extends Component {
               <div>
                 <h1 className="heading-title mx-sm-3 mb-2 text-center">Search Results</h1>
 
-<<<<<<< HEAD
-                  {this.state.results.map(plant => {
-                    return <ListItems 
-                           key={plant._id} 
-                           images={"http://www.costafarms.com/CostaFarms/" + plant.image}
-                           commonName={plant.commonName}
-                           scientificName={plant.scientificName}
-                           description={plant.fullDescription}
-                           title={plant.title}
-                           id={plant._id}
-
-                           />
-
-                  })}
-                  
-                </div>
-                ) :(
-                    <div>
-                    </div>
-                    
-
-                )
-                }
-
-                </div>
-                </div>
-
-     </Container>
-=======
                 {this.state.results.map(plant => {
                   if (plant.category && plant.category[0] === "rare"){
                   return <ListItems key={plant._id} images={plant.image} commonName={plant.commonName} scientificName={plant.scientificName} description={plant.fullDescription} title={plant.title} id={plant._id} />;
@@ -119,7 +90,6 @@ class SearchMain extends Component {
           </div>
         </div>
       </Container>
->>>>>>> master
     );
   }
 }
