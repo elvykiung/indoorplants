@@ -1,5 +1,10 @@
+import React, { Component } from "react";
+// import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+// import API from "../utils/API";
 
-import Form from "react-bootstrap/Form";
+
 class Login extends Component {
 constructor(props){
   super(props);
@@ -8,29 +13,28 @@ constructor(props){
   password:''
   }
  }
+
+
 render() {
     return (
       <div>
-       <Form>
-  <Form.Group controlId="formBasicEmail">
-    <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="Enter email" />
-    <Form.Text className="text-muted">
-      We'll never share your email with anyone else.
-    </Form.Text>
-  </Form.Group>
-
-  <Form.Group controlId="formBasicPassword">
-    <Form.Label>Password</Form.Label>
-    <Form.Control type="password" placeholder="Password" />
-  </Form.Group>
-  <Form.Group controlId="formBasicChecbox">
-    <Form.Check type="checkbox" label="Check me out" />
-  </Form.Group>
-  <Button variant="primary" type="submit">
-    Log In
-  </Button>
-</Form>
+       <Card style={{ margin: "auto" }}>
+          <Card.Img src="https://3c9sm1yzqy518hwx3f6o4c64-wpengine.netdna-ssl.com/wp-content/uploads/2017/02/Succulent-1--1030x381.jpg" alt="Home" />
+          <Card.ImgOverlay>
+            <Card.Title className="text-white text-center" style={{ "font-size": "4vw", margin: "10%", fontWeight: "bold" }}>
+              Home Page
+            </Card.Title>
+          </Card.ImgOverlay>
+        </Card>
+          <div>
+         <Button variant="primary" type="submit">
+            Log In
+         </Button>
+         <br />
+         <Button variant="primary" type="submit">
+            Sign Up
+         </Button>
+        </div>
       </div>
     );
   }
