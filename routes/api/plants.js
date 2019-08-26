@@ -23,3 +23,11 @@ router.route("/plants/category/:category").get(plantsController.findByCategory);
 
 router.route("/plants/id/:id").get(plantsController.findByID);
 module.exports = router;
+
+// LoginHome matches with "/api" 
+router
+  .route("/")
+  .get(plantsController.findAll)
+  .post(plantsController.create);
+
+  

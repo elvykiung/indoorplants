@@ -50,23 +50,14 @@ class DetailPlant extends Component {
           <Col size="md-12">
             <Card>
               {/* {this.props.match.params.plantName} */}
-
-              <p>Common Name: {this.state.plant.commonName}</p>
-              <p>Scientific Name: {this.state.plant.scientificName}</p>
-              <p>Description{this.state.plant.fullDescription}</p>
-              <Image align="left" src={this.state.plant.images}  />
+              <Image align="left" src={this.state.plant.image}  />
+              <h3 className="text-center">{this.state.plant.commonName}</h3>
+              <h4 className="text-center">({this.state.plant.scientificName})</h4>
+              <p><h4>Description: </h4>{this.state.plant.fullDescription}</p>
+              <p><h4>Care Instructions: </h4>{this.state.plant.growInstructions}</p>
+             
               
               {console.log("inside render: " + JSON.stringify(this.state.plant))}
-              {/* {console.log(this.props.match.params.plantName)}
-              {this.state.plants.length ? (
-                <Container>
-                  {this.state.plants(plant => (
-                    <ListItems key={plant._id} commonName={plant.commonName} scientificName={plant.scientificName} images={plant.image} description={plant.description} title={plant.title} />
-                  ))}
-                </Container>
-              ) : (
-                <h2 className="text-center">No Plants Match Your Criteria</h2>
-              )} */}
             </Card>
           </Col>
         </Row>
