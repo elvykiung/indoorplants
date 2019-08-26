@@ -55,6 +55,87 @@ Project is created with:
 
 ### Summary
 
+####React Router Pass props to Component
+
+When user click on the card Discovery Main page, the a link href address match the APP.js route and pass along the props to DisvoceryListItemsPage
+
+```
+<Card as="a" href="/easy-to-grow"
+style={{ margin: "auto" }}>
+```
+
+On APP.js
+
+```
+<Route exact path={"/easy-to-grow"}
+component={() => <DiscoverListItemsPage category={"easy-to-grow"} />} />
+```
+
+On DiscoverListItemsPages pass the props category, DiscoverListItemsPages make api call to server and setState for plants data
+
+```
+getPlants = () => {
+API.getPlants(this.props.category)
+.then(res =>
+this.setState({
+plants: res.data
+})
+)
+.catch(err => console.log(err));
+};
+```
+
+Pass the plants data to ListItems Component
+
+```
+ <ListItems
+ key={plant._id}
+ commonName={plant.commonName}
+ scientificName={plant.scientificName}
+ images={plant.image}
+ description={plant.description}
+ title={plant.title}
+ id={plant._id} />
+
+```
+
+####React Router Pass Param to Component
+
+On APP.js set path to "/:plantName" for any variable that match the route and render DetailPlant component
+
+```
+<Route path={"/:plantName"} component={DetailPlant} />
+```
+
+On listItems component button add a link path with the plant id, when user click on the button, it pass the prop.id to APP.js and render the DetailPlant page
+
+```
+<Button>
+<Link className="text-white" to={"/" + props.id}>
+ See detail
+</Link>
+```
+
+On PlantDetail page, we access the "/:plantName" props.id by this.props.match.params.plantName
+
+```
+  getPlantsbyID = () => {
+    API.getPlantsbyID(this.props.match.params.plantName)
+      .then(res => {
+        // res.data is an array of plants
+        // this should only have 1 plant because we are
+        // querying by name
+        if (res.data.length > 0) {
+          // only get the first plant and keep it
+          this.setState({
+            plant: res.data[0]
+          });
+        }
+        console.log(this.state.plant);
+      })
+      .catch(err => console.log(err));
+```
+
 ## Deployment
 
 ### 🏠 [Homepage](https://indoor-plants.herokuapp.com/)
@@ -70,3 +151,7 @@ Give a ⭐️ if this project helped you!
 ---
 
 _This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
+
+```
+
+```
