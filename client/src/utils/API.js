@@ -16,16 +16,19 @@ export default {
     return axios.get("api/plants/id/" + id);
   },
 
-    // Gets all plants saved to user
-    // getMyPlants: function () {
-    //     return axios.get("/api/user/plants" + user);
-    // },
-    // Deletes the saved plant with the given id
-    deletePlant: function (id) {
-        return axios.delete("/api/delete/plants/" + id);
-    },
-    // Saves a plant to the user 
-    savePlant: function (plantData) {
-        return axios.post("/api/save/plants", plantData);
-    }
+  //these routes are not necessary for the MVP but we will use them later:
+
+  // Gets all plants saved to user
+  getMyPlants: function() {
+    return axios.get("/api/plants");
+  },
+  // Deletes the saved plant with the given id
+  deletePlant: function(id) {
+    return axios.delete("/api/plants/" + id);
+  },
+  // Saves a plant to the user
+  savePlant: function(plantData) {
+    return axios.post("/api/plants", plantData);
   }
+};
+
