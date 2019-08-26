@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "bootswatch/dist/minty/bootstrap.min.css";
-import LoginHome from './pages/LoginHome';
-import Login from './pages/Login';
+import LoginHome from "./pages/LoginHome";
+import Login from "./pages/LogIn";
 // import myPlants from "./pages/MyPlants";
 import SearchMain from "./pages/SearchMain";
 import DiscoveryMain from "./pages/DiscoveryMain";
@@ -24,7 +24,6 @@ function App() {
           <Route exact path={"/rare"} component={() => <DiscoverListItemsPage category={"rare"} />} />
           <Route path={"/:plantName"} component={DetailPlant} />
           <Route path={"/login"} component={Login} />
-
         </Switch>
         <StickyBottom />
       </div>
