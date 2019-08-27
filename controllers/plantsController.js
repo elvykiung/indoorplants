@@ -1,5 +1,4 @@
 const db = require("../models/plant");
-const axios = require("axios");
 
 module.exports = {
   findAll: function(req, res) {
