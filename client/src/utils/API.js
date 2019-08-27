@@ -14,7 +14,7 @@ export default {
     //these routes are not necessary for the MVP but we will use them later:
 
     // Gets all plants saved to user
-    getMyPlants: function () {
+    getMyPlants: function (user) {
         return axios.get("/api/user/plants" + user);
     },
     // Deletes the saved plant with the given id
