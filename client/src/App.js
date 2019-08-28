@@ -9,6 +9,7 @@ import DiscoveryMain from "./pages/DiscoveryMain";
 import DiscoverListItemsPage from "./pages/DiscoverListItemsPage";
 import DetailPlant from "./pages/DetailPlant";
 import StickyBottom from "./components/Nav";
+import MyPlantsDetail from "./pages/MyPlantsDetailPage";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
         <Switch>
           <Route exact path="/home" component={LoginHome} />
           {/* <Route exact path="/myPlants" component={myPlantsMain} /> */}
+          {/* <Route exact path="/" component={LoginHome} /> */}
+          <Route exact path="/myPlants" component={MyPlantsDetail} />
           <Route exact path="/search" component={SearchMain} />
           <Route exact path="/discovery" component={DiscoveryMain} />
           <Route exact path={"/easy-to-grow"} component={() => <DiscoverListItemsPage category={"easy-to-grow"} />} />
