@@ -9,7 +9,7 @@ class UserToDo extends Component {
     return (
       <Container style={{ marginBottom: "50%" }}>
         <h2>Todo List</h2>
-        <ListGroup>
+        {/* <ListGroup>
           <ListGroup.Item className="mx-2">
             Water
             <Button className="text-right" variant="outline-primary">
@@ -17,7 +17,7 @@ class UserToDo extends Component {
             </Button>
           </ListGroup.Item>
           <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-        </ListGroup>
+        </ListGroup> */}
       </Container>
     );
   }
