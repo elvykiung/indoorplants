@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const bcrypt = require('bcrypt');
 
 //validate email with regex
 const validateEmail = function (email) {
@@ -8,16 +9,26 @@ const validateEmail = function (email) {
 };
 
 
-const userSchema = new Schema({
+const userSchema = new mongoose.Schema({
     userName: {
         type: String,
         required: true,
         trim: true,
         unique: true,
     },
+    firstName: {
+        type: String,
+        default: ''
+    },
+    lastName: {
+        type: String,
+        default: ''
+    },
     password: {
         type: String,
-        required: true
+        required: true,
+        trim: true,
+        default: ''
     },
     email: {
         type: String,
@@ -28,6 +39,14 @@ const userSchema = new Schema({
         validate: [validateEmail, 'Please fill a valid email address'],
         match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
     },
+    isDeleted: {
+        type: Boolean,
+        default: false
+    },
+    signUpDate: {
+        type: Date,
+        default: Date.now()
+    },
     userPlants: [
         {// Store ObjectIds in the array
             type: Schema.Types.ObjectId,
@@ -35,10 +54,14 @@ const userSchema = new Schema({
             ref: "plantCare"
         }
     ]
-
-
-
 });
+
+userSchema.methods.generateHash = function (password) {
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+};
+userSchema.methods.validPassword = function (password) {
+    return bcrypt.compareSync(password, this.password);
+};
 
 const User = mongoose.model("User", userSchema);
 
