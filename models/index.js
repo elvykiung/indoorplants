@@ -3,5 +3,6 @@
 module.exports = {
     Plant: require("./plant"),
     User: require("./user"),
-    PlantCare: require("./plantCare")
+    PlantCare: require("./plantCare"),
+    UserSession: require("./userSession")
 };
