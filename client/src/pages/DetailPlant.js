@@ -50,7 +50,10 @@ class DetailPlant extends Component {
           <Col size="md-12">
             <Card>
               {/* {this.props.match.params.plantName} */}
-              <Image align="left" src={this.state.plant.image}  />
+              <Image align="left" src={(this.state.plant.category && this.state.plant.category[0] === "rare") ?
+                  this.state.plant.image : "http://www.costafarms.com/CostaFarms/" + this.state.plant.image
+
+                  } />
               <h3 className="text-center">{this.state.plant.commonName}</h3>
               <h4 className="text-center">({this.state.plant.scientificName})</h4>
               <p><h4>Description: </h4>{this.state.plant.fullDescription}</p>
