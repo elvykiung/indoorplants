@@ -10,6 +10,7 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
+import Image from "react-bootstrap/Image";
 // import ListItems from "../components/ListItems";
 import API from "../utils/API";
 
@@ -50,15 +51,16 @@ class DetailPlant extends Component {
       <Container>
         <Row>
           <Col size="md-12">
-            <Card style={{paddingLeft:"5%", paddingRight:"5%"}}>
-              {this.props.match.params.plantName}
-              {/* {/* <Image style={{width:"30%", height:"30%", marginTop:"2%"}} align="left" src={this.state.plant.image}  />
-              <h3 className="text-center">{this.state.plant.commonName}</h3>
+            <Card style={{ paddingLeft:"5%", paddingRight:"5%", paddingTop:"2%" }}>
+              {/* {this.props.match.params.plantName} */}
+              <Image src={(this.state.plant.category && this.state.plant.category[0] === "rare") ?
+                  this.state.plant.image : "http://www.costafarms.com/CostaFarms/" + this.state.plant.image} />
+              <h3 style={{marginTop:"5%"}} className="text-center">{this.state.plant.commonName}</h3>
               <h4 className="text-center">({this.state.plant.scientificName})</h4>
               <p><h4>Description: </h4>{this.state.plant.fullDescription}</p>
               <p><h4>Care Instructions: </h4>{this.state.plant.growInstructions}</p>
               <p><h4>Light Requirements: </h4>{this.state.plant.lightReq}</p>
-              <p><h4>Water requirements: </h4>{this.state.plant.waterReq}</p> */}
+              <p><h4>Water requirements: </h4>{this.state.plant.waterReq}</p> 
               {/* {console.log("inside render: " + JSON.stringify(this.state.plant))} */} 
               <div>
           <div className="col-10 col-centered card-content mb-4">
@@ -68,7 +70,7 @@ class DetailPlant extends Component {
                   if (plant.category && plant.category[0] === "rare"){
                   return  <h3 className="text-center">{this.state.plant.commonName}</h3>;
                   } else {
-                  return <div images={"http://www.costafarms.com/CostaFarms/" + plant.image} commonName={plant.commonName} scientificName={plant.scientificName} description={plant.fullDescription} title={plant.title} id={plant._id} />;
+                  return <div images={"http://www.costafarms.com/CostaFarms/" + plant.image} commonName={plant.commonName} scientificName={plant.scientificName} description={plant.fullDescription} title={plant.title} />;
 
                   }
                 

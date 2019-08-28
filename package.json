@@ -1,7 +1,8 @@
 {
   "name": "IndoorPlants",
   "version": "1.0.0",
-  "description": "IndoorPlants",
+  "description": "IndoorPlantsWaterTrackingApp",
+  "homepage": " https://indoor-plants.herokuapp.com/",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",

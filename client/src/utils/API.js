@@ -31,4 +31,3 @@ export default {
     return axios.post("/api/plants", plantData);
   }
 };
-
