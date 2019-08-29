@@ -3,6 +3,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import { Link } from 'react-router-dom';
+import auth from '../auth';
 // import API from "../utils/API";
 // import ListItems from "../components/ListItems";
 
@@ -46,6 +47,15 @@ class MyPlantsMain extends Component {
                   style={{ height: '450px' }}
                 />
               </Link>
+              <button
+                onClick={() => {
+                  auth.logout(() => {
+                    this.props.history.push('/');
+                  });
+                }}
+              >
+                Logout
+              </button>
             </div>
           </div>
         </div>

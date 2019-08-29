@@ -12,17 +12,27 @@ class Login extends Component {
       password: ''
     };
   }
-
-  login = () => {
-    auth.login(() => {
-      this.props.history.push('/myPlants');
-    });
-  };
+  // for fake authentication
+  // login = () => {
+  //   auth.login(() => {
+  //     this.props.history.push('/myPlants');
+  //   });
+  // };
 
   render() {
     return (
       <div>
-        <button onClick={this.login}>Log in</button>
+        {/* <button onClick={this.login}>Log in</button> */}
+
+        <button
+          onClick={() => {
+            auth.login(() => {
+              this.props.history.push('/myPlants');
+            });
+          }}
+        >
+          Login
+        </button>
         <Form>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>

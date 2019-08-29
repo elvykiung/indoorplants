@@ -10,28 +10,7 @@ import DetailPlant from './pages/DetailPlant';
 import StickyBottom from './components/Nav';
 import MyPlantsMain from './pages/MyPlantsMain';
 import MyPlantsDetail from './pages/MyPlantsDetailPage';
-// import auth from './auth';
 import { ProtectedRoute } from './protected.route';
-
-// function PrivateRoute({ component: Component, ...rest }) {
-//   return (
-//     <Route
-//       {...rest}
-//       render={props =>
-//         auth.isAuthenticated() ? (
-//           <Component {...props} />
-//         ) : (
-//           <Redirect
-//             to={{
-//               pathname: '/login',
-//               state: { from: props.location }
-//             }}
-//           />
-//         )
-//       }
-//     />
-//   );
-// }
 
 function App() {
   return (
@@ -49,6 +28,7 @@ function App() {
           <Route exact path={'/rare'} component={() => <DiscoverListItemsPage category={'rare'} />} />
           <Route path={'/detail/:plantName'} component={DetailPlant} />
           <Route exact path={'/login'} component={Login} />
+          <Route path="*" component={() => '404 NOT FOUND'} />
         </Switch>
         <StickyBottom />
       </div>
