@@ -20,18 +20,22 @@ export default {
 
   // Gets all plants saved to user
   getMyPlants: function (userid) {
-    return axios.get("/api/myplants" + userid);
+    return axios.get("/api/myplants/" + userid);
   },
   // Gets plant for detail page
-  getMyPlants: function (plantid) {
-    return axios.get("/api/myplants" + plantid);
+  getMyPlantDetail: function (plantid) {
+    return axios.get("/api/myplant/detail/" + plantid);
+  },
+  //updates the watered date
+  updateMyPlant: function (data) {
+    return axios.post("/api/update/myplant", data)
   },
   // Deletes the saved plant with the given id
   deleteMyPlant: function (id) {
-    return axios.delete("/api/delete/myplants/" + id);
+    return axios.delete("/api/delete/myplant/" + plantid);
   },
   // Saves a plant to the user
   saveMyPlant: function (plantData) {
-    return axios.post("/api/save/myplants", plantData);
+    return axios.create("/api/save/myplant", plantData);
   }
 };

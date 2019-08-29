@@ -13,7 +13,6 @@ module.exports = {
     },
 
     //find by id will display individual plant data for the detail page
-    //** */need to populate this with plant data
     findByID: function (req, res) {
         db.plantCare.find({ _id: req.params.id })
             .populate("plant")
@@ -25,7 +24,7 @@ module.exports = {
     //this updates the last watered date
     findByIDAndUpdate: function (req, res) {
         waterDate = req.body.date;
-        db.plantCare.findByIDAndUpdate({ _id: req.params.id },
+        db.plantCare.findByIDAndUpdate({ _id: req.body.id },
             { $push: { wateredDates: waterDate } },
             { new: true }
         )
