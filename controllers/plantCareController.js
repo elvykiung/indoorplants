@@ -57,6 +57,12 @@ module.exports = {
                 res.json(err);
             });
 
+    },
+
+    delete: function (req, res) {
+        db.plantCare.remove({ _id: req.params.id })
+            .then(data => res.json(data))
+            .catch(err => res.status(422).json(err));
     }
 
 };
