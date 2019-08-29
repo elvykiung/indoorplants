@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const auth = require("../auth");
-// const Users = mongoose.model("User");
+
 const usersController = require("../../controllers/userController");
 
 //POST new user route (optional, everyone has access)
@@ -32,8 +32,8 @@ const usersController = require("../../controllers/userController");
 //   return finalUser.save().then(() => res.json({ user: finalUser.toAuthJSON() }));
 // });
 
-//POST login route (optional, everyone has access)
-router.route("/login").post(usersController.login, auth.optional);
+//POST login route to create login token by checking the user controller
+router.route("/login").post(usersController.login);
 
 //GET current route (required, only authenticated users have access)
 router.route("/current").get(auth.required, usersController.currentUser);

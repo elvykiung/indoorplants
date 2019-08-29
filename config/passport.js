@@ -12,6 +12,8 @@ passport.use(
     },
     (email, password, done) => {
       Users.findOne({ email })
+
+        // pass the .then user when password is valid to user controller
         .then(user => {
           if (!user || user.password !== password) {
             return done(null, false, { errors: { "email or password": "is invalid" } });

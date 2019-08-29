@@ -1,3 +1,5 @@
+//jwt is a library to convert token to trusted string
+
 const jwt = require("express-jwt");
 
 const getTokenFromHeaders = req => {

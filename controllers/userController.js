@@ -7,6 +7,7 @@ module.exports = {
       .then(data => res.json(data))
       .catch(err => res.status(422).json(err));
   },
+
   create: function(req, res) {
     const userName = req.body.userName;
     const firstName = req.body.firstName;
@@ -34,7 +35,10 @@ module.exports = {
       .then(() => res.json("Plant added!"))
       .catch(err => console.log(err));
   },
+
   login: (req, res, next) => {
+    // request come from react destructre req.body.user use on check email and password
+
     const {
       body: { user }
     } = req;
@@ -55,11 +59,13 @@ module.exports = {
       });
     }
 
+    // using passport authentication method call local strategy to authentic
     return passport.authenticate("local", { session: false }, (err, passportUser, info) => {
       if (err) {
         return next(err);
       }
-
+      // the .then from passport.js return the user object from jwt
+      //if the login is true, return the json of the object and the token
       if (passportUser) {
         const user = passportUser;
         // user.token = passportUser.generateJWT();
