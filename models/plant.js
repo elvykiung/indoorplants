@@ -7,7 +7,7 @@ const plantSchema = new Schema({
   description: { type: String, required: true },
   image: { type: String, required: true },
   imageAlt: { type: String, required: false },
-  title: { type: String, required: true, lowercase: true},
+  title: { type: String, required: true, lowercase: true },
   fullDescription: { type: String, required: false },
   growInstructions: { type: String, required: false },
   lightReq: { type: [String], required: false },

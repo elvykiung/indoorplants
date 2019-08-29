@@ -30,9 +30,12 @@ export default {
   savePlant: function(plantData) {
     return axios.post("/api/plants", plantData);
   },
+
+  // return the server call from front auth.js, it is an object with token and user info
   login: function(userLogin) {
     return axios.post("/userApi/login", userLogin);
   },
+
   currentUser: function() {
     return axios.get("/userApi/current");
   }

@@ -13,6 +13,8 @@ const getTokenFromHeaders = req => {
   return null;
 };
 
+// get the payload of jwt
+
 const auth = {
   required: jwt({
     secret: "secret",

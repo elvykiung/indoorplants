@@ -11,6 +11,7 @@ class Auth {
   }
 
   login(cb) {
+    //using the axios call login method in util api call the back end serer ("/userApi/login"), taking userLogin info then console the data.data, then return back to util login
     API.login({
       user: {
         email: "123@gm.com",

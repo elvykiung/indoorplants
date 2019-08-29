@@ -37,7 +37,7 @@ module.exports = {
   },
 
   login: (req, res, next) => {
-    // request come from react destructre req.body.user use on check email and password
+    // request come from react destructors req.body.user use on check email and password
 
     const {
       body: { user }
@@ -70,6 +70,7 @@ module.exports = {
         const user = passportUser;
         // user.token = passportUser.generateJWT();
         user.password = null;
+        //using the generateJWT method from user models
         return res.json({ user: user, token: passportUser.generateJWT() });
       }
 
@@ -78,6 +79,7 @@ module.exports = {
   },
 
   currentUser: function(req, res, next) {
+    //store the req.payload.id
     const {
       payload: { id }
     } = req;

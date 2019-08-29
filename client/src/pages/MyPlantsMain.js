@@ -10,10 +10,15 @@ import API from "../utils/API";
 class MyPlantsMain extends Component {
   //need to set the state to reflect the user's plant info - I think this will depend on how
   //the user id is made available via authentication?
-  state = {
-    user: []
-  };
-
+  // state = {
+  //   user: []
+  // };
+  constructor() {
+    super();
+    this.state = {
+      user: {}
+    };
+  }
   componentDidMount() {
     this.getUserPlants();
   }
@@ -33,12 +38,13 @@ class MyPlantsMain extends Component {
   // };
   getUserPlants = () => {
     API.currentUser()
-      .then(res =>
+      .then(res => {
+        // console.log(res.data);
         this.setState({
           ifResults: true,
-          user: res.data
-        })
-      )
+          user: res.data.user
+        });
+      })
       .catch(err => console.log(err));
   };
 
@@ -52,10 +58,14 @@ class MyPlantsMain extends Component {
         <div>
           <div className="col-10 col-centered card-content mb-4">
             <div>
+              {console.log(this.state.user)}
+              <p>{this.state.user.email}</p>
+
               <h1 className="heading-title mx-sm-3 mb-2 text-center">Your Saved Plants</h1>
               <Link as={Link} to="/myPlants/detail">
                 <Image src="https://houseraccoon.com/wp-content/uploads/2019/05/Monstera-Deliciosa-Albo-Variegata.jpg" rounded style={{ height: "450px" }} />
               </Link>
+
               <button
                 onClick={() => {
                   auth.logout(() => {
