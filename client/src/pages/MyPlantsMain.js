@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import Jumbotron from 'react-bootstrap/Jumbotron';
-import Container from 'react-bootstrap/Container';
-import Image from 'react-bootstrap/Image';
-import { Link } from 'react-router-dom';
-import auth from '../auth';
-// import API from "../utils/API";
+import React, { Component } from "react";
+import Jumbotron from "react-bootstrap/Jumbotron";
+import Container from "react-bootstrap/Container";
+import Image from "react-bootstrap/Image";
+import { Link } from "react-router-dom";
+import auth from "../auth";
+import API from "../utils/API";
 // import ListItems from "../components/ListItems";
 
 class MyPlantsMain extends Component {
@@ -14,8 +14,11 @@ class MyPlantsMain extends Component {
     user: []
   };
 
+  componentDidMount() {
+    this.getUserPlants();
+  }
   // componentDidMount() {
-  //     this.getUserPlants();
+  //   this.getUserPlants();
   // }
 
   // getUserPlants = () => {
@@ -28,6 +31,16 @@ class MyPlantsMain extends Component {
   //         )
   //         .catch(err => console.log(err));
   // };
+  getUserPlants = () => {
+    API.currentUser()
+      .then(res =>
+        this.setState({
+          ifResults: true,
+          user: res.data
+        })
+      )
+      .catch(err => console.log(err));
+  };
 
   render() {
     return (
@@ -41,16 +54,12 @@ class MyPlantsMain extends Component {
             <div>
               <h1 className="heading-title mx-sm-3 mb-2 text-center">Your Saved Plants</h1>
               <Link as={Link} to="/myPlants/detail">
-                <Image
-                  src="https://houseraccoon.com/wp-content/uploads/2019/05/Monstera-Deliciosa-Albo-Variegata.jpg"
-                  rounded
-                  style={{ height: '450px' }}
-                />
+                <Image src="https://houseraccoon.com/wp-content/uploads/2019/05/Monstera-Deliciosa-Albo-Variegata.jpg" rounded style={{ height: "450px" }} />
               </Link>
               <button
                 onClick={() => {
                   auth.logout(() => {
-                    this.props.history.push('/');
+                    this.props.history.push("/");
                   });
                 }}
               >

@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import React, { Component } from "react";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 // import API from "../utils/API";
-import auth from '../auth';
+import auth from "../auth";
 
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
-      password: ''
+      username: "",
+      password: ""
     };
   }
   // for fake authentication
@@ -26,8 +26,9 @@ class Login extends Component {
 
         <button
           onClick={() => {
+            // call auth.js login
             auth.login(() => {
-              this.props.history.push('/myPlants');
+              this.props.history.push("/myPlants");
             });
           }}
         >
