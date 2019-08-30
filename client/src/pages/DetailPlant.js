@@ -35,8 +35,10 @@ class DetailPlant extends Component {
         if (res.data.length > 0) {
           // only get the first plant and keep it
           this.setState({
-            plant: res.data[0]
-          });
+          ifResults: true,
+          results:res.data,
+          plant: res.data[0]
+        });
         }
         console.log(this.state.plant);
       })
@@ -48,7 +50,7 @@ class DetailPlant extends Component {
       <Container>
         <Row>
           <Col size="md-12">
-            <Card>
+            <Card style={{ paddingLeft:"5%", paddingRight:"5%", paddingTop:"2%" }}>
               {/* {this.props.match.params.plantName} */}
               <Image
                 align="left"

@@ -33,7 +33,7 @@ module.exports = {
     const scientificName = req.body.scientificName;
     const commonName = req.body.commonName;
     const description = req.body.features;
-    const image = req.body.imageName;
+    const image = req.body.image;
     const imageAlt = req.body.imageAlt;
     const title = req.body.token;
 
