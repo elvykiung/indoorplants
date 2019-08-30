@@ -19,7 +19,7 @@ module.exports = {
     const userPlants = req.body.userPlants;
 
     db.findOneAndUpdate(
-      { email: email },
+      { _id: id },
       {
         userName,
         firstName,
@@ -34,6 +34,12 @@ module.exports = {
     )
       .then(() => res.json("Plant added!"))
       .catch(err => console.log(err));
+  },
+
+  updateWithPlant: function(req, res) {
+    db.findOneAndUpdate(userPlants, { new: true, upsert: true })
+      .then(data => res.json(data))
+      .catch(err => res.status(422).json(err));
   },
 
   login: (req, res, next) => {
