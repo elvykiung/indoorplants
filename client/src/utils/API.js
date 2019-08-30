@@ -8,12 +8,12 @@ export default {
 
   // Gets plants from db by name (search)
   getPlantsbyName: function(name) {
-    return axios.get("api/plants/" + name);
+    return axios.get("/api/plants/" + name);
   },
 
   // Gets plant by id
   getPlantsbyID: function(id) {
-    return axios.get("api/plants/id/" + id);
+    return axios.get("/api/plants/id/" + id);
   },
 
   //these routes are not necessary for the MVP but we will use them later:
@@ -35,7 +35,16 @@ export default {
     return axios.delete("/api/delete/myplant/" + plantid);
   },
   // Saves a plant to the user
-  saveMyPlant: function(plantData) {
-    return axios.create("/api/save/myplant", plantData);
+  savePlant: function(plantData) {
+    return axios.post("/api/plants", plantData);
+  },
+
+  // return the server call from front auth.js, it is an object with token and user info
+  login: function(userLogin) {
+    return axios.post("/userApi/login", userLogin);
+  },
+
+  currentUser: function() {
+    return axios.get("/userApi/current");
   }
 };

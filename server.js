@@ -34,7 +34,7 @@ connection.once("open", () => {
 
 // Define API routes here
 app.use(routes);
-
+require("./config/passport");
 // Server listen
 
 app.listen(PORT, () => {
