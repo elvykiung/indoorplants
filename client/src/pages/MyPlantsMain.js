@@ -42,12 +42,11 @@ class MyPlantsMain extends Component {
             <div>
               <h1 className="heading-title mx-sm-3 mb-2 text-center">Your Saved Plants</h1>
               <Link as={Link} to="/myPlants/detail">
-                <Image
-                  src="https://houseraccoon.com/wp-content/uploads/2019/05/Monstera-Deliciosa-Albo-Variegata.jpg"
-                  rounded
-                  style={{ height: '450px' }}
+                <Image src="https://houseraccoon.com/wp-content/uploads/2019/05/Monstera-Deliciosa-Albo-Variegata.jpg" rounded
+                  style={{ height: '250px' }}
                 />
               </Link>
+              <div>
               <Button  onClick={() => {
             auth.login(() => {
               this.props.history.push('/');
@@ -56,6 +55,7 @@ class MyPlantsMain extends Component {
           variant="primary" type="submit">
             Log out
           </Button>
+          </div>
             </div>
           </div>
         </div>
