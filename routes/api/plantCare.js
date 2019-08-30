@@ -21,12 +21,12 @@ router
 //save plant
 router
     .route("/save/myplant")
-    .create(plantCareController.create);
+    .post(plantCareController.create);
 
 //delete plant
 router
     .route("delete/myplant" + plantid)
-    .delete(plantCareController.create);
+    .delete(plantCareController.delete);
 
 module.exports = router;
 
