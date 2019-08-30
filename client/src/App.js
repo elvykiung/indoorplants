@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import 'bootswatch/dist/minty/bootstrap.min.css';
 import LoginHome from './pages/LoginHome';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 import SearchMain from './pages/SearchMain';
 import DiscoveryMain from './pages/DiscoveryMain';
 import DiscoverListItemsPage from './pages/DiscoverListItemsPage';
@@ -28,6 +29,7 @@ function App() {
           <Route exact path={'/rare'} component={() => <DiscoverListItemsPage category={'rare'} />} />
           <Route path={'/detail/:plantName'} component={DetailPlant} />
           <Route exact path={'/login'} component={Login} />
+          <Route exact path={'/signup'} component={Signup} />
           <Route path="*" component={() => '404 NOT FOUND'} />
         </Switch>
         <StickyBottom />

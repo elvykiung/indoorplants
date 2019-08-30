@@ -21,6 +21,7 @@ render() {
     return (
       <div >
           <Card >
+           
             <Image src="https://3c9sm1yzqy518hwx3f6o4c64-wpengine.netdna-ssl.com/wp-content/uploads/2017/02/Succulent-1--1030x381.jpg"  style={{borderRadius: 400/ 2}}  alt="Home" />
           <Card.ImgOverlay>
             <Card.Title className="text-white text-center" style={{ "font-size": "4vw", margin: "auto", fontWeight: "bold" }}>

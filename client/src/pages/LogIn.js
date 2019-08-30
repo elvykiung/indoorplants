@@ -23,16 +23,6 @@ class Login extends Component {
     return (
       <div>
         {/* <button onClick={this.login}>Log in</button> */}
-
-        <button
-          onClick={() => {
-            auth.login(() => {
-              this.props.history.push('/myPlants');
-            });
-          }}
-        >
-          Login
-        </button>
         <Form>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
@@ -47,7 +37,12 @@ class Login extends Component {
           <Form.Group controlId="formBasicChecbox">
             <Form.Check type="checkbox" label="Check me out" />
           </Form.Group>
-          <Button variant="primary" type="submit">
+          <Button  onClick={() => {
+            auth.login(() => {
+              this.props.history.push('/myPlants');
+            });
+          }}
+          variant="primary" type="submit">
             Log In
           </Button>
         </Form>
