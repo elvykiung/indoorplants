@@ -4,7 +4,7 @@ const passport = require('../../passport');
 
 
 
-router.post('/user', (req, res) => {
+router.post('/', (req, res) => {
     console.log('user signup');
 
     const { username, password, email } = req.body
@@ -31,7 +31,7 @@ router.post('/user', (req, res) => {
     })
 })
 
-router.post('/user/login',function (req, res, next) {
+router.post('/login',function (req, res, next) {
         console.log('routes/user.js, login, req.body: ');
         console.log(req.body)
         next()
@@ -46,7 +46,7 @@ router.post('/user/login',function (req, res, next) {
     }
 )
 
-router.get('/user', (req, res, next) => {
+router.get('/', (req, res, next) => {
     console.log('===== user!!======')
     console.log(req.user)
     if (req.user) {
@@ -56,7 +56,7 @@ router.get('/user', (req, res, next) => {
     }
 })
 
-router.post('/user/logout', (req, res) => {
+router.post('/logout', (req, res) => {
     if (req.user) {
         req.logout()
         res.send({ msg: 'logging out' })

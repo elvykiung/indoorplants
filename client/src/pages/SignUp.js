@@ -31,7 +31,7 @@ class SignUp extends Component {
     event.preventDefault()
 
     //request to server to add a new username/password
-    axios.post('/user/', {
+    axios.post('/api/user/', {
       username: this.state.username,
       password: this.state.password,
       email: this.state.email
@@ -71,7 +71,7 @@ class SignUp extends Component {
             </Form.Text>
           </Form.Group>
 
-          <Form.Group controlId="formBasicEmail">
+          <Form.Group >
             <Form.Label>Email address</Form.Label>
             <Form.Control type="email" placeholder="Enter email" 
                       id="email"
@@ -85,10 +85,10 @@ class SignUp extends Component {
           </Form.Group>
 
 
-          <Form.Group controlId="formBasicPassword">
+          <Form.Group >
             <Form.Label>Password</Form.Label>
             <Form.Control type="password" 
-                      placeholder="Password" 
+                     placeholder="Password" 
                       name="password"
                       value={this.state.password}
                       onChange={this.handleChange}

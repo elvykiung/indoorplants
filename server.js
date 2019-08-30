@@ -10,7 +10,7 @@ dotenv.config();
 
 const routes = require("./routes");
 // Route requires
-// const user = require('./routes/api/user')
+const user = require('./routes/api/user')
 
 
 //set Express connection
@@ -42,11 +42,13 @@ connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
 });
 
-// Define API routes here
+// Routes for user
+app.use('/api/user', user)
+
+
+// Define API routes for plants
 app.use(routes);
 
-// // Routes
-// app.use('/user', user)
 
 
 // Server listen
