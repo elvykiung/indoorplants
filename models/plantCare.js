@@ -21,7 +21,7 @@ var plantCareSchema = new Schema({
     // store watered dates as an array
     wateredDates: [
         {
-            type: date
+            type: Date
         }
     ]
 

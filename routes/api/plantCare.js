@@ -15,12 +15,12 @@ router
 
 //update the date the plant was last watered
 router
-    .route("/update/myplant", data)
+    .route("/update/myplant")
     .post(plantCareController.findByIDAndUpdate);
 
 //save plant
 router
-    .route("/save/myplant", plantData)
+    .route("/save/myplant")
     .create(plantCareController.create);
 
 //delete plant

@@ -1,5 +1,5 @@
 const db = require("../models/plantCare");
-const db = require("../models/user")
+const dbUser = require("../models/user")
 const axios = require("axios");
 
 module.exports = {
@@ -45,7 +45,7 @@ module.exports = {
             .then(function (res) {
                 // If a plantCare document was created successfully, push that plantCare object's ID
                 // to the corresponding User record.
-                return db.User.findByIDAndUpdate({ user: res.user }, { $push: { plant: dbplantCare._id } }, { new: true });
+                return dbUser.User.findByIDAndUpdate({ user: res.user }, { $push: { plant: dbplantCare._id } }, { new: true });
             })
             .then(function (dbUser) {
                 // If the user was updated successfully, send it back to the client
