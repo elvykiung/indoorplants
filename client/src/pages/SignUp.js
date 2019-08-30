@@ -13,7 +13,7 @@ class SignUp extends Component {
       password: '',
       email: '',
       confirmPassword: '',
-      redirectTo: null
+      redirectTo: false
 
     }
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -61,27 +61,25 @@ class SignUp extends Component {
         <Form>
           <Form.Group >
             <Form.Label>User Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter User Name" />
-            <Form.Text className="text-muted"
-                      type="text"
-                      id="username"
-                      name="username"
-                      placeholder="Username"
-                      value={this.state.username}
-                      onChange={this.handleChange}>
+            <Form.Control type="text" placeholder="Enter User Name"
+                          id="username"
+                          name="username"
+                          value={this.state.username}
+                          onChange={this.handleChange}            
+             />
+            <Form.Text className="text-muted">
             </Form.Text>
           </Form.Group>
 
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
-            <Form.Text className="text-muted"
-                      type="email"
+            <Form.Control type="email" placeholder="Enter email" 
                       id="email"
                       name="email"
-                      placeholder="Enter email"
                       value={this.state.email}
-                      onChange={this.handleChange}>
+                      onChange={this.handleChange}
+            />
+            <Form.Text className="text-muted">
               We'll never share your email with anyone else.
             </Form.Text>
           </Form.Group>
@@ -89,13 +87,13 @@ class SignUp extends Component {
 
           <Form.Group controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
-            <Form.Text className="text-muted"
-                      placeholder="password"
-                      type="password"
+            <Form.Control type="password" 
+                      placeholder="Password" 
                       name="password"
                       value={this.state.password}
-                      onChange={this.handleChange}>
+                      onChange={this.handleChange}
+            />
+            <Form.Text className="text-muted">
             </Form.Text>
           </Form.Group>
             <Button variant="primary" 

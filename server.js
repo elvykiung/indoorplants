@@ -10,7 +10,7 @@ dotenv.config();
 
 const routes = require("./routes");
 // Route requires
-const user = require('./routes/api/user')
+// const user = require('./routes/api/user')
 
 
 //set Express connection
@@ -45,8 +45,8 @@ connection.once("open", () => {
 // Define API routes here
 app.use(routes);
 
-// Routes
-app.use('/user', user)
+// // Routes
+// app.use('/user', user)
 
 
 // Server listen
