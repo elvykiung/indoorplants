@@ -27,7 +27,7 @@ render() {
   <Row>
     <Col xs={6} md={4}>
     <Col xs={6} md={4} style={{marginBottom:"5%", marginTop:"10%"}}>
-      <Image src="https://3c9sm1yzqy518hwx3f6o4c64-wpengine.netdna-ssl.com/wp-content/uploads/2017/02/Succulent-1--1030x381.jpg" style={{borderRadius:"20%"}} roundedCircle />
+      <Image src="https://3c9sm1yzqy518hwx3f6o4c64-wpengine.netdna-ssl.com/wp-content/uploads/2017/02/Succulent-1--1030x381.jpg" style={{borderRadius:"10%", }} roundedCircle />
     </Col>
     </Col>
   </Row>

@@ -18,7 +18,7 @@ class DiscoveryMain extends Component {
         <Jumbotron fluid className="text-center">
           <h1 className="text-primary">Discover Your Plants</h1>
         </Jumbotron>
-        <Card as={Link} to="/easy-to-grow" style={{ margin: 'auto', maxWidth:"80%" }}>
+        <Card as={Link} to="/easy-to-grow" style={{ margin: 'auto', maxWidth:"90%" }}>
           <Card.Img
             src="https://3c9sm1yzqy518hwx3f6o4c64-wpengine.netdna-ssl.com/wp-content/uploads/2017/02/Succulent-1--1030x381.jpg"
             alt="Easy to growth Plants"

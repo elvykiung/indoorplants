@@ -25,13 +25,13 @@ class Login extends Component {
         {/* <button onClick={this.login}>Log in</button> */}
         <Form style={{textAlign:"center", paddingTop:"10%"}}>
           <Form.Group controlId="formBasicEmail">
-            <Form.Label >Email address</Form.Label>
+            <Form.Label style={{fontSize:"25px"}}>Email address</Form.Label>
             <Form.Control style={{width:"50%", marginLeft:"25%"}} type="email" placeholder="Enter email" />
-            <Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text>
+            <Form.Text style={{fontSize:"18px"}} className="text-muted">We'll never share your email with anyone else.</Form.Text>
           </Form.Group>
 
           <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+            <Form.Label style={{fontSize:"25px"}}>Password</Form.Label>
             <Form.Control style={{width:"50%", marginLeft:"25%"}} type="password" placeholder="Password" />
           </Form.Group>
           <Form.Group controlId="formBasicChecbox">

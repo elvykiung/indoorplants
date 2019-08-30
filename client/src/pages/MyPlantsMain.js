@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import { Link } from 'react-router-dom';
 import auth from '../auth';
+import Button from "react-bootstrap/Button";
 // import API from "../utils/API";
 // import ListItems from "../components/ListItems";
 
@@ -47,15 +48,14 @@ class MyPlantsMain extends Component {
                   style={{ height: '450px' }}
                 />
               </Link>
-              <button
-                onClick={() => {
-                  auth.logout(() => {
-                    this.props.history.push('/');
-                  });
-                }}
-              >
-                Logout
-              </button>
+              <Button  onClick={() => {
+            auth.login(() => {
+              this.props.history.push('/');
+            });
+          }}
+          variant="primary" type="submit">
+            Log out
+          </Button>
             </div>
           </div>
         </div>
