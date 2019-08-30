@@ -39,8 +39,8 @@ class MyPlantsMain extends Component {
 
         <div>
           <div className="col-10 col-centered card-content mb-4">
-            <div>
-              <h1 className="heading-title mx-sm-3 mb-2 text-center">Your Saved Plants</h1>
+            <div >
+              <h2 className="heading-title mx-sm-3 mb-2 text-center" >Your Saved Plants</h2>
               <Link as={Link} to="/myPlants/detail">
                 <Image src="https://houseraccoon.com/wp-content/uploads/2019/05/Monstera-Deliciosa-Albo-Variegata.jpg" rounded
                   style={{ height: '250px' }}
