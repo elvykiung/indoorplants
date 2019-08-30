@@ -31,7 +31,7 @@ export default {
     return axios.post("/api/update/myplant", data)
   },
   // Deletes the saved plant with the given id
-  deleteMyPlant: function (id) {
+  deleteMyPlant: function (plantid) {
     return axios.delete("/api/delete/myplant/" + plantid);
   },
   // Saves a plant to the user
