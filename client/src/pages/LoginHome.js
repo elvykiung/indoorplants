@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 // import API from "../utils/API";
+import Image from "react-bootstrap/Image";
+
 
 
 class Login extends Component {
@@ -17,9 +19,10 @@ constructor(props){
 
 render() {
     return (
-      <div>
-       <Card style={{ margin: "auto" }}>
-          <Card.Img src="https://3c9sm1yzqy518hwx3f6o4c64-wpengine.netdna-ssl.com/wp-content/uploads/2017/02/Succulent-1--1030x381.jpg" alt="Home" />
+      <div style={{position:"absolute"}}>
+          <Card >
+            <Image src="https://3c9sm1yzqy518hwx3f6o4c64-wpengine.netdna-ssl.com/wp-content/uploads/2017/02/Succulent-1--1030x381.jpg"  style={{borderRadius: 400/ 2,  justifyContent: 'center',
+        alignItems: 'center', width: 400, height: 400, position:"relative"}}  alt="Home" />
           <Card.ImgOverlay>
             <Card.Title className="text-white text-center" style={{ "font-size": "4vw", margin: "auto", fontWeight: "bold" }}>
               Home Page
