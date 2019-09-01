@@ -29,14 +29,14 @@ class Login extends Component {
         <Card >
           <Image src="https://images.wallpaperscraft.com/image/leaves_plant_green_130446_3840x2400.jpg" alt="Home" />
           <Card.ImgOverlay style={{ marginTop: "5%" }}>
-            <Card.Title className="text-white text-center" style={{ "font-size": "4vw", margin: "auto", fontWeight: "bold" }}>
+            <Card.Title id="title" className="text-white text-center" style={{ "font-size": "4vw", margin: "auto", fontWeight: "bold" }}>
               Welcome
             </Card.Title>
 
             <Form style={{ textAlign: "center", paddingTop: "10%" }}>
               <Form.Group controlId="formBasicEmail">
                 <Form.Control style={{ width: "50%", marginLeft: "25%" }} type="email" placeholder="Enter email" />
-                <Form.Text style={{ fontSize: "18px" }} className="text-muted">We'll never share your email with anyone else.</Form.Text>
+                <Form.Text style={{ fontSize: "18px" }} className="text">We'll never share your email with anyone else.</Form.Text>
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">

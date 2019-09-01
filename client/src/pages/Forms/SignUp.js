@@ -26,7 +26,7 @@ class Login extends Component {
             <Form style={{ textAlign: "center", paddingTop: "10%" }}>
               <Form.Group controlId="formBasicEmail">
                 <Form.Control type="Email" placeholder="Email" style={{ width: "50%", marginLeft: "25%", backgroundColor: "transparent"}}/>
-                <Form.Text style={{ fontSize: "18px" }} className="text-muted">
+                <Form.Text style={{ fontSize: "18px" }} className="text">
                   We'll never share your email with anyone else.
               </Form.Text>
               </Form.Group>
