@@ -8,6 +8,7 @@ import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
 import AddButton from "../components/AddButton/AddButton";
 
+
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -32,8 +33,10 @@ class Login extends Component {
         </Container> */}
         <Card >
             <Image src="https://images.wallpaperscraft.com/image/leaves_plant_green_130446_3840x2400.jpg" alt="Home" />
+            
           <Card.ImgOverlay style={{marginTop:"5%"}}>
-            <Card.Title className="text-white text-center" style={{ "font-size": "4vw", margin: "auto", fontWeight: "bold"}}>
+         
+            <Card.Title src="../leaf.png" className="text-white text-center" style={{ "font-size": "4vw", margin: "auto", fontWeight: "bold"}}>
               Home page
             </Card.Title>
             <div style={{marginTop:"10%"}}>

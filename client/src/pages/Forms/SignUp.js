@@ -3,7 +3,8 @@ import Form from "react-bootstrap/Form";
 import Image from 'react-bootstrap/Image'
 import Card from "react-bootstrap/Card";
 import AddButton from "../../components/AddButton/AddButton";
-import "./style.css"
+import "./style.css";
+import leaf from "./leaf.png";
 
 class Login extends Component {
   constructor(props) {
@@ -21,7 +22,8 @@ class Login extends Component {
           <Image src="https://images.wallpaperscraft.com/image/leaves_plant_green_130446_3840x2400.jpg" alt="Home" />
           <Card.ImgOverlay style={{ marginTop: "5%" }}>
           <Card.Title className="text-white text-center" style={{ "font-size": "4vw", margin: "auto", fontWeight: "bold" }}>
-              Welcome
+          <Image src={leaf}/>
+              
             </Card.Title>
             <Form style={{ textAlign: "center", paddingTop: "10%" }}>
               <Form.Group controlId="formBasicEmail">
@@ -32,7 +34,7 @@ class Login extends Component {
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">
-                <Form.Control style={{ width: "50%", marginLeft: "25%",backgroundColor: "transparent" }} type="password" placeholder="Password" />
+                <Form.Control style={{ width: "50%", marginLeft: "25%",backgroundColor: "transparent"}} type="password" placeholder="Password" />
               </Form.Group>
               <Form.Group controlId="formBasicChecbox">
                 <Form.Check type="checkbox" label="Check me out" />
