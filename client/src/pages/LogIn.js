@@ -13,7 +13,6 @@ class LogIn extends Component {
       super(props);
       this.state = {
         username: '',
-        email:'',
         password: '',
         redirectTo: null
     }
@@ -41,13 +40,13 @@ class LogIn extends Component {
             console.log(response)
             if (response.status === 200) {
                 // update App.js state
-                this.props.updateUser({
-                    loggedIn: true,
-                    username: response.data.username
-                })
+                // this.props.updateUser({
+                //     loggedIn: true,
+                //     username: response.data.username
+                // })
                 // update the state to redirect to home
                 this.setState({
-                    redirectTo: 'myPlants'
+                    redirectTo: '/myPlants',
                 })
 
             }
