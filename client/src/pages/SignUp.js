@@ -12,9 +12,7 @@ class SignUp extends Component {
       username: '',
       password: '',
       email: '',
-      confirmPassword: '',
-      redirectTo: false
-
+      confirmPassword: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
@@ -40,10 +38,8 @@ class SignUp extends Component {
         console.log(response)
         if (!response.data.errmsg) {
           console.log('successful signup')
-          this.setState({ //redirect to login page
-            redirectTo: '/login'
-          })
-        } else {
+          this.props.history.push('/login');
+          } else {
           console.log('username already taken')
         }
       }).catch(error => {
@@ -57,6 +53,7 @@ class SignUp extends Component {
 
   render() {
       return (
+        
         <div>
         <Form>
           <Form.Group >

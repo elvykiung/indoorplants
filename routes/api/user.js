@@ -6,6 +6,7 @@ const passport = require('../../passport');
 
 router.post('/', (req, res) => {
     console.log('user signup');
+    // console.log(res);
 
     const { username, password, email } = req.body
     // ADD VALIDATION
