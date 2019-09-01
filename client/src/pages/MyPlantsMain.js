@@ -60,7 +60,7 @@ class MyPlantsMain extends Component {
         console.log('Get User: There is a user saved in the server session: ')
 
         this.setState({
-          // loggedIn: true,
+          loggedIn: true,
           username: response.data.user.username
         })
       } else {
