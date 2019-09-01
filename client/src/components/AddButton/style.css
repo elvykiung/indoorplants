@@ -1,3 +1,10 @@
 .btn{
     margin-top: 0.50rem !important;
+    background-color:"transparent";
+    color: rgb(172, 166, 102);
+    font-size: 30px;
+    font-weight: bold;
+    border-color: rgb(116, 146, 81);
+    background-color:"transparent"
 }
+
