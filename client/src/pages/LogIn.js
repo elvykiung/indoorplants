@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 // import API from "../utils/API";
 import auth from '../auth';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 
 
 
@@ -39,15 +39,13 @@ class LogIn extends Component {
             console.log('login response: ')
             console.log(response)
             if (response.status === 200) {
-                // update App.js state
+                // update myPlants.js state
                 // this.props.updateUser({
                 //     loggedIn: true,
                 //     username: response.data.username
                 // })
-                // update the state to redirect to home
-                this.setState({
-                    redirectTo: '/myPlants',
-                })
+                // update the state to redirect to myPlants page
+                this.props.history.push('/myPlants');
 
             }
         }).catch(error => {
@@ -59,10 +57,7 @@ class LogIn extends Component {
 
 
     render() {
-      if (this.state.redirectTo) {
-        return <Redirect to={{ pathname: this.state.redirectTo }} />
-    } else {
-      return (
+      return(
         <div>
           <button
             onClick={() => {
@@ -105,8 +100,8 @@ class LogIn extends Component {
         </Form>
         </div>
       );
-    }
   }
+  
 }
 
 export default LogIn;

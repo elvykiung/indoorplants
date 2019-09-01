@@ -3,6 +3,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const passport = require('./passport');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session)
+
+
 
 dotenv.config();
 
@@ -21,10 +25,6 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Passport
-app.use(passport.initialize())
-app.use(passport.session()) // calls the deserializeUser
-
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -41,6 +41,23 @@ const connection = mongoose.connection;
 connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
 });
+
+// Sessions
+app.use(
+	session({
+		secret: 'secret', 
+		store: new MongoStore({ mongooseConnection: connection }),
+		resave: false, //required
+		saveUninitialized: false //required
+	})
+)
+
+
+// Passport
+app.use(passport.initialize())
+app.use(passport.session()) // calls the deserializeUser
+
+
 
 // Routes for user
 app.use('/api/user', user)

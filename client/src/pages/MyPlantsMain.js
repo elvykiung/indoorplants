@@ -4,7 +4,6 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import { Link } from 'react-router-dom';
-import LogIn from './LogIn'
 
 // import auth from '../auth';
 // import API from "../utils/API";
@@ -106,9 +105,6 @@ class MyPlantsMain extends Component {
         </Jumbotron>
 
         <div>
-        <LogIn
-              updateUser={this.updateUser}
-            />
           <div className="col-10 col-centered card-content mb-4">
             <div>
               <h1 className="heading-title mx-sm-3 mb-2 text-center">Your Saved Plants</h1>

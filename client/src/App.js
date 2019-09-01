@@ -9,7 +9,7 @@ import DetailPlant from './pages/DetailPlant';
 import StickyBottom from './components/Nav';
 import MyPlantsMain from './pages/MyPlantsMain';
 import MyPlantsDetail from './pages/MyPlantsDetailPage';
-import { ProtectedRoute } from './protected.route';
+// import { ProtectedRoute } from './protected.route';
 import SignUp from './pages/SignUp';
 import LogIn from './pages/LogIn';
 
@@ -25,7 +25,7 @@ function App() {
         {/* Routes to different components */}
           <Switch>
             {/* <Route exact path="/home" component={LoginHome} /> */}
-            <ProtectedRoute exact path="/myPlants" component={MyPlantsMain} />
+            <Route exact path="/myPlants" component={MyPlantsMain} />
             <Route exact path="/" component={LoginHome} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path={'/login'} component={LogIn} />
