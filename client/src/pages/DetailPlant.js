@@ -51,7 +51,6 @@ class DetailPlant extends Component {
         <Row>
           <Col size="md-12">
             <Card style={{ paddingLeft:"5%", paddingRight:"5%", paddingTop:"2%" }}>
-              {/* {this.props.match.params.plantName} */}
               <Image
                 align="left"
                 src={

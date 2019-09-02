@@ -36,12 +36,12 @@ class Login extends Component {
            
             <Form style={{ textAlign: "center", paddingTop: "10%" }}>
               <Form.Group controlId="formBasicEmail">
-                <Form.Control style={{ width: "50%", marginLeft: "25%" }} type="email" placeholder="Enter email" />
-                <Form.Text style={{ fontSize: "18px" }} className="text">We'll never share your email with anyone else.</Form.Text>
+                <Form.Control style={{ width: "50%", marginLeft: "25%" }} type="email" placeholder="User name" />
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">
                 <Form.Control style={{ width: "50%", marginLeft: "25%" }} type="password" placeholder="Password" />
+                <Form.Text style={{ fontSize: "18px" }} className="text">We'll never share your personal information with anyone else.</Form.Text>
               </Form.Group>
 
               <Form.Group controlId="formBasicChecbox">

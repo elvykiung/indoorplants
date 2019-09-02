@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import { Link } from 'react-router-dom';
 import auth from '../auth';
-import Button from "react-bootstrap/Button";
+import AddButton from "../components/AddButton/AddButton";
 // import API from "../utils/API";
 // import ListItems from "../components/ListItems";
 
@@ -47,14 +47,14 @@ class MyPlantsMain extends Component {
                 />
               </Link>
               <div>
-              <Button  onClick={() => {
+              <AddButton style={{ backgroundColor: "transparent", paddingLeft: "10%", paddingRight: "10%" }} onClick={() => {
             auth.login(() => {
               this.props.history.push('/');
             });
           }}
           variant="primary" type="submit">
             Log out
-          </Button>
+          </AddButton>
           </div>
             </div>
           </div>
