@@ -10,7 +10,7 @@ function StickyBottom() {
   return (
     <div className="fixed-bottom">
       <Nav className="navbar justify-content-center font-weight-bold">
-        <Nav.Item>
+        <Nav.Item className="link">
           <Nav.Link as={Link} to="/myPlants">
             My Plants
           </Nav.Link>
