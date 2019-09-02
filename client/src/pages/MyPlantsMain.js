@@ -79,14 +79,14 @@ class MyPlantsMain extends Component {
     axios.post('/api/user/logout').then(response => {
       console.log(response.data)
       this.props.history.push('/');
-      if (response.status === 200) {
-        this.props.updateUser({
-          loggedIn: false,
-          username: null
-        })
-      }
+      // if (response.status === 200) {
+      //   this.setState({
+      //     loggedIn: false,
+      //     username: null
+      //   })
+      // }
     }).catch(error => {
-        console.log('Logout error')
+        console.log('Logout error:' + error)
     })
   }
 
