@@ -8,7 +8,6 @@ import AddButton from "../../components/AddButton/AddButton";
 import "./style.css";
 import leaf from "./leaf.png";
 
-
 class Login extends Component {
   constructor(props) {
     super(props);
