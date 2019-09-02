@@ -15,6 +15,6 @@ router.route("/update/myplant").post(plantCareController.findByIDAndUpdate);
 router.route("/save/myplant").post(plantCareController.create);
 
 //delete plant
-router.route("delete/myplant").delete(plantCareController.delete);
+router.route("delete/myplant" + plantid).delete(plantCareController.delete);
 
 module.exports = router;

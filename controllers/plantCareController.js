@@ -34,19 +34,17 @@ module.exports = {
 
   //the create query creates a "plantCare" object & associates it with the user
   create: function(req, res) {
-    // const plant = req.body.plantID;
-    // const user = req.body.userID;
-    const plant = "5d5b5fa81660e82850bb2958";
-    const user = "5d67598b1c9d440000a8a3c2";
-    db.create({
-      plant: plant,
-      user: user
-    })
+    const plant = req.body.plantID;
+    const user = req.body.userID;
+    db.plantCare
+      .create({
+        plant: plant,
+        user: user
+      })
       .then(function(res) {
         // If a plantCare document was created successfully, push that plantCare object's ID
         // to the corresponding User record.
-        return dbUser.findByIdAndUpdate({ _id: res.user }, { $push: { userPlants: res._id } }, { new: true });
-        // console.log(res);
+        return dbUser.User.findByIDAndUpdate({ user: res.user }, { $push: { plant: dbplantCare._id } }, { new: true });
       })
       .then(function(dbUser) {
         // If the user was updated successfully, send it back to the client
@@ -64,4 +62,11 @@ module.exports = {
       .then(data => res.json(data))
       .catch(err => res.status(422).json(err));
   }
+
+  // delete: function(req, res) {
+  //   db.plantCare
+  //     .remove({ _id: req.params.id })
+  //     .then(data => res.json(data))
+  //     .catch(err => res.status(422).json(err));
+  // }
 };
