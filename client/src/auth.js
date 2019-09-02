@@ -14,8 +14,8 @@ class Auth {
     //using the axios call login method in util api call the back end serer ("/userApi/login"), taking userLogin info then console the data.data, then return back to util login
     API.login({
       user: {
-        email: "123@gm.com",
-        password: "12345"
+        email: "cactus@123.com",
+        password: "$2b$10$Dn2L0zIEs4sDj5S/JUDSf.e7yamYygrLRbDa6LgAavB6LGnrPAliS"
       }
     })
       .then(data => {
