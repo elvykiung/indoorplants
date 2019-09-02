@@ -1,6 +1,5 @@
 const db = require("../models/plantCare");
 const dbUser = require("../models/user")
-const dbPlant = require("../models/plant")
 const axios = require("axios");
 
 module.exports = {
@@ -10,18 +9,18 @@ module.exports = {
         const user = req.body.userid;
         // const user = '5d6c4caaa690e74728dec99e'
         db.find({ user: user })
-            .populate("Plant")
+            .populate("plant")
             .then(data => res.json(data))
             .catch(err => res.status(422).json(err));
     },
 
     //find by id will display individual plant data for the detail page
-    //testing notes: works except for populate
+    //testing notes: everything works, including populate
     findByID: function (req, res) {
-        // const plantCareID = '5d6894b509b2112328a5970b';
+        // const plantCareID = '5d6c533f3096ac3b3c5cf44c';
         const plantCareID = req.body.plantid;
         db.find({ _id: plantCareID })
-            .populate("dbPlant.plant")
+            .populate("plant")
             .sort({ date: -1 })
             .then(data => res.json(data))
             .catch(err => res.status(422).json(err));
