@@ -4,15 +4,15 @@
 //   Care Detail (data from database)
 //   ( Later feature) Add Plant button to insert data to user collation database
 //   Sticky bottom navbar
-import React, { Component } from "react";
-import AddButton from "../components/AddButton/AddButton";
-import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Card from "react-bootstrap/Card";
+import React, { Component } from 'react';
+import AddButton from '../components/AddButton/AddButton';
+import Container from 'react-bootstrap/Container';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+import Card from 'react-bootstrap/Card';
 // import ListItems from "../components/ListItems";
-import API from "../utils/API";
-import Image from "react-bootstrap/Image";
+import API from '../utils/API';
+import Image from 'react-bootstrap/Image';
 
 class DetailPlant extends Component {
   constructor() {
@@ -35,8 +35,10 @@ class DetailPlant extends Component {
         if (res.data.length > 0) {
           // only get the first plant and keep it
           this.setState({
-            plant: res.data[0]
-          });
+          ifResults: true,
+          results:res.data,
+          plant: res.data[0]
+        });
         }
         console.log(this.state.plant);
       })
@@ -48,26 +50,33 @@ class DetailPlant extends Component {
       <Container>
         <Row>
           <Col size="md-12">
-            <Card>
+            <Card style={{ paddingLeft:"5%", paddingRight:"5%", paddingTop:"2%" }}>
               {/* {this.props.match.params.plantName} */}
-              <Image align="left" src={(this.state.plant.category && this.state.plant.category[0] === "rare") ?
-                  this.state.plant.image : "http://www.costafarms.com/CostaFarms/" + this.state.plant.image
-
-                  } />
+              <Image
+                align="left"
+                src={
+                  this.state.plant.category && this.state.plant.category[0] === 'rare'
+                    ? this.state.plant.image
+                    : 'http://www.costafarms.com/CostaFarms/' + this.state.plant.image
+                }
+              />
               <h3 className="text-center">{this.state.plant.commonName}</h3>
               <h4 className="text-center">({this.state.plant.scientificName})</h4>
-              <p><h4>Description: </h4>{this.state.plant.fullDescription}</p>
-              <p><h4>Care Instructions: </h4>{this.state.plant.growInstructions}</p>
-             
-              
-              {console.log("inside render: " + JSON.stringify(this.state.plant))}
+              <p>
+                <h4>Description:{this.state.plant.fullDescription} </h4>
+              </p>
+              <p>
+                <h4>Care Instructions: {this.state.plant.growInstructions}</h4>
+              </p>
+
+              {/* {console.log("inside render: " + JSON.stringify(this.state.plant))} */}
             </Card>
           </Col>
         </Row>
         <div>
           <AddButton onClick={this.handleFormSubmit} className="btn btn-info">
-            {" "}
-            Add Plant{" "}
+            {' '}
+            Add Plant{' '}
           </AddButton>
         </div>
       </Container>

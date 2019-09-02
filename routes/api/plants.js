@@ -24,10 +24,21 @@ router.route("/plants/category/:category").get(plantsController.findByCategory);
 router.route("/plants/id/:id").get(plantsController.findByID);
 module.exports = router;
 
-// LoginHome matches with "/api" 
-router
-  .route("/")
-  .get(plantsController.findAll)
-  .post(plantsController.create);
+// // LoginHome matches with "/api" 
+// router
+//   .route("/")
+//   .get(plantsController.findAll)
+//   .post(plantsController.create);
 
-  
+//   //Login matches with "/api/login" 
+// router
+//   .route("/home/login")
+//   .get(plantsController.findAll)
+//   .post(plantsController.create);
+
+//    //Signup matches with "/api/signup" 
+// router
+// .route("/home/signup")
+// .get(plantsController.findAll)
+// .post(plantsController.create);
+
