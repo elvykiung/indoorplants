@@ -1,30 +1,40 @@
 const db = require("../models/plantCare");
 const dbUser = require("../models/user")
+const dbPlant = require("../models/plant")
 const axios = require("axios");
 
 module.exports = {
     //display all plants associated with the given user
+    //testing notes - working, except for the populate part 
     find: function (req, res) {
-        user = req.params.userid;
-        db.plantCare.find({ user: user })
-            .populate("plant")
+        const user = req.body.userid;
+        // const user = '5d67598b1c9d440000a8a3c2'
+        db.find({ user: user })
+            .populate("dbPlant.plant")
             .then(data => res.json(data))
             .catch(err => res.status(422).json(err));
     },
 
     //find by id will display individual plant data for the detail page
+    //testing notes: works except for populate
     findByID: function (req, res) {
-        db.plantCare.find({ _id: req.params.id })
-            .populate("plant")
+        // const plantCareID = '5d6894b509b2112328a5970b';
+        const plantCareID = req.body.plantid;
+        db.find({ _id: plantCareID })
+            .populate("dbPlant.plant")
             .sort({ date: -1 })
             .then(data => res.json(data))
             .catch(err => res.status(422).json(err));
     },
 
     //this updates the last watered date
-    findByIDAndUpdate: function (req, res) {
-        waterDate = req.body.date;
-        db.plantCare.findByIDAndUpdate({ _id: req.body.id },
+    findByIdAndUpdate: function (req, res) {
+        const waterDate = req.body.date;
+        const plantCareID = req.body.id;
+        // const waterDate = '2019-08-02';
+        // const plantCareID = '5d6c52fc69418e359ca86d62';
+        db.findByIdAndUpdate(
+            { _id: plantCareID },
             { $push: { wateredDates: waterDate } },
             { new: true }
         )
@@ -36,7 +46,10 @@ module.exports = {
     create: function (req, res) {
         const plant = req.body.plantID;
         const user = req.body.userID;
-        db.plantCare.create(
+        // testing notes: route & db call working
+        // const plant = "5d5b5fa71660e82850bb28e9";
+        // const user = "5d67598b1c9d440000a8a3c2";
+        db.create(
             {
                 plant: plant,
                 user: user
@@ -45,7 +58,7 @@ module.exports = {
             .then(function (res) {
                 // If a plantCare document was created successfully, push that plantCare object's ID
                 // to the corresponding User record.
-                return dbUser.User.findByIDAndUpdate({ user: res.user }, { $push: { plant: dbplantCare._id } }, { new: true });
+                return dbUser.findByIDAndUpdate({ _id: res.user }, { $push: { userPlants: res._id } }, { new: true });
             })
             .then(function (dbUser) {
                 // If the user was updated successfully, send it back to the client
@@ -59,7 +72,10 @@ module.exports = {
     },
 
     delete: function (req, res) {
-        db.plantCare.remove({ _id: req.params.id })
+        const plantCareID = req.body.plantCareID;
+        //testing notes - route & db call working
+        // const plantCareID = '5d68968ba46db31a50ae2da8';
+        db.remove({ _id: plantCareID })
             .then(data => res.json(data))
             .catch(err => res.status(422).json(err));
     }

@@ -19,23 +19,23 @@ export default {
   //these routes are not necessary for the MVP but we will use them later:
 
   // Gets all plants saved to user
-  getMyPlants: function (userid) {
-    return axios.get("/api/myplants/" + userid);
+  getMyPlants: function () {
+    return axios.get("/api/myplants/");
   },
   // Gets plant for detail page
-  getMyPlantDetail: function (plantid) {
-    return axios.get("/api/myplant/detail/" + plantid);
+  getMyPlantDetail: function () {
+    return axios.get("/api/myplant/detail/");
   },
   //updates the watered date
-  updateMyPlant: function (data) {
-    return axios.post("/api/update/myplant", data)
+  updateMyPlant: function () {
+    return axios.get("/api/update/myplant/")
   },
   // Deletes the saved plant with the given id
-  deleteMyPlant: function (plantid) {
-    return axios.delete("/api/delete/myplant/" + plantid);
+  deleteMyPlant: function () {
+    return axios.delete("/api/delete/myplant/");
   },
   // Saves a plant to the user
-  saveMyPlant: function (plantData) {
-    return axios.create("/api/save/myplant", plantData);
+  saveMyPlant: function () {
+    return axios.create("/api/save/myplant");
   }
 };

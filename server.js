@@ -32,6 +32,9 @@ connection.once("open", () => {
   console.log("MongoDB database connection established successfully");
 });
 
+
+mongoose.set('useFindAndModify', false);
+
 // Define API routes here
 app.use(routes);
 
