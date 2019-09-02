@@ -19,7 +19,8 @@ module.exports = {
   //testing notes: everything works, including populate
   findByID: function(req, res) {
     // const plantCareID = '5d6c533f3096ac3b3c5cf44c';
-    const plantCareID = req.body.plantid;
+    // const plantCareID = req.body.plantid;
+    const plantCareID = req.params.plantId;
     db.find({ _id: plantCareID })
       .populate("plant")
       .sort({ date: -1 })
@@ -41,7 +42,7 @@ module.exports = {
   //the create query creates a "plantCare" object & associates it with the user
   create: function(req, res) {
     const plant = req.body.plantID;
-    const user = req.body.userID;
+    const user = req.user;
     // testing notes: route & db call working
     // const plant = "5d5b5fa71660e82850bb28e9";
     // const user = "5d67598b1c9d440000a8a3c2";
@@ -52,14 +53,16 @@ module.exports = {
       .then(function(res) {
         // If a plantCare document was created successfully, push that plantCare object's ID
         // to the corresponding User record.
-        return dbUser.findByIDAndUpdate({ _id: res.user }, { $push: { userPlants: res._id } }, { new: true });
+        return dbUser.findByIdAndUpdate(user, { $push: { userPlants: res._id } }, { new: true });
       })
       .then(function(dbUser) {
         // If the user was updated successfully, send it back to the client
+
         res.json(dbUser);
       })
       .catch(function(err) {
         // If an error occurs, send it back to the client
+
         res.json(err);
       });
   },

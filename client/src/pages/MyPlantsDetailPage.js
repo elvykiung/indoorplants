@@ -6,10 +6,36 @@ import NavUser from '../components/NavUser';
 import UserToDo from '../components/PlantToDoList';
 import UserPlantsHistory from '../components/UserPlantsHistory';
 import DetailPlant from './DetailPlant';
+import API from "../utils/API";
 
 class MyPlantsDetail extends Component {
-  state = {
-    currentPage: 'todo'
+  constructor() {
+    super();
+    this.state = {
+      currentPage: 'todo',
+      plantCare: {}
+    };
+  }
+
+  componentWillMount() {
+    this.getUserPlants();
+  }
+
+  getUserPlants = () => {
+    API.getMyPlantDetail(this.props.match.params.plantId)
+      .then(res => {
+
+        
+        console.log(res.data[0]);
+        this.setState({
+          ifResults: true,
+         
+          plantCare: res.data[0]
+        });
+  
+     
+      })
+      .catch(err => console.log(err));
   };
 
   handleTabChange = page => {
@@ -27,10 +53,12 @@ class MyPlantsDetail extends Component {
   };
 
   render() {
+
+    if(this.state.plantCare.plant == null){return <p>Loading</p>}
     return (
       <Container className="text-center">
         <Jumbotron>
-          <h1>Plat Name</h1>
+          <h1>Plat Name:{this.state.plantCare.plant.commonName} </h1>
         </Jumbotron>
 
         <Image src="https://houseraccoon.com/wp-content/uploads/2019/05/Monstera-Deliciosa-Albo-Variegata.jpg" rounded style={{ height: '450px' }} />

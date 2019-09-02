@@ -23,8 +23,8 @@ export default {
     return axios.get("/api/myplants/");
   },
   // Gets plant for detail page
-  getMyPlantDetail: function () {
-    return axios.get("/api/myplant/detail/");
+  getMyPlantDetail: function (plantId) {
+    return axios.get("/api/myplant/detail/"+plantId);
   },
   //updates the watered date
   updateMyPlant: function () {
