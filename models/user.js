@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-//const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 //validate email with regex
 const validateEmail = function (email) {
@@ -15,14 +15,6 @@ const userSchema = new mongoose.Schema({
         required: true,
         trim: true,
         unique: true,
-    },
-    firstName: {
-        type: String,
-        default: ''
-    },
-    lastName: {
-        type: String,
-        default: ''
     },
     password: {
         type: String,
@@ -56,12 +48,28 @@ const userSchema = new mongoose.Schema({
     ]
 });
 
-userSchema.methods.generateHash = function (password) {
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-};
-userSchema.methods.validPassword = function (password) {
-    return bcrypt.compareSync(password, this.password);
-};
+// Define schema methods
+userSchema.methods = {
+	checkPassword: function (inputPassword) {
+		return bcrypt.compareSync(inputPassword, this.password)
+	},
+	hashPassword: plainTextPassword => {
+		return bcrypt.hashSync(plainTextPassword, 10)
+	}
+}
+
+// Define hooks for pre-saving
+userSchema.pre('save', function (next) {
+	if (!this.password) {
+		console.log('models/user.js =======NO PASSWORD PROVIDED=======')
+		next()
+	} else {
+		console.log('models/user.js hashPassword in pre save');
+		
+		this.password = this.hashPassword(this.password)
+		next()
+	}
+})
 
 const User = mongoose.model("User", userSchema);
 

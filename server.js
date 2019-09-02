@@ -2,11 +2,16 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const passport = require('./passport');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session)
 dotenv.config();
 
 // modules
 
 const routes = require("./routes");
+// authentication route requires 
+const user = require('./routes/api/user')
 
 //set Express connection
 const PORT = process.env.PORT || 3001;
@@ -34,6 +39,24 @@ connection.once("open", () => {
 
 
 mongoose.set('useFindAndModify', false);
+
+// Sessions
+app.use(
+	session({
+		secret: 'secret', 
+		store: new MongoStore({ mongooseConnection: connection }),
+		resave: false, //required
+		saveUninitialized: false //required
+	})
+)
+
+
+// Passport
+app.use(passport.initialize())
+app.use(passport.session()) // calls the deserializeUser
+
+// Routes for user
+app.use('/api/user', user)
 
 // Define API routes here
 app.use(routes);

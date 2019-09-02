@@ -3,38 +3,72 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
 import { Link } from 'react-router-dom';
-import auth from '../auth';
 import Button from "react-bootstrap/Button";
-// import API from "../utils/API";
-// import ListItems from "../components/ListItems";
+import axios from 'axios';
 
 class MyPlantsMain extends Component {
-  //need to set the state to reflect the user's plant info - I think this will depend on how
-  //the user id is made available via authentication?
-  state = {
-    user: []
-  };
+  constructor() {
+    super()
+    this.logout = this.logout.bind(this)
+    this.state = {
+      loggedIn: false,
+      username: null
+    }
 
-  // componentDidMount() {
-  //     this.getUserPlants();
-  // }
+    this.getUser = this.getUser.bind(this)
+    this.componentDidMount = this.componentDidMount.bind(this)
+    this.updateUser = this.updateUser.bind(this)
+  }
 
-  // getUserPlants = () => {
-  //     API.getUserPlants(userid) //
-  //         .then(res =>
-  //             this.setState({
-  //                 ifResults: true,
-  //                 user: res.data
-  //             })
-  //         )
-  //         .catch(err => console.log(err));
-  // };
+  componentDidMount() {
+    this.getUser()
+  }
+
+  updateUser (userObject) {
+    this.setState(userObject)
+  }
+
+  getUser() {
+    axios.get('/api/user/').then(response => {
+      console.log('Get user response: ')
+      console.log(response.data)
+      if (response.data.user) {
+        console.log('Get User: There is a user saved in the server session: ')
+
+        this.setState({
+          loggedIn: true,
+          username: response.data.user.username
+        })
+      } else {
+        console.log('Get user: no user');
+        this.props.history.push('/LogIn');
+      }
+    })
+  }
+
+  logout(event) {
+    event.preventDefault()
+    console.log('logging out')
+    axios.post('/api/user/logout').then(response => {
+      console.log(response.data)
+      this.props.history.push('/');
+    }).catch(error => {
+        console.log('Logout error:' + error)
+    })
+  }
+
+
+
+
 
   render() {
     return (
       <Container>
-        <Jumbotron fluid className="text-center">
-          <h1 className="text-primary">Your Plants</h1>
+        <Jumbotron fluid className="text-center" >
+            {/* User's plant if logged in: */}
+            {this.state.loggedIn && 
+          <h1 className="text-primary">Welcome {this.state.username}! Your Plants</h1>
+          }
         </Jumbotron>
 
         <div>
@@ -47,12 +81,8 @@ class MyPlantsMain extends Component {
                 />
               </Link>
               <div>
-              <Button  onClick={() => {
-            auth.login(() => {
-              this.props.history.push('/');
-            });
-          }}
-          variant="primary" type="submit">
+              <Button  onClick={this.logout}
+              variant="primary" type="submit">
             Log out
           </Button>
           </div>
