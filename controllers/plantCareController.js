@@ -8,9 +8,9 @@ module.exports = {
     //testing notes - working, except for the populate part 
     find: function (req, res) {
         const user = req.body.userid;
-        // const user = '5d67598b1c9d440000a8a3c2'
+        // const user = '5d6c4caaa690e74728dec99e'
         db.find({ user: user })
-            .populate("dbPlant.plant")
+            .populate("Plant")
             .then(data => res.json(data))
             .catch(err => res.status(422).json(err));
     },
