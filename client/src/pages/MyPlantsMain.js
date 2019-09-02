@@ -60,6 +60,7 @@ class MyPlantsMain extends Component {
             <div>
               {console.log(this.state.user)}
               <p>{this.state.user.email}</p>
+              <p>{this.state.user.userPlants}</p>
 
               <h1 className="heading-title mx-sm-3 mb-2 text-center">Your Saved Plants</h1>
               <Link as={Link} to="/myPlants/detail">

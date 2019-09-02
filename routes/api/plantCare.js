@@ -6,7 +6,7 @@ const plantCareController = require("../../controllers/plantCareController");
 router.route("/myplants/:userid").get(plantCareController.find);
 
 // Matches with "/api/myplant/detail/:plantid"; gets plants for plant detail view
-router.route("/myplant/detail/:plantid").get(plantCareController.findByID);
+router.route("/myplants/detail/:plantid").get(plantCareController.findByID);
 
 //update the date the plant was last watered
 router.route("/update/myplant").post(plantCareController.findByIDAndUpdate);

@@ -6,18 +6,16 @@ module.exports = {
   //display all plants associated with the given user
   find: function(req, res) {
     user = req.params.userid;
-    db.plantCare
-      .find({ user: user })
-      .populate("plant")
+    db.find({ user: user })
+      .populate("Plant")
       .then(data => res.json(data))
       .catch(err => res.status(422).json(err));
   },
 
   //find by id will display individual plant data for the detail page
   findByID: function(req, res) {
-    db.plantCare
-      .find({ _id: req.params.id })
-      .populate("plant")
+    db.find({ _id: req.params.plantid })
+      .populate("Plant")
       .sort({ date: -1 })
       .then(data => res.json(data))
       .catch(err => res.status(422).json(err));
@@ -26,8 +24,7 @@ module.exports = {
   //this updates the last watered date
   findByIDAndUpdate: function(req, res) {
     waterDate = req.body.date;
-    db.plantCare
-      .findByIDAndUpdate({ _id: req.body.id }, { $push: { wateredDates: waterDate } }, { new: true })
+    db.findByIDAndUpdate({ _id: req.body.id }, { $push: { wateredDates: waterDate } }, { new: true })
       .then(data => res.json(data))
       .catch(err => res.status(422).json(err));
   },
@@ -36,11 +33,10 @@ module.exports = {
   create: function(req, res) {
     const plant = req.body.plantID;
     const user = req.body.userID;
-    db.plantCare
-      .create({
-        plant: plant,
-        user: user
-      })
+    db.create({
+      plant: plant,
+      user: user
+    })
       .then(function(res) {
         // If a plantCare document was created successfully, push that plantCare object's ID
         // to the corresponding User record.
