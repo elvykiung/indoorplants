@@ -9,19 +9,19 @@ var plantCareSchema = new Schema({
     plant:
     {// store plant id
         type: Schema.Types.ObjectId,
-        ref: "plant"
+        ref: "Plant"
     },
 
     user:
     { //store user id
         type: Schema.Types.ObjectId,
-        ref: "user"
+        ref: "User"
 
     },
     // store watered dates as an array
     wateredDates: [
         {
-            type: date
+            type: Date
         }
     ]
 
