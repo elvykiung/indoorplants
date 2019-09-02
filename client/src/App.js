@@ -11,7 +11,6 @@ import DetailPlant from "./pages/DetailPlant";
 import StickyBottom from "./components/Nav";
 import MyPlantsMain from "./pages/MyPlantsMain";
 import MyPlantsDetail from "./pages/MyPlantsDetailPage";
-import { ProtectedRoute } from "./protected.route";
 
 function App() {
   return (
@@ -19,7 +18,7 @@ function App() {
       <div>
         <Switch>
           {/* <Route exact path="/home" component={LoginHome} /> */}
-          <ProtectedRoute exact path="/myPlants" component={MyPlantsMain} />
+          <Route exact path="/myPlants" component={MyPlantsMain} />
           <Route exact path="/" component={LoginHome} />
           <Route exact path="/myPlants/detail" component={MyPlantsDetail} />
           <Route exact path="/search" component={SearchMain} />

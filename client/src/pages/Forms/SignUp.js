@@ -5,14 +5,50 @@ import Card from "react-bootstrap/Card";
 import AddButton from "../../components/AddButton/AddButton";
 import "./style.css";
 import leaf from "./leaf.png";
+import axios from 'axios';
 
-class Login extends Component {
-  constructor(props) {
-    super(props);
+class SignUp extends Component {
+  constructor(){
+    super();
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      email: '',
+      confirmPassword: ''
     }
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+  handleSubmit(event) {
+    console.log('sign-up handleSubmit, username: ')
+    console.log(this.state.username)
+    event.preventDefault()
+
+    //request to server to add a new username/password
+    axios.post('/api/user/', {
+      username: this.state.username,
+      password: this.state.password,
+      email: this.state.email
+    })
+      .then(response => {
+        console.log(response)
+        if (!response.data.errmsg) {
+          console.log('successful signup')
+          this.props.history.push('/login');
+          } else {
+          console.log('username already taken')
+        }
+      }).catch(error => {
+        console.log('signup error: ')
+        console.log(error)
+
+      })
   }
 
   render() {
@@ -26,22 +62,41 @@ class Login extends Component {
               
             </Card.Title>
             <Form style={{ textAlign: "center", paddingTop: "10%" }}>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Control type="Email" placeholder="Email" style={{ width: "50%", marginLeft: "25%", backgroundColor: "transparent"}}/>
+            <Form.Group >
+                <Form.Control type="text" placeholder="User Name" style={{ width: "50%", marginLeft: "25%", backgroundColor: "transparent"}}
+                                           id="username"
+                                           name="username"
+                                           value={this.state.username}
+                                           onChange={this.handleChange} 
+                              />
+                <Form.Text style={{ fontSize: "18px" }} className="text">
+              </Form.Text>
+              </Form.Group>
+
+              <Form.Group >
+                <Form.Control type="Email" placeholder="Email" style={{ width: "50%", marginLeft: "25%", backgroundColor: "transparent"}}
+                         id="email"
+                         name="email"
+                         value={this.state.email}
+                         onChange={this.handleChange}
+                />
                 <Form.Text style={{ fontSize: "18px" }} className="text">
                   We'll never share your email with anyone else.
               </Form.Text>
               </Form.Group>
 
-              <Form.Group controlId="formBasicPassword">
-                <Form.Control style={{ width: "50%", marginLeft: "25%",backgroundColor: "transparent"}} type="password" placeholder="Password" />
+              <Form.Group >
+                <Form.Control style={{ width: "50%", marginLeft: "25%",backgroundColor: "transparent"}} type="password" placeholder="Password" 
+                   name="password"
+                   value={this.state.password}
+                   onChange={this.handleChange}                />
               </Form.Group>
               <Form.Group controlId="formBasicChecbox">
                 <Form.Check type="checkbox" label="Check me out" />
               </Form.Group>
-              <AddButton variant="primary" type="submit" style={{ backgroundColor: "transparent", paddingLeft: "10%", paddingRight: "10%" }}>
+              <AddButton variant="primary" type="submit" style={{ backgroundColor: "transparent", paddingLeft: "10%", paddingRight: "10%" }} onClick={this.handleSubmit}>
                 Sign Up
-  </AddButton>
+            </AddButton>
             </Form>
           </Card.ImgOverlay>
         </Card>
@@ -50,4 +105,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default SignUp;
