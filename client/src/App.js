@@ -25,7 +25,7 @@ function App() {
         {/* Routes to different components */}
           <Switch>
             {/* <Route exact path="/home" component={LoginHome} /> */}
-            <Route exact path="/myPlants" component={MyPlantsMain} />
+            <Route  exact path="/myPlants" component={MyPlantsMain} />
             <Route exact path="/" component={LoginHome} />
             <Route exact path="/signup" component={SignUp} />
             <Route exact path={'/login'} component={LogIn} />

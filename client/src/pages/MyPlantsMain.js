@@ -10,26 +10,6 @@ import { Link } from 'react-router-dom';
 // import ListItems from "../components/ListItems";
 
 class MyPlantsMain extends Component {
-  //need to set the state to reflect the user's plant info - I think this will depend on how
-  //the user id is made available via authentication?
-  // state = {
-  //   user: []
-  // };
-
-  // componentDidMount() {
-  //     this.getUserPlants();
-  // }
-
-  // getUserPlants = () => {
-  //     API.getUserPlants(userid) //
-  //         .then(res =>
-  //             this.setState({
-  //                 ifResults: true,
-  //                 user: res.data
-  //             })
-  //         )
-  //         .catch(err => console.log(err));
-  // };
 
   constructor() {
     super()
@@ -65,10 +45,7 @@ class MyPlantsMain extends Component {
         })
       } else {
         console.log('Get user: no user');
-        this.setState({
-          loggedIn: false,
-          username: null
-        })
+        this.props.history.push('/LogIn');
       }
     })
   }
@@ -79,12 +56,6 @@ class MyPlantsMain extends Component {
     axios.post('/api/user/logout').then(response => {
       console.log(response.data)
       this.props.history.push('/');
-      // if (response.status === 200) {
-      //   this.setState({
-      //     loggedIn: false,
-      //     username: null
-      //   })
-      // }
     }).catch(error => {
         console.log('Logout error:' + error)
     })
