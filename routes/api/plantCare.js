@@ -9,7 +9,7 @@ router.route("/myplants/").get(plantCareController.find);
 router.route("/myplant/detail/:plantId").get(plantCareController.findByID);
 
 //update the date the plant was last watered
-router.route("/update/myplant/").put(plantCareController.findByIdAndUpdate);
+router.route("/update/myplant/").post(plantCareController.findByIdAndUpdate);
 
 //save plant
 router.route("/save/myplant/").post(plantCareController.create);

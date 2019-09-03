@@ -42,7 +42,7 @@ class MyPlantsDetail extends Component {
     if (this.state.currentTab === "todo") {
       return <UserToDo />;
     } else if (this.state.currentTab === "history") {
-      return <UserPlantsHistory />;
+      return <UserPlantsHistory wateredData={this.state.plantCare.wateredDates} />;
     } else if (this.state.currentTab === "DetailPlant") {
       return <DetailPlant />;
     }
@@ -56,7 +56,6 @@ class MyPlantsDetail extends Component {
       <Container className="text-center">
         <Jumbotron>
           <h1>{this.state.plantCare.plant.commonName} </h1>
-          <p>{this.state.plantCare.plant._id}</p>
         </Jumbotron>
 
         <Image src={"http://www.costafarms.com/CostaFarms/" + this.state.plantCare.plant.image} rounded style={{ height: "450px" }} />

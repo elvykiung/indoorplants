@@ -27,8 +27,8 @@ export default {
     return axios.get("/api/myplant/detail/" + plantId);
   },
   //updates the watered date
-  updateMyPlant: function() {
-    return axios.get("/api/update/myplant/");
+  updateMyPlant: function(waterData) {
+    return axios.post("/api/update/myplant/", waterData);
   },
   // Deletes the saved plant with the given id
   deleteMyPlant: function() {

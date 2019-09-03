@@ -1,6 +1,5 @@
 const db = require("../models/plantCare");
 const dbUser = require("../models/user");
-const axios = require("axios");
 
 module.exports = {
   //display all plants associated with the given user

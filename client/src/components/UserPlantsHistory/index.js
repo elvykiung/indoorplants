@@ -1,21 +1,24 @@
-import React, { Component } from 'react';
-import Container from 'react-bootstrap/Container';
-import ListGroup from 'react-bootstrap/ListGroup';
+import React from "react";
+import Container from "react-bootstrap/Container";
+// import ListGroup from "react-bootstrap/ListGroup";
 // import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
-class UserPlantsHistory extends Component {
-  state = {};
-  render() {
-    return (
-      <Container style={{ marginBottom: '50%' }}>
-        <h2>History</h2>
-        <ListGroup>
-          <ListGroup.Item className="mx-2">Water</ListGroup.Item>
-          <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-        </ListGroup>
-      </Container>
-    );
-  }
+export function UserPlantsHistory(props) {
+  return (
+    <Container style={{ marginBottom: "50%" }}>
+      <h2>History</h2>
+      <Row>
+        <Col className="mx-2">
+          <p>Water</p>
+        </Col>
+        <Col>
+          <p>Last Water Data: {props.wateredData}</p>
+        </Col>
+      </Row>
+    </Container>
+  );
 }
 
 export default UserPlantsHistory;
