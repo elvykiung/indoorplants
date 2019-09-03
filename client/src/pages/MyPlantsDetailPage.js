@@ -59,7 +59,7 @@ class MyPlantsDetail extends Component {
           <p>{this.state.plantCare.plant._id}</p>
         </Jumbotron>
 
-        <Image src={this.state.plantCare.plant.category[0] === "rare" ? this.state.plantCare.plant.image : "http://www.costafarms.com/CostaFarms/" + this.state.plantCare.plant.image} rounded style={{ height: "450px" }} />
+        <Image src={"http://www.costafarms.com/CostaFarms/" + this.state.plantCare.plant.image} rounded style={{ height: "450px" }} />
 
         <NavUser currentTab={this.state.currentTab} handleTabChange={this.handleTabChange} id={this.state.plantCare.plant._id} />
         {this.renderPage()}
