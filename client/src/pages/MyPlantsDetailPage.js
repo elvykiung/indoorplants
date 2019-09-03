@@ -58,10 +58,10 @@ class MyPlantsDetail extends Component {
     return (
       <Container className="text-center">
         <Jumbotron>
-          <h1>Plat Name:{this.state.plantCare.plant.commonName} </h1>
+          <h1>{this.state.plantCare.plant.commonName} </h1>
         </Jumbotron>
 
-        <Image src="https://houseraccoon.com/wp-content/uploads/2019/05/Monstera-Deliciosa-Albo-Variegata.jpg" rounded style={{ height: '450px' }} />
+        <Image src={"http://www.costafarms.com/CostaFarms/"+this.state.plantCare.plant.image} rounded style={{ height: '450px' }} />
 
         <NavUser currentPage={this.state.currentPage} handleTabChange={this.handleTabChange} />
         {this.renderPage()}
