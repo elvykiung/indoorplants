@@ -41,7 +41,7 @@ class MyPlantsMain extends Component {
         })
       } else {
         console.log('Get user: no user');
-        this.props.history.push('/LogIn');
+        this.props.history.push('/');
       }
     })
   }
