@@ -44,8 +44,8 @@ class MyPlantsMain extends Component {
           username: response.data.user.username
         });
       } else {
-        // console.log("Get user: no user");
-        this.props.history.push("/LogIn");
+        console.log("Get user: no user");
+        this.props.history.push("/");
       }
     });
   }
@@ -92,10 +92,13 @@ class MyPlantsMain extends Component {
                 <Container>
                   {this.state.userPlants.map(plant => (
                     // console.log(plant.plant)
-                    <ToDoItems 
-                    // commonName={plant.plant.commonName} 
-                    key={plant.plant._id}
-                    image={"http://www.costafarms.com/CostaFarms/" + plant.plant.image} alt={plant.plant.imageAlt}  id={plant._id}/>
+                    <ToDoItems
+                      // commonName={plant.plant.commonName}
+                      key={plant.plant._id}
+                      image={"http://www.costafarms.com/CostaFarms/" + plant.plant.image}
+                      alt={plant.plant.imageAlt}
+                      id={plant._id}
+                    />
                   ))}
                 </Container>
               ) : (
