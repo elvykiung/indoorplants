@@ -104,14 +104,7 @@ class MyPlantsMain extends Component {
               ) : (
                 <h2 className="text-center">No Plants Match Your Criteria</h2>
               )}
-              {/* <Container>
-                {this.state.userPlants.map(
-                  plant => console.log(plant)
-                  // <Link as={Link} to="/myPlants/detail">
-                  //   <Image src="https://houseraccoon.com/wp-content/uploads/2019/05/Monstera-Deliciosa-Albo-Variegata.jpg" rounded style={{ height: "250px" }} />
-                  // </Link>
-                )}
-              </Container> */}
+
               <div>
                 <Button onClick={this.logout} variant="primary" type="submit">
                   Log out
