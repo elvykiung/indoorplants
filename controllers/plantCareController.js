@@ -41,7 +41,7 @@ module.exports = {
 
   //the create query creates a "plantCare" object & associates it with the user
   create: function(req, res) {
-    const plant = req.body.plantID;
+    const plant = req.body.plant;
     const user = req.user;
     // testing notes: route & db call working
     // const plant = "5d5b5fa71660e82850bb28e9";

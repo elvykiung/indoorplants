@@ -12,7 +12,7 @@ class MyPlantsDetail extends Component {
   constructor() {
     super();
     this.state = {
-      currentPage: "todo",
+      currentTab: "todo",
       plantCare: {}
     };
   }
@@ -34,16 +34,16 @@ class MyPlantsDetail extends Component {
       .catch(err => console.log(err));
   };
 
-  handleTabChange = page => {
-    this.setState({ currentPage: page });
+  handleTabChange = tab => {
+    this.setState({ currentTab: tab });
   };
 
   renderPage = () => {
-    if (this.state.currentPage === "todo") {
+    if (this.state.currentTab === "todo") {
       return <UserToDo />;
-    } else if (this.state.currentPage === "history") {
+    } else if (this.state.currentTab === "history") {
       return <UserPlantsHistory />;
-    } else if (this.state.currentPage === "DetailPlant") {
+    } else if (this.state.currentTab === "DetailPlant") {
       return <DetailPlant />;
     }
   };
@@ -56,11 +56,12 @@ class MyPlantsDetail extends Component {
       <Container className="text-center">
         <Jumbotron>
           <h1>{this.state.plantCare.plant.commonName} </h1>
+          <p>{this.state.plantCare.plant._id}</p>
         </Jumbotron>
 
-        <Image src={"http://www.costafarms.com/CostaFarms/" + this.state.plantCare.plant.image} rounded style={{ height: "450px" }} />
+        <Image src={this.state.plantCare.plant.category[0] === "rare" ? this.state.plantCare.plant.image : "http://www.costafarms.com/CostaFarms/" + +this.state.plantCare.plant.image} rounded style={{ height: "450px" }} />
 
-        <NavUser currentPage={this.state.currentPage} handleTabChange={this.handleTabChange} />
+        <NavUser currentTab={this.state.currentTab} handleTabChange={this.handleTabChange} id={this.state.plantCare.plant._id} />
         {this.renderPage()}
       </Container>
     );
