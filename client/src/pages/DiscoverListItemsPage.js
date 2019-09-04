@@ -1,15 +1,8 @@
-// Feature
-//   map logic to pass data from database
-//   sticky top component get the title name from discover main
-//   list item component
-//   Sticky bottom navbar component
-
 import React, { Component } from "react";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-
 import API from "../utils/API";
 import ListItems from "../components/ListItems";
 

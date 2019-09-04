@@ -1,19 +1,16 @@
-// Sticky bottom navbar
+// Sticky bottom navbar if mobile size
 //  Set route to each page "/myPlants", "/search", "/discover"
-import React from 'react';
-import Nav from 'react-bootstrap/Nav';
-import { Link } from 'react-router-dom';
-import { useMediaQuery } from 'react-responsive';
-// import Navbar from "react-bootstrap/Navbar";
-import './style.css';
-
+import React from "react";
+import Nav from "react-bootstrap/Nav";
+import { Link } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
+import "./style.css";
 
 function StickyBottom() {
-
-  const isMobile = useMediaQuery({ query: '(max-width: 426px)' });
+  const isMobile = useMediaQuery({ query: "(max-width: 426px)" });
 
   return (
-    <div className={isMobile? "fixed-bottom":"fixed-top"}>
+    <div className={isMobile ? "fixed-bottom" : "fixed-top"}>
       <Nav className="navbar justify-content-center font-weight-bold">
         <Nav.Item className="link">
           <Nav.Link as={Link} to="/myPlants">

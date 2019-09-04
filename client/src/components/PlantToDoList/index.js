@@ -5,7 +5,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
-// import "./style.css";
 
 export function UserToDo(props) {
   const styleObj = {
@@ -20,7 +19,6 @@ export function UserToDo(props) {
         </Col>
         <Col>
           <DatePicker selected={props.startDate} onChange={props.onChange} className="mt-2" />
-          {/* <p>{this.state.startDate}</p> */}
         </Col>
         <Col>
           <Button variant="outline-primary" onClick={props.onClick} style={styleObj}>

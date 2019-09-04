@@ -1,16 +1,8 @@
-// Feature
-//   Sticky top with scientific plant name
-//   Pic (data from database)
-//   Care Detail (data from database)
-//   ( Later feature) Add Plant button to insert data to user collation database
-//   Sticky bottom navbar
 import React, { Component } from "react";
-// import AddButton from "../components/AddButton/AddButton";
 import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
-// import ListItems from "../components/ListItems";
 import API from "../utils/API";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
@@ -66,9 +58,7 @@ class DetailPlant extends Component {
         <Row>
           <Col size="md-12">
             <Card style={{ paddingLeft: "5%", paddingRight: "5%", paddingTop: "2%" }}>
-              <Image style={{ width: "400px" }} rounded align="left" className="mx-auto d-block" 
-              
-              src={this.state.plant.category && this.state.plant.category[0] === "rare" ? this.state.plant.image : "http://www.costafarms.com/CostaFarms/" + this.state.plant.image} />
+              <Image style={{ width: "400px" }} rounded align="left" className="mx-auto d-block" src={this.state.plant.category && this.state.plant.category[0] === "rare" ? this.state.plant.image : "http://www.costafarms.com/CostaFarms/" + this.state.plant.image} />
 
               <h3 className="text-center">{this.state.plant.commonName}</h3>
               <h4 className="text-center">{this.state.plant.scientificName}</h4>
@@ -78,11 +68,6 @@ class DetailPlant extends Component {
           </Col>
         </Row>
         <div>
-          {/* <AddButton onClick={this.handleFormSubmit} className="btn btn-info">
-            {" "}
-            Add Plant{" "}
-          </AddButton> */}
-
           <Button variant="primary" size="lg" className="mx-auto d-block" onClick={() => this.addPlant(this.state.plant._id)}>
             Add Plant
           </Button>

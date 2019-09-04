@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from "react-bootstrap/Container";
-// import Image from "react-bootstrap/Image";
-// import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import API from "../utils/API";
@@ -34,8 +32,6 @@ class MyPlantsMain extends Component {
 
   getUser() {
     axios.get("/api/user/").then(response => {
-      // console.log("Get user response: ");
-      // console.log(response.data);
       if (response.data.user) {
         console.log("Get User: There is a user saved in the server session: ");
 
@@ -64,7 +60,6 @@ class MyPlantsMain extends Component {
 
   logout(event) {
     event.preventDefault();
-    // console.log("logging out");
     axios
       .post("/api/user/logout")
       .then(response => {
@@ -95,7 +90,6 @@ class MyPlantsMain extends Component {
                     if (plant.plant.category && plant.plant.category[0] === "rare") {
                       return (
                         <ToDoItems
-                          // commonName={plant.plant.commonName}
                           //plant.plant._id is the kind on plant in the plant collection
                           key={plant._id}
                           image={plant.plant.image}
@@ -107,7 +101,6 @@ class MyPlantsMain extends Component {
                     } else {
                       return (
                         <ToDoItems
-                          // commonName={plant.plant.commonName}
                           //plant.plant._id is the kind on plant in the plant collection
                           key={plant._id}
                           image={"http://www.costafarms.com/CostaFarms/" + plant.plant.image}
