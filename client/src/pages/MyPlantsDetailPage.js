@@ -11,11 +11,19 @@ import API from "../utils/API";
 class MyPlantsDetail extends Component {
   constructor() {
     super();
+
     this.state = {
       currentTab: "todo",
-      plantCare: {}
+      plantCare: {},
+      startDate: new Date()
     };
   }
+
+  handleChange = date => {
+    this.setState({
+      startDate: date
+    });
+  };
 
   componentDidMount() {
     this.getUserPlants();
@@ -27,9 +35,19 @@ class MyPlantsDetail extends Component {
         console.log(res.data[0]);
         this.setState({
           ifResults: true,
-
           plantCare: res.data[0]
         });
+      })
+      .catch(err => console.log(err));
+  };
+
+  updateWater = () => {
+    API.updateMyPlant({
+      date: this.state.startDate,
+      id: this.state.plantCare._id
+    })
+      .then(res => {
+        console.log(res);
       })
       .catch(err => console.log(err));
   };
@@ -40,7 +58,7 @@ class MyPlantsDetail extends Component {
 
   renderPage = () => {
     if (this.state.currentTab === "todo") {
-      return <UserToDo />;
+      return <UserToDo startDate={this.state.startDate} onChange={date => this.handleChange(date)} onClick={() => this.updateWater()} />;
     } else if (this.state.currentTab === "history") {
       return <UserPlantsHistory wateredData={this.state.plantCare.wateredDates} />;
     } else if (this.state.currentTab === "DetailPlant") {
