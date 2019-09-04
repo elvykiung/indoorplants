@@ -15,7 +15,7 @@ class DiscoveryMain extends Component {
   render() {
     return (
       <Container>
-        <Jumbotron fluid className="text-center">
+        <Jumbotron fluid className="text-center" >
           <h1 className="text-primary">Discover Your Plants</h1>
         </Jumbotron>
         <Card as={Link} to="/easy-to-grow" style={{ margin: 'auto', maxWidth:"100%" }}>

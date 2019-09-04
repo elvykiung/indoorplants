@@ -33,8 +33,8 @@ function ListItems(props) {
           <p> {props.description}</p>
         </Col>
         <Col xs lg="2">
-          <Button style={{maxHeight:"70%"}} >
-            <Link style={{fontSize:"15px", textAlign:"center"}}  className="text-white" to={'/detail/' + props.id}>
+          <Button style={{fontSize:"20px"}} >
+            <Link style={{fontSize:"15px", textAlign:"center", }}  className="text-white" to={'/detail/' + props.id}>
               See details
             </Link>
           </Button>

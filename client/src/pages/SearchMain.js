@@ -64,7 +64,7 @@ class SearchMain extends Component {
 
         <div>
           <SearchBar name="title" value={this.state.title} onChange={this.handleInputChange} onKeyPress={this.handleEnterPress} />
-          <SearchButton onClick={this.handleFormSubmit} className="btn btn-info">
+          <SearchButton style={{fontSize:"20px"}} onClick={this.handleFormSubmit} className="btn btn-info">
             Search
           </SearchButton>
         </div>
