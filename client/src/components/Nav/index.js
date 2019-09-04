@@ -3,12 +3,17 @@
 import React from 'react';
 import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
 // import Navbar from "react-bootstrap/Navbar";
 import './style.css';
 
+
 function StickyBottom() {
+
+  const isMobile = useMediaQuery({ query: '(max-width: 426px)' });
+
   return (
-    <div className="fixed-bottom">
+    <div className={isMobile? "fixed-bottom":"fixed-top"}>
       <Nav className="navbar justify-content-center font-weight-bold">
         <Nav.Item className="link">
           <Nav.Link as={Link} to="/myPlants">
