@@ -64,15 +64,6 @@ class Login extends Component {
             </Card.Title>
            
             <Form style={{ textAlign: "center", paddingTop: "10%" }}>
-<<<<<<< HEAD
-              <Form.Group controlId="formBasicEmail">
-                <Form.Control style={{ width: "50%", marginLeft: "25%" }} type="email" placeholder="User name" />
-              </Form.Group>
-
-              <Form.Group controlId="formBasicPassword">
-                <Form.Control style={{ width: "50%", marginLeft: "25%" }} type="password" placeholder="Password" />
-                <Form.Text style={{ fontSize: "18px" }} className="text">We'll never share your personal information with anyone else.</Form.Text>
-=======
               <Form.Group >
                 <Form.Control style={{ width: "50%", marginLeft: "25%" }} type="text" placeholder="Enter User Name" 
                                id="username"
@@ -89,7 +80,6 @@ class Login extends Component {
                          value={this.state.password}
                          onChange={this.handleChange}
                 />
->>>>>>> master
               </Form.Group>
 
               <Form.Group >

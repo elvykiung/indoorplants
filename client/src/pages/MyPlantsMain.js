@@ -1,16 +1,3 @@
-<<<<<<< HEAD
-import React, { Component } from 'react';
-import Jumbotron from 'react-bootstrap/Jumbotron';
-import Container from 'react-bootstrap/Container';
-import Image from 'react-bootstrap/Image';
-import { Link } from 'react-router-dom';
-import auth from '../auth';
-import AddButton from "../components/AddButton/AddButton";
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import Button from 'react-bootstrap/Button';
-// import API from "../utils/API";
-// import ListItems from "../components/ListItems";
-=======
 import React, { Component } from "react";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import Container from "react-bootstrap/Container";
@@ -20,7 +7,6 @@ import Button from "react-bootstrap/Button";
 import axios from "axios";
 import API from "../utils/API";
 import ToDoItems from "../components/ToDoItems";
->>>>>>> master
 
 class MyPlantsMain extends Component {
   constructor() {
@@ -100,29 +86,6 @@ class MyPlantsMain extends Component {
 
         <div>
           <div className="col-10 col-centered card-content mb-4">
-<<<<<<< HEAD
-            <div >
-              <Link as={Link} to="/myPlants/detail">
-                <Image src="https://houseraccoon.com/wp-content/uploads/2019/05/Monstera-Deliciosa-Albo-Variegata.jpg" rounded
-                  style={{ height: '250px' }} />
-              </Link>
-              <div>
-              <div className="d-flex flex-column">
-  <ButtonGroup size="lg">
-    <Button>To Do</Button>
-    <Button>History</Button>
-    <Button>Info</Button>
-  </ButtonGroup>
-</div>
-                <AddButton style={{ backgroundColor: "transparent", paddingLeft: "10%", paddingRight: "10%" }} onClick={() => {
-                  auth.login(() => {
-                    this.props.history.push('/');
-                  });
-                }}
-                  variant="primary" type="submit">
-                  Log out
-          </AddButton>
-=======
             <div>
               <h2 className="heading-title mx-sm-3 mb-2 text-center">Your Saved Plants</h2>
               {this.state.userPlants.length ? (
@@ -148,7 +111,6 @@ class MyPlantsMain extends Component {
                 <Button onClick={this.logout} variant="primary" type="submit">
                   Log out
                 </Button>
->>>>>>> master
               </div>
             </div>
           </div>

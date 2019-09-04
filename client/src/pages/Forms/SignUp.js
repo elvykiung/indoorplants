@@ -62,18 +62,6 @@ class SignUp extends Component {
             </Card.Title>
 
             <Form style={{ textAlign: "center", paddingTop: "10%" }}>
-<<<<<<< HEAD
-              <Form.Group controlId="formBasicEmail">
-                <Form.Control style={{ width: "50%", marginLeft: "25%" }} type="email" placeholder="User name" />
-              </Form.Group>
-
-              <Form.Group controlId="formBasicEmail">
-                <Form.Control type="Email" placeholder="Email" style={{ width: "50%", marginLeft: "25%", backgroundColor: "transparent" }} />
-              </Form.Group>
-
-              <Form.Group controlId="formBasicPassword">
-                <Form.Control style={{ width: "50%", marginLeft: "25%", backgroundColor: "transparent" }} type="password" placeholder="Password" />
-=======
             <Form.Group >
                 <Form.Control type="text" placeholder="User Name" style={{ width: "50%", marginLeft: "25%", backgroundColor: "transparent"}}
                                            id="username"
@@ -102,7 +90,6 @@ class SignUp extends Component {
                    name="password"
                    value={this.state.password}
                    onChange={this.handleChange}                />
->>>>>>> master
               </Form.Group>
 
               <Form.Text style={{ fontSize: "18px", paddingBottom: "10px" }} className="text">We'll never share your personal information with anyone else.</Form.Text>
