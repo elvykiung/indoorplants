@@ -81,18 +81,17 @@ class MyPlantsMain extends Component {
       <Container>
         <Jumbotron fluid className="text-center">
           {/* User's plant if logged in: */}
-          {this.state.loggedIn && <h1 className="text-primary">Welcome {this.state.username}! Your Plants</h1>}
+          {this.state.loggedIn && <h1 className="text-primary">Your saved plants, {this.state.username}! </h1>}
         </Jumbotron>
 
         <div>
           <div className="col-10 col-centered card-content mb-4">
             <div>
-              <h2 className="heading-title mx-sm-3 mb-2 text-center">Your Saved Plants</h2>
               {this.state.userPlants.length ? (
-                <Container>
+                <Container >
                   {this.state.userPlants.map(plant => (
                     // console.log(plant.plant)
-                    <ToDoItems
+                    <ToDoItems 
                       // commonName={plant.plant.commonName}
                       //plant.plant._id is the kind on plant in the plant collection
                       key={plant.plant._id}
@@ -108,7 +107,7 @@ class MyPlantsMain extends Component {
               )}
 
               <div>
-                <Button onClick={this.logout} variant="primary" type="submit">
+                <Button style={{fontSize:"20px", marginBottom:"10%"}} onClick={this.logout} variant="primary" type="submit">
                   Log out
                 </Button>
               </div>
