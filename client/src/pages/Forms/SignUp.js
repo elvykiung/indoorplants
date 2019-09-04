@@ -74,15 +74,12 @@ class SignUp extends Component {
               </Form.Group>
 
               <Form.Group >
-                <Form.Control type="Email" placeholder="Email" style={{ width: "50%", marginLeft: "25%", backgroundColor: "transparent"}}
+                <Form.Control type="Email" placeholder="Email" className="formBasicEmail" style={{ width: "50%", marginLeft: "25%", backgroundColor: "transparent"}}
                          id="email"
                          name="email"
                          value={this.state.email}
                          onChange={this.handleChange}
                 />
-                <Form.Text style={{ fontSize: "18px" }} className="text">
-                  We'll never share your email with anyone else.
-              </Form.Text>
               </Form.Group>
 
               <Form.Group >
