@@ -1,23 +1,38 @@
-import React, { Component } from 'react';
-import Container from 'react-bootstrap/Container';
-// import ListGroup from "react-bootstrap/ListGroup";
-// import Button from "react-bootstrap/Button";
+import React, { Component } from "react";
+import Container from "react-bootstrap/Container";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
+import Button from "react-bootstrap/Button";
 
 class UserToDo extends Component {
-  state = {};
+  state = {
+    startDate: new Date()
+  };
+
+  handleChange = date => {
+    this.setState({
+      startDate: date
+    });
+  };
+
   render() {
     return (
-      <Container style={{ marginBottom: '50%' }}>
+      <Container style={{ marginBottom: "50%" }}>
         <h2>Todo List</h2>
-        {/* <ListGroup>
-          <ListGroup.Item className="mx-2">
-            Water
-            <Button className="text-right" variant="outline-primary">
-              Complete
-            </Button>
-          </ListGroup.Item>
-          <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-        </ListGroup> */}
+        <Row>
+          <Col className="mx-2">
+            <p>Water</p>
+          </Col>
+          <Col>
+            <DatePicker selected={this.state.startDate} onChange={this.handleChange} />
+            {/* <p>{this.state.startDate}</p> */}
+          </Col>
+          <Col>
+            <Button>Complete</Button>
+          </Col>
+        </Row>
       </Container>
     );
   }
