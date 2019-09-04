@@ -7,8 +7,8 @@ import Card from "react-bootstrap/Card";
 
 function ToDoItems(props) {
   return (
-    <Card as={Link} to={"/myPlants/detail/" + props.id} >
-      <Card.Img src={props.image} style={{  width: "50%", height: "auto" }} alt={props.alt} />
+    <Card style={{marginBottom:"15px", width:"120%"}} as={Link} to={"/myPlants/detail/" + props.id} >
+      <Card.Img src={props.image} style={{  width: "40%", height: "auto", marginBottom:"10px", marginTop:"10px", marginLeft:"10px" }} alt={props.alt} />
       </Card>
   );
 }

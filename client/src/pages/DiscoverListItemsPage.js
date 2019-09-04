@@ -48,9 +48,9 @@ class Plants extends Component {
         </Row>
         <Row>
           <Col size="md-12">
-            <Card>
+            <div>
               {this.state.plants.length ? (
-                <Container>
+                <Container style={{marginBottom:"5%"}}>
                   {this.state.plants.map(plant => {
                   if (plant.category && plant.category[0] === "rare"){
                     return <ListItems key={plant._id} images={plant.image} commonName={plant.commonName} scientificName={plant.scientificName} description={plant.fullDescription} title={plant.title} id={plant._id} />;
@@ -63,7 +63,7 @@ class Plants extends Component {
               ) : (
                 <h2 className="text-center">No Plants Match Your Criteria</h2>
               )}
-            </Card>
+            </div>
           </Col>
         </Row>
       </Container>
