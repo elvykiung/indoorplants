@@ -72,7 +72,7 @@ class MyPlantsDetail extends Component {
       return <p>Loading</p>;
     }
     return (
-      <Container className="text-center">
+      <Container sclassName="text-center">
         <Jumbotron>
           <h1>{this.state.plantCare.plant.commonName} </h1>
         </Jumbotron>

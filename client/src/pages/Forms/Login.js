@@ -8,7 +8,6 @@ import "./style.css";
 import leaf from "./leaf.png";
 import axios from 'axios';
 
-
 class Login extends Component {
   constructor(props) {
     super(props);

@@ -81,7 +81,7 @@ class MyPlantsMain extends Component {
       <Container>
         <Jumbotron fluid className="text-center">
           {/* User's plant if logged in: */}
-          {this.state.loggedIn && <h1 className="text-primary">Welcome {this.state.username}! Your Plants</h1>}
+          {this.state.loggedIn && <h1 className="text-primary">Your saved plants, {this.state.username}! </h1>}
         </Jumbotron>
 
         <div>
@@ -92,35 +92,39 @@ class MyPlantsMain extends Component {
               {this.state.userPlants.length ? (
                 <Container>
                   {this.state.userPlants.map(plant => {
-                  if (plant.plant.category && plant.plant.category[0] === "rare"){
-                    return <ToDoItems
-                      // commonName={plant.plant.commonName}
-                      //plant.plant._id is the kind on plant in the plant collection
-                      key={plant._id}
-                      image={ plant.plant.image}
-                      alt={plant.plant.imageAlt}
-                      //id is the specific user's plant id in userPlant collection
-                      id={plant._id}
-                    />
-                  }else{
-                    return <ToDoItems
-                    // commonName={plant.plant.commonName}
-                    //plant.plant._id is the kind on plant in the plant collection
-                    key={plant._id}
-                    image={"http://www.costafarms.com/CostaFarms/" + plant.plant.image}
-                    alt={plant.plant.imageAlt}
-                    //id is the specific user's plant id in userPlant collection
-                    id={plant._id}
-                  />
-                  }
-                })}
+                    if (plant.plant.category && plant.plant.category[0] === "rare") {
+                      return (
+                        <ToDoItems
+                          // commonName={plant.plant.commonName}
+                          //plant.plant._id is the kind on plant in the plant collection
+                          key={plant._id}
+                          image={plant.plant.image}
+                          alt={plant.plant.imageAlt}
+                          //id is the specific user's plant id in userPlant collection
+                          id={plant._id}
+                        />
+                      );
+                    } else {
+                      return (
+                        <ToDoItems
+                          // commonName={plant.plant.commonName}
+                          //plant.plant._id is the kind on plant in the plant collection
+                          key={plant._id}
+                          image={"http://www.costafarms.com/CostaFarms/" + plant.plant.image}
+                          alt={plant.plant.imageAlt}
+                          //id is the specific user's plant id in userPlant collection
+                          id={plant._id}
+                        />
+                      );
+                    }
+                  })}
                 </Container>
               ) : (
                 <h2 className="text-center">No Plants Match Your Criteria</h2>
               )}
 
               <div>
-                <Button onClick={this.logout} variant="primary" type="submit">
+                <Button style={{ fontSize: "20px", marginBottom: "10%" }} onClick={this.logout} variant="primary" type="submit">
                   Log out
                 </Button>
               </div>

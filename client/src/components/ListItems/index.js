@@ -18,7 +18,7 @@ import { Link } from "react-router-dom";
 
 function ListItems(props) {
   return (
-    <Card border="primary" style={{ margin: "2%", padding: "10px 10px 10px 10px" }}>
+    <Card border="primary" style={{ margin: "2%", padding: "20px 20px 20px 20px" }}>
       <Row>
         <Col xs="12" md="auto">
           <h4 style={{ fontWeight: "bold" }}>{props.commonName} </h4>
@@ -29,9 +29,9 @@ function ListItems(props) {
           <p> {props.description}</p>
         </Col>
         <Col xs lg="2">
-          <Button>
-            <Link className="text-white" to={"/detail/" + props.id}>
-              See detail
+          <Button style={{ fontSize: "20px" }}>
+            <Link style={{ fontSize: "15px", textAlign: "center" }} className="text-white" to={"/detail/" + props.id}>
+              See details
             </Link>
           </Button>
         </Col>
