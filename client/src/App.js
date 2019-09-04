@@ -20,7 +20,7 @@ function App() {
           {/* <Route exact path="/home" component={LoginHome} /> */}
           <Route exact path="/myPlants" component={MyPlantsMain} />
           <Route exact path="/" component={LoginHome} />
-          <Route exact path="/myPlants/detail" component={MyPlantsDetail} />
+          <Route exact path="/myPlants/detail/:plantId" component={MyPlantsDetail} />
           <Route exact path="/search" component={SearchMain} />
           <Route exact path="/discovery" component={DiscoveryMain} />
           <Route exact path={"/easy-to-grow"} component={() => <DiscoverListItemsPage category={"easy-to-grow"} />} />

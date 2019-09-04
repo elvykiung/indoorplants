@@ -48,13 +48,11 @@ class Plants extends Component {
         </Row>
         <Row>
           <Col size="md-12">
-            <Card >
+            <Card>
               {this.state.plants.length ? (
                 <Container>
                   {this.state.plants.map(plant => (
-
                     <ListItems key={plant._id} commonName={plant.commonName} scientificName={plant.scientificName} images={plant.image} description={plant.description} title={plant.title} id={plant._id} />
-
                   ))}
                 </Container>
               ) : (

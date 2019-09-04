@@ -1,41 +1,66 @@
-import React, { Component } from 'react';
-import Container from 'react-bootstrap/Container';
-import Jumbotron from 'react-bootstrap/Jumbotron';
-import Image from 'react-bootstrap/Image';
-import NavUser from '../components/NavUser';
-import UserToDo from '../components/PlantToDoList';
-import UserPlantsHistory from '../components/UserPlantsHistory';
-import DetailPlant from './DetailPlant';
+import React, { Component } from "react";
+import Container from "react-bootstrap/Container";
+import Jumbotron from "react-bootstrap/Jumbotron";
+import Image from "react-bootstrap/Image";
+import NavUser from "../components/NavUser";
+import UserToDo from "../components/PlantToDoList";
+import UserPlantsHistory from "../components/UserPlantsHistory";
+import DetailPlant from "./DetailPlant";
+import API from "../utils/API";
 
 class MyPlantsDetail extends Component {
-  state = {
-    currentPage: 'todo'
+  constructor() {
+    super();
+    this.state = {
+      currentTab: "todo",
+      plantCare: {}
+    };
+  }
+
+  componentDidMount() {
+    this.getUserPlants();
+  }
+
+  getUserPlants = () => {
+    API.getMyPlantDetail(this.props.match.params.plantId)
+      .then(res => {
+        console.log(res.data[0]);
+        this.setState({
+          ifResults: true,
+
+          plantCare: res.data[0]
+        });
+      })
+      .catch(err => console.log(err));
   };
 
-  handleTabChange = page => {
-    this.setState({ currentPage: page });
+  handleTabChange = tab => {
+    this.setState({ currentTab: tab });
   };
 
   renderPage = () => {
-    if (this.state.currentPage === 'todo') {
+    if (this.state.currentTab === "todo") {
       return <UserToDo />;
-    } else if (this.state.currentPage === 'history') {
-      return <UserPlantsHistory />;
-    } else if (this.state.currentPage === 'DetailPlant') {
+    } else if (this.state.currentTab === "history") {
+      return <UserPlantsHistory wateredData={this.state.plantCare.wateredDates} />;
+    } else if (this.state.currentTab === "DetailPlant") {
       return <DetailPlant />;
     }
   };
 
   render() {
+    if (this.state.plantCare.plant == null) {
+      return <p>Loading</p>;
+    }
     return (
       <Container className="text-center">
         <Jumbotron>
-          <h1>Plat Name</h1>
+          <h1>{this.state.plantCare.plant.commonName} </h1>
         </Jumbotron>
 
-        <Image src="https://houseraccoon.com/wp-content/uploads/2019/05/Monstera-Deliciosa-Albo-Variegata.jpg" rounded style={{ height: '450px' }} />
+        <Image src={"http://www.costafarms.com/CostaFarms/" + this.state.plantCare.plant.image} rounded style={{ height: "450px" }} />
 
-        <NavUser currentPage={this.state.currentPage} handleTabChange={this.handleTabChange} />
+        <NavUser currentTab={this.state.currentTab} handleTabChange={this.handleTabChange} id={this.state.plantCare.plant._id} />
         {this.renderPage()}
       </Container>
     );
