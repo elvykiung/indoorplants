@@ -95,7 +95,7 @@ class MyPlantsMain extends Component {
                     <ToDoItems
                       // commonName={plant.plant.commonName}
                       //plant.plant._id is the kind on plant in the plant collection
-                      key={plant.plant._id}
+                      key={plant._id}
                       image={"http://www.costafarms.com/CostaFarms/" + plant.plant.image}
                       alt={plant.plant.imageAlt}
                       //id is the specific user's plant id in userPlant collection

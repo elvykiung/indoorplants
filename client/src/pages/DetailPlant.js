@@ -53,11 +53,15 @@ class DetailPlant extends Component {
     })
       .then(res => {
         console.log(res);
+        this.props.history.push("/myPlants");
       })
       .catch(err => console.log(err));
   };
 
   render() {
+    if (this.state.plant.image == null) {
+      return <p>Loading</p>;
+    }
     return (
       <Container style={{ marginBottom: "20%" }}>
         <Row>
@@ -77,7 +81,7 @@ class DetailPlant extends Component {
             Add Plant{" "}
           </AddButton> */}
 
-          <Button as={Link} to="/myPlants" variant="primary" size="lg" className="mx-auto d-block" onClick={() => this.addPlant(this.state.plant._id)}>
+          <Button variant="primary" size="lg" className="mx-auto d-block" onClick={() => this.addPlant(this.state.plant._id)}>
             Add Plant
           </Button>
         </div>

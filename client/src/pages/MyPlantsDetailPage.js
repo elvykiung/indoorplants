@@ -48,6 +48,7 @@ class MyPlantsDetail extends Component {
     })
       .then(res => {
         console.log(res);
+        this.getUserPlants();
       })
       .catch(err => console.log(err));
   };
