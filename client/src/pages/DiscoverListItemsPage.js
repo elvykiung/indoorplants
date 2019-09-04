@@ -51,9 +51,14 @@ class Plants extends Component {
             <Card>
               {this.state.plants.length ? (
                 <Container>
-                  {this.state.plants.map(plant => (
-                    <ListItems key={plant._id} commonName={plant.commonName} scientificName={plant.scientificName} images={plant.image} description={plant.description} title={plant.title} id={plant._id} />
-                  ))}
+                  {this.state.plants.map(plant => {
+                  if (plant.category && plant.category[0] === "rare"){
+                    return <ListItems key={plant._id} images={plant.image} commonName={plant.commonName} scientificName={plant.scientificName} description={plant.fullDescription} title={plant.title} id={plant._id} />;
+                    } else {
+                    return <ListItems key={plant._id} images={"http://www.costafarms.com/CostaFarms/" + plant.image} commonName={plant.commonName} scientificName={plant.scientificName} description={plant.fullDescription} title={plant.title} id={plant._id} />;
+  
+                    }
+                  })}
                 </Container>
               ) : (
                 <h2 className="text-center">No Plants Match Your Criteria</h2>
