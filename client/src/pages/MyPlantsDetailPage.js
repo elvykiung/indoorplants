@@ -72,13 +72,12 @@ class MyPlantsDetail extends Component {
       return <p>Loading</p>;
     }
     return (
-      <Container sclassName="text-center">
+      <Container className="text-center">
         <Jumbotron>
           <h1>{this.state.plantCare.plant.commonName} </h1>
         </Jumbotron>
-{/*  {src={"http://www.costafarms.com/CostaFarms/" + this.state.plantCare.plant.image}} */}
-        <Image  rounded style={{ height: "450px" }} 
-        src={this.state.plantCare.plant.category && this.state.plantCare.plant.category[0] === "rare" ? this.state.plantCare.plant.image : "http://www.costafarms.com/CostaFarms/" + this.state.plantCare.plant.image}/>
+        {/*  {src={"http://www.costafarms.com/CostaFarms/" + this.state.plantCare.plant.image}} */}
+        <Image rounded style={{ height: "450px" }} src={this.state.plantCare.plant.category && this.state.plantCare.plant.category[0] === "rare" ? this.state.plantCare.plant.image : "http://www.costafarms.com/CostaFarms/" + this.state.plantCare.plant.image} />
 
         <NavUser currentTab={this.state.currentTab} handleTabChange={this.handleTabChange} id={this.state.plantCare.plant._id} />
         {this.renderTab()}

@@ -21,7 +21,7 @@ class DiscoveryMain extends Component {
         <Card as={Link} to="/easy-to-grow" style={{ margin: "auto", maxWidth: "100%" }}>
           <Card.Img src="https://images.wallpaperscraft.com/image/cactus_plant_spiny_139104_3840x2400.jpg" alt="Easy to growth Plants" style={{ height: "500px" }} />
           <Card.ImgOverlay>
-            <Card.Title className="text-white text-center" style={{ "font-size": "4vw", marginTop: "20%", fontWeight: "bold" }}>
+            <Card.Title className="text-white text-center" style={{ fontSize: "4vw", marginTop: "20%", fontWeight: "bold" }}>
               Easy to growth Plants
             </Card.Title>
           </Card.ImgOverlay>
@@ -30,7 +30,7 @@ class DiscoveryMain extends Component {
         <Card as={Link} to="/decorative" style={{ margin: "auto", maxWidth: "100%" }}>
           <Card.Img src="https://images.wallpaperscraft.com/image/plant_palms_leaves_bushes_116060_3840x2400.jpg" alt="Decorative Plants" style={{ height: "500px" }} />
           <Card.ImgOverlay>
-            <Card.Title className="text-danger text-center" style={{ "font-size": "5vw", margin: "10%", fontWeight: "bold", maxHeight: "20%", textAlign: "center" }}>
+            <Card.Title className="text-danger text-center" style={{ fontSize: "5vw", margin: "10%", fontWeight: "bold", maxHeight: "20%", textAlign: "center" }}>
               Decorative Plants
             </Card.Title>
           </Card.ImgOverlay>
@@ -39,7 +39,7 @@ class DiscoveryMain extends Component {
         <Card as={Link} to="/rare" style={{ margin: "auto", maxWidth: "100%", marginBottom: "10%" }}>
           <Card.Img src="https://images.wallpaperscraft.com/image/plant_vase_flowers_decoration_114234_3840x2400.jpg" alt="Rare Plants" style={{ height: "500px" }} />
           <Card.ImgOverlay>
-            <Card.Title className="text-white text-center" style={{ "font-size": "5vw", margin: "10%", fontWeight: "bold" }}>
+            <Card.Title className="text-white text-center" style={{ fontSize: "5vw", margin: "10%", fontWeight: "bold" }}>
               Rare Plants
             </Card.Title>
           </Card.ImgOverlay>
