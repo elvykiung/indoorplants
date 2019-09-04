@@ -88,20 +88,32 @@ class MyPlantsMain extends Component {
           <div className="col-10 col-centered card-content mb-4">
             <div>
               <h2 className="heading-title mx-sm-3 mb-2 text-center">Your Saved Plants</h2>
+
               {this.state.userPlants.length ? (
                 <Container>
-                  {this.state.userPlants.map(plant => (
-                    // console.log(plant.plant)
-                    <ToDoItems
+                  {this.state.userPlants.map(plant => {
+                  if (plant.plant.category && plant.plant.category[0] === "rare"){
+                    return <ToDoItems
                       // commonName={plant.plant.commonName}
                       //plant.plant._id is the kind on plant in the plant collection
                       key={plant._id}
-                      image={"http://www.costafarms.com/CostaFarms/" + plant.plant.image}
+                      image={ plant.plant.image}
                       alt={plant.plant.imageAlt}
                       //id is the specific user's plant id in userPlant collection
                       id={plant._id}
                     />
-                  ))}
+                  }else{
+                    return <ToDoItems
+                    // commonName={plant.plant.commonName}
+                    //plant.plant._id is the kind on plant in the plant collection
+                    key={plant._id}
+                    image={"http://www.costafarms.com/CostaFarms/" + plant.plant.image}
+                    alt={plant.plant.imageAlt}
+                    //id is the specific user's plant id in userPlant collection
+                    id={plant._id}
+                  />
+                  }
+                })}
                 </Container>
               ) : (
                 <h2 className="text-center">No Plants Match Your Criteria</h2>

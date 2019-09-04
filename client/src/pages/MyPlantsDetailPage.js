@@ -57,7 +57,7 @@ class MyPlantsDetail extends Component {
     this.setState({ currentTab: tab });
   };
 
-  renderPage = () => {
+  renderTab = () => {
     if (this.state.currentTab === "todo") {
       return <UserToDo startDate={this.state.startDate} onChange={date => this.handleChange(date)} onClick={() => this.updateWater()} />;
     } else if (this.state.currentTab === "history") {
@@ -76,11 +76,12 @@ class MyPlantsDetail extends Component {
         <Jumbotron>
           <h1>{this.state.plantCare.plant.commonName} </h1>
         </Jumbotron>
-
-        <Image src={"http://www.costafarms.com/CostaFarms/" + this.state.plantCare.plant.image} rounded style={{ height: "450px" }} />
+{/*  {src={"http://www.costafarms.com/CostaFarms/" + this.state.plantCare.plant.image}} */}
+        <Image  rounded style={{ height: "450px" }} 
+        src={this.state.plantCare.plant.category && this.state.plantCare.plant.category[0] === "rare" ? this.state.plantCare.plant.image : "http://www.costafarms.com/CostaFarms/" + this.state.plantCare.plant.image}/>
 
         <NavUser currentTab={this.state.currentTab} handleTabChange={this.handleTabChange} id={this.state.plantCare.plant._id} />
-        {this.renderPage()}
+        {this.renderTab()}
       </Container>
     );
   }

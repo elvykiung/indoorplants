@@ -24,7 +24,7 @@ class DiscoveryMain extends Component {
             alt="Easy to growth Plants"
           />
           <Card.ImgOverlay>
-            <Card.Title className="text-white text-center" style={{ 'font-size': '4vw', margin: '10%', fontWeight: 'bold' }}>
+            <Card.Title className="text-white text-center" style={{ 'fontSize': '4vw', margin: '10%', fontWeight: 'bold' }}>
               Easy to growth Plants
             </Card.Title>
           </Card.ImgOverlay>
@@ -36,7 +36,7 @@ class DiscoveryMain extends Component {
             alt="Decorative Plants"
           />
           <Card.ImgOverlay>
-            <Card.Title className="text-danger text-center" style={{ 'font-size': '5vw', margin: '20%', fontWeight: 'bold' }}>
+            <Card.Title className="text-danger text-center" style={{ 'fontSize': '5vw', margin: '20%', fontWeight: 'bold' }}>
               Decorative Plants
             </Card.Title>
           </Card.ImgOverlay>
@@ -45,7 +45,7 @@ class DiscoveryMain extends Component {
         <Card as={Link} to="/rare" style={{ margin: 'auto', maxWidth:"80%"}}>
           <Card.Img src="https://i.pinimg.com/originals/71/6a/39/716a39edf1b3de80260b943982628c49.jpg" alt="Rare Plants" />
           <Card.ImgOverlay>
-            <Card.Title className="text-info text-center" style={{ 'font-size': '5vw', margin: '20%', fontWeight: 'bold' }}>
+            <Card.Title className="text-info text-center" style={{ 'fontSize': '5vw', margin: '20%', fontWeight: 'bold' }}>
               Rare Plants
             </Card.Title>
           </Card.ImgOverlay>

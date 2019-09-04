@@ -14,7 +14,6 @@ import Card from "react-bootstrap/Card";
 import API from "../utils/API";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
 
 class DetailPlant extends Component {
   constructor() {
@@ -67,7 +66,10 @@ class DetailPlant extends Component {
         <Row>
           <Col size="md-12">
             <Card style={{ paddingLeft: "5%", paddingRight: "5%", paddingTop: "2%" }}>
-              <Image style={{ width: "400px" }} rounded align="left" className="mx-auto d-block" src={this.state.plant.category && this.state.plant.category[0] === "rare" ? this.state.plant.image : "http://www.costafarms.com/CostaFarms/" + this.state.plant.image} />
+              <Image style={{ width: "400px" }} rounded align="left" className="mx-auto d-block" 
+              
+              src={this.state.plant.category && this.state.plant.category[0] === "rare" ? this.state.plant.image : "http://www.costafarms.com/CostaFarms/" + this.state.plant.image} />
+
               <h3 className="text-center">{this.state.plant.commonName}</h3>
               <h4 className="text-center">{this.state.plant.scientificName}</h4>
               <h4>Description:{this.state.plant.fullDescription} </h4>

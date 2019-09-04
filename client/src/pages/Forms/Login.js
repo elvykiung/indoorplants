@@ -60,7 +60,7 @@ class Login extends Component {
         <Card >
           <Image src="https://images.wallpaperscraft.com/image/leaves_plant_green_130446_3840x2400.jpg" alt="Home" />
           <Card.ImgOverlay style={{ marginTop: "5%" }}>
-            <Card.Title id="title" className="text-white text-center" style={{ "font-size": "4vw", margin: "auto", fontWeight: "bold" }}>
+            <Card.Title id="title" className="text-white text-center" style={{ "fontSize": "4vw", margin: "auto", fontWeight: "bold" }}>
             <Image src={leaf} />
             </Card.Title>
            
