@@ -7,15 +7,17 @@ import UserToDo from "../components/PlantToDoList";
 import UserPlantsHistory from "../components/UserPlantsHistory";
 import DetailPlant from "./DetailPlant";
 import API from "../utils/API";
+// import Moment from "react-moment";
+import moment from "moment";
 
 class MyPlantsDetail extends Component {
   constructor() {
     super();
-
     this.state = {
       currentTab: "todo",
       plantCare: {},
-      startDate: new Date()
+      startDate: new Date(),
+      nextWaterDate: ""
     };
   }
 
@@ -40,17 +42,57 @@ class MyPlantsDetail extends Component {
       })
       .catch(err => console.log(err));
   };
-
+  //when user pick date of water auto update next water time
   updateWater = () => {
     API.updateMyPlant({
       date: this.state.startDate,
       id: this.state.plantCare._id
     })
       .then(res => {
-        console.log(res);
+        console.log("update watered date now");
+        this.updateNextWaterDate();
+      })
+      .then(res => {
         this.getUserPlants();
       })
       .catch(err => console.log(err));
+  };
+
+  calculatedNextWaterDate = () => {
+    let lastWateredDate = 0;
+    if (this.state.plantCare.wateredDates.length === 0) {
+      lastWateredDate = 0;
+    } else {
+      lastWateredDate = this.state.plantCare.wateredDates.pop();
+    }
+
+    let nextWaterDate = 0;
+    if (this.state.plantCare.plant.waterReq[0].toLowerCase().indexOf("low") !== -1) {
+      nextWaterDate = moment(lastWateredDate, "YYYY-MM-DD HH:mm:mm")
+        .add(10, "days")
+        .format("YYYY-MM-DD HH:mm:mm");
+    } else if (this.state.plantCare.plant.waterReq[0].toLowerCase().indexOf("medium") !== -1) {
+      nextWaterDate = moment(lastWateredDate, "YYYY-MM-DD HH:mm:mm")
+        .add(7, "days")
+        .format("YYYY-MM-DD HH:mm:mm");
+    } else if (this.state.plantCare.plant.waterReq[0].toLowerCase().indexOf("moist") !== -1) {
+      nextWaterDate = moment(lastWateredDate, "YYYY-MM-DD HH:mm:mm")
+        .add(3, "days")
+        .format("YYYY-MM-DD HH:mm:mm");
+    }
+
+    this.setState({
+      nextWaterDate: nextWaterDate
+    });
+  };
+
+  updateNextWaterDate = () => {
+    this.calculatedNextWaterDate();
+    API.updateNextWaterDate({
+      nextWaterDate: this.state.nextWaterDate,
+      id: this.state.plantCare._id
+    })
+    .catch(err => console.log(err));
   };
 
   handleTabChange = tab => {
