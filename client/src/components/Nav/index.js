@@ -17,12 +17,13 @@ function StickyBottom() {
             My Plants
           </Nav.Link>
         </Nav.Item>
-        <Nav.Item>
-          <Nav.Link as={Link} to="/search">
+
+        <Nav.Item className="search">
+          <Nav.Link  as={Link} to="/search">
             Search
           </Nav.Link>
         </Nav.Item>
-        <Nav.Item>
+        <Nav.Item >
           <Nav.Link as={Link} to="/discovery">
             Discovery
           </Nav.Link>

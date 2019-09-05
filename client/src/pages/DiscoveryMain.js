@@ -3,11 +3,15 @@ import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import { Link } from "react-router-dom";
+import Image from "react-bootstrap/Image";
 
 class DiscoveryMain extends Component {
   state = {};
   render() {
     return (
+      <Card>
+         <Image src="https://images.wallpaperscraft.com/image/white_rose_petals_flower_bright_68307_1600x1200.jpg" alt="Search" />
+         <Card.ImgOverlay style={{ marginTop: "5%" }}>
       <Container>
         <Jumbotron fluid className="text-center">
           <h1 className="text-primary">Discover Your Plants</h1>
@@ -39,6 +43,8 @@ class DiscoveryMain extends Component {
           </Card.ImgOverlay>
         </Card>
       </Container>
+      </Card.ImgOverlay>
+      </Card>
     );
   }
 }
