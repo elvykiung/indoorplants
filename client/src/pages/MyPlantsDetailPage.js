@@ -60,14 +60,22 @@ class MyPlantsDetail extends Component {
 
   calculatedNextWaterDate = () => {
     let lastWateredDate = 0;
+
     if (this.state.plantCare.wateredDates.length === 0) {
-      lastWateredDate = 0;
+      lastWateredDate = this.state.startDate;
     } else {
       lastWateredDate = this.state.plantCare.wateredDates.pop();
     }
 
+    console.log("last water date : " + lastWateredDate);
+
     let nextWaterDate = 0;
+
+    console.log(this.state.plantCare.plant.waterReq[0]);
+
     if (this.state.plantCare.plant.waterReq[0].toLowerCase().indexOf("low") !== -1) {
+      console.log(moment(lastWateredDate, "YYYY-MM-DD HH:mm:mm"));
+
       nextWaterDate = moment(lastWateredDate, "YYYY-MM-DD HH:mm:mm")
         .add(10, "days")
         .format("YYYY-MM-DD HH:mm:mm");
@@ -81,6 +89,8 @@ class MyPlantsDetail extends Component {
         .format("YYYY-MM-DD HH:mm:mm");
     }
 
+    console.log("next water date : " + nextWaterDate);
+
     this.setState({
       nextWaterDate: nextWaterDate
     });
@@ -92,7 +102,10 @@ class MyPlantsDetail extends Component {
       nextWaterDate: this.state.nextWaterDate,
       id: this.state.plantCare._id
     })
-    .catch(err => console.log(err));
+      .then(res => {
+        console.log("next water date update");
+      })
+      .catch(err => console.log(err));
   };
 
   handleTabChange = tab => {
