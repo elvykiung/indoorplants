@@ -91,10 +91,15 @@ class MyPlantsDetail extends Component {
     this.calculatedNextWaterDate();
     API.updateNextWaterDate({
       nextWaterDate: this.state.nextWaterDate,
-      id: this.state.plantCare._id
+      id: this.state.plantCare._id,
+      recipient: this.state.plantCare.user.email,
+      plantName: this.state.plantCare.plant.commonName
     })
       .then(res => {
-        console.log("next water date update");
+        console.log("next water date update" );
+        console.log("user email address is " + this.state.plantCare.user.email)
+        console.log("user plant name is " + this.state.plantCare.plant.commonName)
+
       })
       .catch(err => console.log(err));
   };
