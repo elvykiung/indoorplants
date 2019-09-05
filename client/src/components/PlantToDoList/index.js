@@ -27,10 +27,8 @@ export function UserToDo(props) {
           </Button>
         </Col>
       </Row>
+      <h2 className="mt-2">Next Water Date</h2>
       <Row>
-        <Col className="mx-2">
-          <p className="mt-2">Next Water Date</p>
-        </Col>
         <Col className="mx-2">
           <Moment format="YYYY/MM/DD">{props.nextWaterDate}</Moment>
         </Col>
