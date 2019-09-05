@@ -7,7 +7,6 @@ import UserToDo from "../components/PlantToDoList";
 import UserPlantsHistory from "../components/UserPlantsHistory";
 import DetailPlant from "./DetailPlant";
 import API from "../utils/API";
-// import Moment from "react-moment";
 import moment from "moment";
 
 class MyPlantsDetail extends Component {
@@ -114,7 +113,7 @@ class MyPlantsDetail extends Component {
 
   renderTab = () => {
     if (this.state.currentTab === "todo") {
-      return <UserToDo startDate={this.state.startDate} onChange={date => this.handleChange(date)} onClick={() => this.updateWater()} />;
+      return <UserToDo startDate={this.state.startDate} onChange={date => this.handleChange(date)} onClick={() => this.updateWater()} nextWaterDate={this.state.plantCare.nextWaterDate.pop()} />;
     } else if (this.state.currentTab === "history") {
       return <UserPlantsHistory wateredData={this.state.plantCare.wateredDates} />;
     } else if (this.state.currentTab === "DetailPlant") {

@@ -5,6 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
+import Moment from "react-moment";
 
 export function UserToDo(props) {
   const styleObj = {
@@ -24,6 +25,12 @@ export function UserToDo(props) {
           <Button variant="outline-primary" onClick={props.onClick} style={styleObj}>
             Complete
           </Button>
+        </Col>
+      </Row>
+      <h2 className="mt-2">Next Water Date</h2>
+      <Row>
+        <Col className="mx-2">
+          <Moment format="YYYY/MM/DD">{props.nextWaterDate}</Moment>
         </Col>
       </Row>
     </Container>
