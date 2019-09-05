@@ -5,8 +5,8 @@ input{
    border: transparent;
 }
 
-.text{
-color: rgb(170, 209, 107);
-}
-
-
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: red;
+    opacity: 1; /* Firefox */
+  }
+  
