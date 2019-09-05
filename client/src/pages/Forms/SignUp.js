@@ -73,7 +73,7 @@ class SignUp extends Component {
               </Form.Text>
               </Form.Group>
 
-              <Form.Group >
+              <Form.Group className="formBasicEmail">
                 <Form.Control type="Email" placeholder="Email" className="formBasicEmail" style={{ width: "50%", marginLeft: "25%", backgroundColor: "transparent"}}
                          id="email"
                          name="email"

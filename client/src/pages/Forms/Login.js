@@ -61,12 +61,12 @@ class Login extends Component {
 
             <Form style={{ textAlign: "center", paddingTop: "2%" }}>
               <Form.Group>
-                <Form.Control style={{ width: "50%", marginLeft: "25%" }} type="text" placeholder="Enter User Name" id="username" name="username" value={this.state.username} onChange={this.handleChange} />
+                <Form.Control className="formBasicEmail" style={{ width: "50%", marginLeft: "25%" }} type="text" placeholder="Enter User Name" id="username" name="username" value={this.state.username} onChange={this.handleChange} />
                 <Form.Text style={{ fontSize: "18px" }} className="text"></Form.Text>
               </Form.Group>
 
               <Form.Group>
-                <Form.Control style={{ width: "50%", marginLeft: "25%" }} type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.handleChange} />
+                <Form.Control className="formBasicPassword" style={{ width: "50%", marginLeft: "25%" }} type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.handleChange} />
               </Form.Group>
 
               <Form.Group>
