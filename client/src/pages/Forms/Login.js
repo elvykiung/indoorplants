@@ -68,11 +68,6 @@ class Login extends Component {
               <Form.Group>
                 <Form.Control className="formBasicPassword" style={{ width: "50%", marginLeft: "25%" }} type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.handleChange} />
               </Form.Group>
-
-              <Form.Group>
-                <Form.Check type="checkbox" label="Check me out" />
-              </Form.Group>
-
               <AddButton style={{ backgroundColor: "transparent", paddingLeft: "10%", paddingRight: "10%" }} onClick={this.handleSubmit} type="submit">
                 Sign in
               </AddButton>

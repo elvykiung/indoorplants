@@ -5,6 +5,8 @@ import API from "../utils/API";
 import ListItems from "../components/ListItems";
 import Container from "react-bootstrap/Container";
 import Jumbotron from "react-bootstrap/Jumbotron";
+import Image from "react-bootstrap/Image";
+import Card from "react-bootstrap/Card";
 
 class SearchMain extends Component {
   state = {
@@ -51,14 +53,18 @@ class SearchMain extends Component {
 
   render() {
     return (
+      <Card>
+         <Image src="https://images.wallpaperscraft.com/image/white_rose_petals_flower_bright_68307_1600x1200.jpg" alt="Search" />
+         <Card.ImgOverlay style={{ marginTop: "5%" }}>
       <Container>
         <Jumbotron fluid className="text-center">
           <h1 className="text-primary">Search Your Plants</h1>
         </Jumbotron>
 
         <div>
+       
           <SearchBar name="title" value={this.state.title} onChange={this.handleInputChange} onKeyPress={this.handleEnterPress} />
-          <SearchButton style={{ fontSize: "20px" }} onClick={this.handleFormSubmit} className="btn btn-info">
+          <SearchButton style={{ fontSize: "20px", backgroundColor:"transparent" }} onClick={this.handleFormSubmit} className="btn btn-info">
             Search
           </SearchButton>
         </div>
@@ -82,6 +88,8 @@ class SearchMain extends Component {
           </div>
         </div>
       </Container>
+      </Card.ImgOverlay>
+      </Card>
     );
   }
 }
