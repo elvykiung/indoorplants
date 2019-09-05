@@ -13,8 +13,8 @@ module.exports = function(recipient, plantName, nextWaterDate){
       var mailOptions = {
         from: 'indoorplants2019@yahoo.com',
         to: recipient,
-        subject: 'Reminder for watering your plant',
-        text: 'Please remember to water your plant:'+ plantName + " on " + nextWaterDate
+        subject: 'Water Plant Reminder',
+        text: 'A friendly reminder to water your plant - "'+ plantName + '"' + " on " + nextWaterDate
       };
       
       transporter.sendMail(mailOptions, function(error, info){
