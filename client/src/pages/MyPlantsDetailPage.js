@@ -58,13 +58,7 @@ class MyPlantsDetail extends Component {
   };
 
   calculatedNextWaterDate = () => {
-    let lastWateredDate = 0;
-
-    if (this.state.plantCare.wateredDates.length === 0) {
-      lastWateredDate = this.state.startDate;
-    } else {
-      lastWateredDate = this.state.plantCare.wateredDates.pop();
-    }
+    let lastWateredDate = this.state.startDate;
 
     console.log("last water date : " + lastWateredDate);
 
@@ -72,21 +66,19 @@ class MyPlantsDetail extends Component {
 
     console.log(this.state.plantCare.plant.waterReq[0]);
 
-    if (this.state.plantCare.plant.waterReq[0].toLowerCase().indexOf("low") !== -1) {
-      console.log(moment(lastWateredDate, "YYYY-MM-DD HH:mm:mm"));
+    nextWaterDate = moment(lastWateredDate, "YYYY-MM-DD HH:mm:mm");
 
-      nextWaterDate = moment(lastWateredDate, "YYYY-MM-DD HH:mm:mm")
-        .add(10, "days")
-        .format("YYYY-MM-DD HH:mm:mm");
-    } else if (this.state.plantCare.plant.waterReq[0].toLowerCase().indexOf("medium") !== -1) {
-      nextWaterDate = moment(lastWateredDate, "YYYY-MM-DD HH:mm:mm")
-        .add(7, "days")
-        .format("YYYY-MM-DD HH:mm:mm");
-    } else if (this.state.plantCare.plant.waterReq[0].toLowerCase().indexOf("moist") !== -1) {
-      nextWaterDate = moment(lastWateredDate, "YYYY-MM-DD HH:mm:mm")
-        .add(3, "days")
-        .format("YYYY-MM-DD HH:mm:mm");
+    let waterRequirement = this.state.plantCare.plant.waterReq[0].toLowerCase();
+
+    if (waterRequirement.indexOf("low") !== -1) {
+      nextWaterDate.add(10, "days");
+    } else if (waterRequirement.indexOf("medium") !== -1) {
+      nextWaterDate.add(7, "days");
+    } else if (waterRequirement.indexOf("moist") !== -1) {
+      nextWaterDate.add(3, "days");
     }
+
+    nextWaterDate = nextWaterDate.format("YYYY-MM-DD HH:mm:mm");
 
     console.log("next water date : " + nextWaterDate);
 
@@ -113,7 +105,7 @@ class MyPlantsDetail extends Component {
 
   renderTab = () => {
     if (this.state.currentTab === "todo") {
-      return <UserToDo startDate={this.state.startDate} onChange={date => this.handleChange(date)} onClick={() => this.updateWater()} nextWaterDate={this.state.plantCare.nextWaterDate.pop()} />;
+      return <UserToDo startDate={this.state.startDate} onChange={date => this.handleChange(date)} onClick={() => this.updateWater()} nextWaterDate={this.state.plantCare.nextWaterDate[this.state.plantCare.nextWaterDate.length - 1]} />;
     } else if (this.state.currentTab === "history") {
       return <UserPlantsHistory wateredData={this.state.plantCare.wateredDates} />;
     } else if (this.state.currentTab === "DetailPlant") {
