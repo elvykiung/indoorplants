@@ -1,22 +1,20 @@
 var nodemailer = require('nodemailer');
 
-module.exports = function(recipient, plant, nextWaterDate){
+module.exports = function(recipient, plantName, nextWaterDate){
 
     var transporter = nodemailer.createTransport({
         service: 'yahoo',
         auth: {
-          user: 'coding_test@yahoo.com',
+          user: 'indoorplants2019@yahoo.com',
           pass: 'test123456'
         }
       });
       
       var mailOptions = {
-        from: 'coding_test@yahoo.com',
-        to: 'xiejing418@hotmail.com',
+        from: 'indoorplants2019@yahoo.com',
+        to: recipient,
         subject: 'Reminder for watering your plant',
-        text: 'Please remember to water your plant:'
-
-        // text: 'Please remember to water your plant:'+ plant + " on " + nextWaterDate
+        text: 'Please remember to water your plant:'+ plantName + " on " + nextWaterDate
       };
       
       transporter.sendMail(mailOptions, function(error, info){
