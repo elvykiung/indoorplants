@@ -74,7 +74,7 @@ class MyPlantsMain extends Component {
   render() {
     return (
       <Container>
-        <Jumbotron fluid className="text-center">
+        <Jumbotron style={{marginBottom:"5%"}} fluid className="text-center">
           {/* User's plant if logged in: */}
           {this.state.loggedIn && <h1 className="text-primary">Your saved plants, {this.state.username}! </h1>}
         </Jumbotron>

@@ -61,7 +61,7 @@ class SignUp extends Component {
               <Image src={leaf} />
             </Card.Title>
 
-            <Form style={{ textAlign: "center", paddingTop: "10%" }}>
+            <Form style={{ textAlign: "center", paddingTop: "2%" }}>
             <Form.Group >
                 <Form.Control type="text" placeholder="User Name" style={{ width: "50%", marginLeft: "25%", backgroundColor: "transparent"}}
                                            id="username"
