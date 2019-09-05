@@ -1,5 +1,6 @@
 const db = require("../models/plantCare");
 const dbUser = require("../models/user");
+const emailer = require("../routes/emailer")
 
 module.exports = {
   //display all plants associated with the given user
@@ -22,6 +23,7 @@ module.exports = {
     const plantCareID = req.params.plantId;
     db.find({ _id: plantCareID })
       .populate("plant")
+      .populate("user")
       .sort({ date: -1 })
       .then(data => res.json(data))
       .catch(err => res.status(422).json(err));
@@ -43,8 +45,16 @@ module.exports = {
     const plantCareID = req.body.id;
     // const waterDate = '2019-08-02';
     // const plantCareID = '5d6c52fc69418e359ca86d62';
+    const recipient = req.body.recipient;
+    const plantName = req.body.plantName;
+
     db.findByIdAndUpdate({ _id: plantCareID }, { $push: { nextWaterDate: nextWaterDate } }, { new: true })
-      .then(data => res.json(data))
+      .then(data => {
+        res.json(data);
+        emailer(recipient,plantName,nextWaterDate);
+        console.log("email sent!!!")
+        console.log('recipient is ' + recipient + " and water date will be " + nextWaterDate + " for " + plantName)
+      })
       .catch(err => res.status(422).json(err));
   },
 
