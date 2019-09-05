@@ -131,9 +131,8 @@ class MyPlantsDetail extends Component {
     }
     return (
       <Card>
-      <Image src="https://images.wallpaperscraft.com/image/leaves_plant_green_130446_3840x2400.jpg" alt="Home" />
-
-        <Card.ImgOverlay style={{ marginTop: "5%" }}>
+      <Image src="https://images.wallpaperscraft.com/image/white_rose_petals_flower_bright_68307_1600x1200.jpg" alt="Home" />
+     <Card.ImgOverlay style={{ marginTop: "5%" }}>
       <Container className="text-center">
         <Jumbotron>
           <h1>{this.state.plantCare.plant.commonName} </h1>

@@ -5,6 +5,8 @@ import Button from "react-bootstrap/Button";
 import axios from "axios";
 import API from "../utils/API";
 import ToDoItems from "../components/ToDoItems";
+import Card from "react-bootstrap/Card";
+import Image from "react-bootstrap/Image";
 
 class MyPlantsMain extends Component {
   constructor() {
@@ -73,6 +75,9 @@ class MyPlantsMain extends Component {
 
   render() {
     return (
+      <Card>
+      <Image src="https://images.wallpaperscraft.com/image/white_rose_petals_flower_bright_68307_1600x1200.jpg" alt="Home" />
+     <Card.ImgOverlay style={{ marginTop: "5%" }}>
       <Container>
         <Jumbotron style={{marginBottom:"5%"}} fluid className="text-center">
           {/* User's plant if logged in: */}
@@ -125,6 +130,8 @@ class MyPlantsMain extends Component {
           </div>
         </div>
       </Container>
+      </Card.ImgOverlay>
+      </Card>
     );
   }
 }
