@@ -5,7 +5,8 @@ import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 import API from "../utils/API";
 import Image from "react-bootstrap/Image";
-import Button from "react-bootstrap/Button";
+// import Button from "react-bootstrap/Button";
+import AddPlant from "../components/AddPlant";
 
 class DetailPlant extends Component {
   constructor() {
@@ -38,15 +39,22 @@ class DetailPlant extends Component {
       .catch(err => console.log(err));
   };
 
-  addPlant = data => {
-    API.saveMyPlant({
-      plant: data
-    })
-      .then(res => {
-        console.log(res);
-        this.props.history.push("/myPlants");
-      })
-      .catch(err => console.log(err));
+  // addPlant = data => {
+  //   API.saveMyPlant({
+  //     plant: data
+  //   })
+  //     .then(res => {
+  //       console.log(res);
+  //       this.props.history.push("/myPlants");
+  //     })
+  //     .catch(err => console.log(err));
+  // };
+
+
+  renderAddPlantButton = () => {
+    if (this.props.newPlant) {
+      return <AddPlant plant={this.state.plant._id} />;
+    }
   };
 
   render() {
@@ -68,9 +76,7 @@ class DetailPlant extends Component {
           </Col>
         </Row>
         <div>
-          <Button variant="primary" size="lg" className="mx-auto d-block" onClick={() => this.addPlant(this.state.plant._id)}>
-            Add Plant
-          </Button>
+          {this.renderAddPlantButton()}
         </div>
       </Container>
     );

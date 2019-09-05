@@ -17,7 +17,7 @@ class MyPlantsDetail extends Component {
       currentTab: "todo",
       plantCare: {},
       startDate: new Date(),
-      nextWaterDate: ""
+      nextWaterDate: "",
     };
   }
 
@@ -118,7 +118,7 @@ class MyPlantsDetail extends Component {
     } else if (this.state.currentTab === "history") {
       return <UserPlantsHistory wateredData={this.state.plantCare.wateredDates} />;
     } else if (this.state.currentTab === "DetailPlant") {
-      return <DetailPlant />;
+      return <DetailPlant newPlant={false} />;
     }
   };
 

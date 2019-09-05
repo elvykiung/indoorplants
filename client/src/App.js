@@ -26,7 +26,7 @@ function App() {
           <Route exact path={"/easy-to-grow"} component={() => <DiscoverListItemsPage category={"easy-to-grow"} />} />
           <Route exact path={"/decorative"} component={() => <DiscoverListItemsPage category={"decorative"} />} />
           <Route exact path={"/rare"} component={() => <DiscoverListItemsPage category={"rare"} />} />
-          <Route path={"/detail/:plantName"} component={DetailPlant} />
+          <Route path={"/detail/:plantName"} component={() => <DetailPlant newPlant={true} />} />
           <Route exact path={"/login"} component={Login} />
           <Route exact path={"/signup"} component={Signup} />
           <Route path="*" component={() => "404 NOT FOUND"} />
