@@ -1,8 +1,3 @@
-//  Feature
-//   Search Input box component
-//   Search result component show only when user as done search
-//   list card component
-//   sticky bottom navbar
 import React, { Component } from "react";
 import SearchBar from "../components/SearchBar";
 import SearchButton from "../components/SearchButton";
@@ -45,15 +40,14 @@ class SearchMain extends Component {
           });
         })
         .catch(err => console.log(err));
-   }
-  };
- 
-  handleEnterPress = event => {
-    if (event.key === "Enter"){
-      this.handleFormSubmit(event);
     }
   };
 
+  handleEnterPress = event => {
+    if (event.key === "Enter") {
+      this.handleFormSubmit(event);
+    }
+  };
 
   render() {
     return (
@@ -64,7 +58,7 @@ class SearchMain extends Component {
 
         <div>
           <SearchBar name="title" value={this.state.title} onChange={this.handleInputChange} onKeyPress={this.handleEnterPress} />
-          <SearchButton style={{fontSize:"20px"}} onClick={this.handleFormSubmit} className="btn btn-info">
+          <SearchButton style={{ fontSize: "20px" }} onClick={this.handleFormSubmit} className="btn btn-info">
             Search
           </SearchButton>
         </div>
@@ -75,13 +69,11 @@ class SearchMain extends Component {
                 <h1 className="heading-title mx-sm-3 mb-2 text-center">Search Results</h1>
 
                 {this.state.results.map(plant => {
-                  if (plant.category && plant.category[0] === "rare"){
-                  return <ListItems key={plant._id} images={plant.image} commonName={plant.commonName} scientificName={plant.scientificName} description={plant.fullDescription} title={plant.title} id={plant._id} />;
+                  if (plant.category && plant.category[0] === "rare") {
+                    return <ListItems key={plant._id} images={plant.image} commonName={plant.commonName} scientificName={plant.scientificName} description={plant.fullDescription} title={plant.title} id={plant._id} />;
                   } else {
-                  return <ListItems key={plant._id} images={"http://www.costafarms.com/CostaFarms/" + plant.image} commonName={plant.commonName} scientificName={plant.scientificName} description={plant.fullDescription} title={plant.title} id={plant._id} />;
-
+                    return <ListItems key={plant._id} images={"http://www.costafarms.com/CostaFarms/" + plant.image} commonName={plant.commonName} scientificName={plant.scientificName} description={plant.fullDescription} title={plant.title} id={plant._id} />;
                   }
-                
                 })}
               </div>
             ) : (

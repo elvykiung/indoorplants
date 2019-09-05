@@ -38,6 +38,16 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
 
+  findByIdUpdateNextWater: function(req, res) {
+    const nextWaterDate = req.body.nextWaterDate;
+    const plantCareID = req.body.id;
+    // const waterDate = '2019-08-02';
+    // const plantCareID = '5d6c52fc69418e359ca86d62';
+    db.findByIdAndUpdate({ _id: plantCareID }, { $push: { nextWaterDate: nextWaterDate } }, { new: true })
+      .then(data => res.json(data))
+      .catch(err => res.status(422).json(err));
+  },
+
   //the create query creates a "plantCare" object & associates it with the user
   create: function(req, res) {
     const plant = req.body.plant;

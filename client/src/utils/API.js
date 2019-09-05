@@ -30,6 +30,10 @@ export default {
   updateMyPlant: function(waterData) {
     return axios.post("/api/update/myplant/", waterData);
   },
+
+  updateNextWaterDate: function(nextDate) {
+    return axios.post("/api/updateNextWater/myplant/", nextDate);
+  },
   // Deletes the saved plant with the given id
   deleteMyPlant: function() {
     return axios.delete("/api/delete/myplant/");
