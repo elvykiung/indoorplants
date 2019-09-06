@@ -10,7 +10,6 @@ import API from "../utils/API";
 import moment from "moment";
 import Card from "react-bootstrap/Card";
 
-
 class MyPlantsDetail extends Component {
   constructor() {
     super();
@@ -98,10 +97,9 @@ class MyPlantsDetail extends Component {
       plantName: this.state.plantCare.plant.commonName
     })
       .then(res => {
-        console.log("next water date update" );
-        console.log("user email address is " + this.state.plantCare.user.email)
-        console.log("user plant name is " + this.state.plantCare.plant.commonName)
-
+        console.log("next water date update");
+        console.log("user email address is " + this.state.plantCare.user.email);
+        console.log("user plant name is " + this.state.plantCare.plant.commonName);
       })
       .catch(err => console.log(err));
   };
@@ -112,7 +110,7 @@ class MyPlantsDetail extends Component {
 
   renderTab = () => {
     if (this.state.currentTab === "todo") {
-      return <UserToDo startDate={this.state.startDate} onChange={date => this.handleChange(date)} onClick={() => this.updateWater()} nextWaterDate={this.state.plantCare.nextWaterDate[this.state.plantCare.nextWaterDate.length - 1]} />;
+      return <UserToDo startDate={this.state.startDate} onChange={date => this.handleChange(date)} onClick={() => this.updateWater()} nextWaterDate={this.state.plantCare.nextWaterDate} />;
     } else if (this.state.currentTab === "history") {
       return <UserPlantsHistory wateredData={this.state.plantCare.wateredDates} />;
     } else if (this.state.currentTab === "DetailPlant") {
@@ -121,24 +119,23 @@ class MyPlantsDetail extends Component {
   };
 
   render() {
-    
     if (this.state.plantCare.plant == null) {
       return <p>Loading</p>;
     }
     return (
       <Card>
-      <Image src="https://images.wallpaperscraft.com/image/white_rose_petals_flower_bright_68307_1600x1200.jpg" alt="Home" />
-     <Card.ImgOverlay style={{ marginTop: "5%" }}>
-      <Container className="text-center">
-        <Jumbotron>
-          <h1>{this.state.plantCare.plant.commonName} </h1>
-        </Jumbotron>
-        <Image rounded style={{ height: "450px" }} src={this.state.plantCare.plant.category && this.state.plantCare.plant.category[0] === "rare" ? this.state.plantCare.plant.image : "http://www.costafarms.com/CostaFarms/" + this.state.plantCare.plant.image} />
+        <Image src="https://images.wallpaperscraft.com/image/white_rose_petals_flower_bright_68307_1600x1200.jpg" alt="Home" />
+        <Card.ImgOverlay style={{ marginTop: "5%" }}>
+          <Container className="text-center">
+            <Jumbotron>
+              <h1>{this.state.plantCare.plant.commonName} </h1>
+            </Jumbotron>
+            <Image rounded style={{ height: "450px" }} src={this.state.plantCare.plant.category && this.state.plantCare.plant.category[0] === "rare" ? this.state.plantCare.plant.image : "http://www.costafarms.com/CostaFarms/" + this.state.plantCare.plant.image} />
 
-        <NavUser currentTab={this.state.currentTab} handleTabChange={this.handleTabChange} id={this.state.plantCare.plant._id} />
-        {this.renderTab()}
-      </Container>
-      </Card.ImgOverlay>
+            <NavUser currentTab={this.state.currentTab} handleTabChange={this.handleTabChange} id={this.state.plantCare.plant._id} />
+            {this.renderTab()}
+          </Container>
+        </Card.ImgOverlay>
       </Card>
     );
   }

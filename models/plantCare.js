@@ -20,11 +20,9 @@ var plantCareSchema = new Schema({
       type: Date
     }
   ],
-  nextWaterDate: [
-    {
-      type: Date
-    }
-  ]
+  nextWaterDate: {
+    type: Date
+  }
 });
 
 // This creates our model from the above schema, using mongoose's model method

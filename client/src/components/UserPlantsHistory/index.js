@@ -6,7 +6,6 @@ import Row from "react-bootstrap/Row";
 export function UserPlantsHistory(props) {
   return (
     <Container style={{ marginBottom: "50%" }}>
-      <h2>History</h2>
       <Row>
         <Col className="mx-2">
           <p>Water</p>
