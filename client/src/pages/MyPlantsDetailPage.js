@@ -17,7 +17,7 @@ class MyPlantsDetail extends Component {
       currentTab: "todo",
       plantCare: {},
       startDate: new Date(),
-      nextWaterDate: ""
+      nextWaterDate: "",
     };
   }
 
