@@ -20,7 +20,8 @@
   margin-right:5%;
 }
 .home{
-  margin-right:45%;
+  /* margin-right:45%; */
+  position: absolute; left: 0;
 }
 
 a{

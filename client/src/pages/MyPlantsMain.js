@@ -87,7 +87,6 @@ class MyPlantsMain extends Component {
         <div>
           <div className="col-10 col-centered card-content mb-4">
             <div>
-              <h2 className="heading-title mx-sm-3 mb-2 text-center">Your Saved Plants</h2>
 
               {this.state.userPlants.length ? (
                 <Container>
