@@ -12,14 +12,12 @@ import Card from "react-bootstrap/Card";
 // import ListItems from "../components/ListItems";
 import API from "../utils/API";
 import Image from "react-bootstrap/Image";
-// import Button from "react-bootstrap/Button";
-import AddPlant from "../components/AddPlant";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
 class DetailPlant extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       plant: {}
     };
@@ -48,19 +46,17 @@ class DetailPlant extends Component {
       .catch(err => console.log(err));
   };
 
-
-
-  renderAddPlantButton = () => {
-    console.log("new plant " + JSON.stringify(this.props));
-    if (this.props.location.state.newPlant) {
-      return <AddPlant plant={this.state.plant._id} />;
-    }
-
-
-
+  addPlant = data => {
+    API.saveMyPlant({
+      plant: data
+    })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => console.log(err));
+  };
 
   render() {
-
     return (
       <Card>
       <Image src="https://images.wallpaperscraft.com/image/white_rose_petals_flower_bright_68307_1600x1200.jpg" alt="Search" />
@@ -78,8 +74,14 @@ class DetailPlant extends Component {
           </Col>
         </Row>
         <div>
-          {this.renderAddPlantButton()}
+          {/* <AddButton onClick={this.handleFormSubmit} className="btn btn-info">
+            {" "}
+            Add Plant{" "}
+          </AddButton> */}
 
+          <Button as={Link} to="/myPlants" variant="primary" size="lg" className="mx-auto d-block" onClick={() => this.addPlant(this.state.plant._id)}>
+            Add Plant
+          </Button>
         </div>
       </Container>
       </Card.ImgOverlay>

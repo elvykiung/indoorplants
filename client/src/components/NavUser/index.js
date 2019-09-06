@@ -18,12 +18,7 @@ function NavUser(props) {
       </Nav.Item>
 
       <Nav.Item>
-        <Nav.Link as={Link}
-          to={{
-            pathname: "/detail/" + props.id,
-            state: { newPlant: false }
-          }}
-          onClick={() => props.handleTabChange("DetailPlant")} className={props.currentPage === "DetailPlant" ? "nav-link active" : "nav-link"}>
+        <Nav.Link as={Link} to={"/detail/" + props.id} onClick={() => props.handleTabChange("DetailPlant")} className={props.currentPage === "DetailPlant" ? "nav-link active" : "nav-link"}>
           More Info
         </Nav.Link>
       </Nav.Item>

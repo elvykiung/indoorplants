@@ -22,11 +22,7 @@ function ListItems(props) {
         </Col>
         <Col xs lg="2">
           <Button style={{ fontSize: "20px" }}>
-            <Link style={{ fontSize: "15px", textAlign: "center" }} className="text-white"
-              to={{
-                pathname: "/detail/" + props.id,
-                state: { newPlant: true }
-              }}>
+            <Link style={{ fontSize: "15px", textAlign: "center" }} className="text-white" to={"/detail/" + props.id}>
               See details
             </Link>
           </Button>
