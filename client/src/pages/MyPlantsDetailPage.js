@@ -130,9 +130,11 @@ class MyPlantsDetail extends Component {
       <Image src="https://images.wallpaperscraft.com/image/white_rose_petals_flower_bright_68307_1600x1200.jpg" alt="Home" />
      <Card.ImgOverlay style={{ marginTop: "5%" }}>
       <Container className="text-center">
-        <Jumbotron>
+      <div id="container">
+        <Jumbotron style={{backgroundColor:"transparent"}}>
           <h1>{this.state.plantCare.plant.commonName} </h1>
         </Jumbotron>
+        </div>
         <Image rounded style={{ height: "450px" }} src={this.state.plantCare.plant.category && this.state.plantCare.plant.category[0] === "rare" ? this.state.plantCare.plant.image : "http://www.costafarms.com/CostaFarms/" + this.state.plantCare.plant.image} />
 
         <NavUser currentTab={this.state.currentTab} handleTabChange={this.handleTabChange} id={this.state.plantCare.plant._id} />

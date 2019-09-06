@@ -55,7 +55,6 @@ class SearchMain extends Component {
   render() {
     return (
       <Card>
-
         <Image src="https://images.wallpaperscraft.com/image/white_rose_petals_flower_bright_68307_1600x1200.jpg" alt="Search" />
         <Card.ImgOverlay style={{ marginTop: "5%" }}>
           <Container>
