@@ -9,8 +9,8 @@ import Image from "react-bootstrap/Image";
 import AddPlant from "../components/AddPlant";
 
 class DetailPlant extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       plant: {}
     };
@@ -39,25 +39,20 @@ class DetailPlant extends Component {
       .catch(err => console.log(err));
   };
 
-  // addPlant = data => {
-  //   API.saveMyPlant({
-  //     plant: data
-  //   })
-  //     .then(res => {
-  //       console.log(res);
-  //       this.props.history.push("/myPlants");
-  //     })
-  //     .catch(err => console.log(err));
-  // };
+
 
 
   renderAddPlantButton = () => {
-    if (this.props.newPlant) {
+    console.log("new plant " + JSON.stringify(this.props));
+    if (this.props.location.state.newPlant) {
       return <AddPlant plant={this.state.plant._id} />;
     }
   };
 
+
+
   render() {
+    console.log("these are the props" + JSON.stringify(this.props));
     if (this.state.plant.image == null) {
       return <p>Loading</p>;
     }

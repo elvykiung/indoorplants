@@ -118,7 +118,7 @@ class MyPlantsDetail extends Component {
     } else if (this.state.currentTab === "history") {
       return <UserPlantsHistory wateredData={this.state.plantCare.wateredDates} />;
     } else if (this.state.currentTab === "DetailPlant") {
-      return <DetailPlant newPlant={false} />;
+      return <DetailPlant />;
     }
   };
 
