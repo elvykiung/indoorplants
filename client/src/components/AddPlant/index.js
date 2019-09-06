@@ -1,6 +1,7 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
 import API from "../../utils/API";
+import { Link } from "react-router-dom";
 
 const addPlantData = (data) => {
     API.saveMyPlant({
@@ -15,7 +16,7 @@ const addPlantData = (data) => {
 
 function AddPlant(props) {
     return (
-        <Button variant="primary" size="lg" className="mx-auto d-block" onClick={() => addPlantData(props.plant)}>
+        <Button as={Link} to="/myPlants" variant="primary" size="lg" className="mx-auto d-block" onClick={() => addPlantData(props.plant)}>
             Add Plant
               </Button>
     )
