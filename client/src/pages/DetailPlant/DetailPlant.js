@@ -10,10 +10,11 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
 // import ListItems from "../components/ListItems";
-import API from "../utils/API";
+import API from "../../utils/API";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import "./style.css";
 
 class DetailPlant extends Component {
   constructor() {

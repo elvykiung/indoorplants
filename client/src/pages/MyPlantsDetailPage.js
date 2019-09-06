@@ -5,7 +5,7 @@ import Image from "react-bootstrap/Image";
 import NavUser from "../components/NavUser";
 import UserToDo from "../components/PlantToDoList";
 import UserPlantsHistory from "../components/UserPlantsHistory";
-import DetailPlant from "./DetailPlant";
+import DetailPlant from "./DetailPlant/DetailPlant";
 import API from "../utils/API";
 import moment from "moment";
 import Card from "react-bootstrap/Card";
