@@ -12,6 +12,12 @@ function StickyBottom() {
   return (
     <div className={isMobile ? "fixed-bottom" : "fixed-top"}>
       <Nav className="navbar justify-content-center font-weight-bold">
+      <Nav.Item className="home">
+          <Nav.Link  as={Link} to="/">
+            Home
+          </Nav.Link>
+        </Nav.Item>
+
         <Nav.Item className="link">
           <Nav.Link as={Link} to="/myPlants">
             My Plants
@@ -23,6 +29,7 @@ function StickyBottom() {
             Search
           </Nav.Link>
         </Nav.Item>
+
         <Nav.Item >
           <Nav.Link as={Link} to="/discovery">
             Discovery
