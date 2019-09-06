@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
 import Image from "react-bootstrap/Image";
-import AddButton from "../components/AddButton/AddButton";
+import AddButton from "../../components/AddButton/AddButton";
+import leaf from "./leaf.png";
 
 class Login extends Component {
   constructor(props) {
@@ -16,13 +17,13 @@ class Login extends Component {
     return (
       <div>
         <Card>
-          <Image src="https://images.wallpaperscraft.com/image/leaves_plant_green_130446_3840x2400.jpg" alt="Home" />
+        <Image src="https://images.wallpaperscraft.com/image/leaves_plant_green_130446_3840x2400.jpg" alt="Home" />
 
           <Card.ImgOverlay style={{ marginTop: "5%" }}>
             <Card.Title src="../leaf.png" className="text-white text-center" style={{ fontSize: "4vw", margin: "auto", fontWeight: "bold" }}>
-              Home page
+            <Image src={leaf} />
             </Card.Title>
-            <div style={{ marginTop: "10%" }}>
+            <div style={{ marginTop: "2%" }}>
               <AddButton as="a" href="/login" variant="primary" type="submit" style={{ marginLeft: "36%", paddingLeft: "10%", paddingRight: "11%", backgroundColor: "transparent" }}>
                 Sign In
               </AddButton>

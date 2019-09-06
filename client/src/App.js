@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "bootswatch/dist/minty/bootstrap.min.css";
-import LoginHome from "./pages/LoginHome";
+import LoginHome from "./pages/LoginHome/LoginHome";
 import Login from "./pages/Forms/Login";
 import Signup from "./pages/Forms/SignUp";
 import SearchMain from "./pages/SearchMain";

@@ -10,7 +10,18 @@
 
 
 .nav {
-  font-size: 20px;
+  font-size: 27px;
+
+}
+.link {
+  margin-right:5%;
+}
+.search{
+  margin-right:5%;
+}
+.home{
+  /* margin-right:45%; */
+  position: absolute; left: 0;
 }
 
 a{

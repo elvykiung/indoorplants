@@ -7,8 +7,9 @@ import UserToDo from "../components/PlantToDoList";
 import UserPlantsHistory from "../components/UserPlantsHistory";
 import DetailPlant from "./DetailPlant";
 import API from "../utils/API";
-// import Moment from "react-moment";
 import moment from "moment";
+import Card from "react-bootstrap/Card";
+
 
 class MyPlantsDetail extends Component {
   constructor() {
@@ -59,13 +60,7 @@ class MyPlantsDetail extends Component {
   };
 
   calculatedNextWaterDate = () => {
-    let lastWateredDate = 0;
-
-    if (this.state.plantCare.wateredDates.length === 0) {
-      lastWateredDate = this.state.startDate;
-    } else {
-      lastWateredDate = this.state.plantCare.wateredDates.pop();
-    }
+    let lastWateredDate = this.state.startDate;
 
     console.log("last water date : " + lastWateredDate);
 
@@ -73,21 +68,19 @@ class MyPlantsDetail extends Component {
 
     console.log(this.state.plantCare.plant.waterReq[0]);
 
-    if (this.state.plantCare.plant.waterReq[0].toLowerCase().indexOf("low") !== -1) {
-      console.log(moment(lastWateredDate, "YYYY-MM-DD HH:mm:mm"));
+    nextWaterDate = moment(lastWateredDate, "YYYY-MM-DD HH:mm:mm");
 
-      nextWaterDate = moment(lastWateredDate, "YYYY-MM-DD HH:mm:mm")
-        .add(10, "days")
-        .format("YYYY-MM-DD HH:mm:mm");
-    } else if (this.state.plantCare.plant.waterReq[0].toLowerCase().indexOf("medium") !== -1) {
-      nextWaterDate = moment(lastWateredDate, "YYYY-MM-DD HH:mm:mm")
-        .add(7, "days")
-        .format("YYYY-MM-DD HH:mm:mm");
-    } else if (this.state.plantCare.plant.waterReq[0].toLowerCase().indexOf("moist") !== -1) {
-      nextWaterDate = moment(lastWateredDate, "YYYY-MM-DD HH:mm:mm")
-        .add(3, "days")
-        .format("YYYY-MM-DD HH:mm:mm");
+    let waterRequirement = this.state.plantCare.plant.waterReq[0].toLowerCase();
+
+    if (waterRequirement.indexOf("low") !== -1) {
+      nextWaterDate.add(10, "days");
+    } else if (waterRequirement.indexOf("medium") !== -1) {
+      nextWaterDate.add(7, "days");
+    } else if (waterRequirement.indexOf("moist") !== -1) {
+      nextWaterDate.add(3, "days");
     }
+
+    nextWaterDate = nextWaterDate.format("YYYY-MM-DD HH:mm:mm");
 
     console.log("next water date : " + nextWaterDate);
 
@@ -100,10 +93,15 @@ class MyPlantsDetail extends Component {
     this.calculatedNextWaterDate();
     API.updateNextWaterDate({
       nextWaterDate: this.state.nextWaterDate,
-      id: this.state.plantCare._id
+      id: this.state.plantCare._id,
+      recipient: this.state.plantCare.user.email,
+      plantName: this.state.plantCare.plant.commonName
     })
       .then(res => {
-        console.log("next water date update");
+        console.log("next water date update" );
+        console.log("user email address is " + this.state.plantCare.user.email)
+        console.log("user plant name is " + this.state.plantCare.plant.commonName)
+
       })
       .catch(err => console.log(err));
   };
@@ -114,7 +112,7 @@ class MyPlantsDetail extends Component {
 
   renderTab = () => {
     if (this.state.currentTab === "todo") {
-      return <UserToDo startDate={this.state.startDate} onChange={date => this.handleChange(date)} onClick={() => this.updateWater()} />;
+      return <UserToDo startDate={this.state.startDate} onChange={date => this.handleChange(date)} onClick={() => this.updateWater()} nextWaterDate={this.state.plantCare.nextWaterDate[this.state.plantCare.nextWaterDate.length - 1]} />;
     } else if (this.state.currentTab === "history") {
       return <UserPlantsHistory wateredData={this.state.plantCare.wateredDates} />;
     } else if (this.state.currentTab === "DetailPlant") {
@@ -123,10 +121,14 @@ class MyPlantsDetail extends Component {
   };
 
   render() {
+    
     if (this.state.plantCare.plant == null) {
       return <p>Loading</p>;
     }
     return (
+      <Card>
+      <Image src="https://images.wallpaperscraft.com/image/white_rose_petals_flower_bright_68307_1600x1200.jpg" alt="Home" />
+     <Card.ImgOverlay style={{ marginTop: "5%" }}>
       <Container className="text-center">
         <Jumbotron>
           <h1>{this.state.plantCare.plant.commonName} </h1>
@@ -136,6 +138,8 @@ class MyPlantsDetail extends Component {
         <NavUser currentTab={this.state.currentTab} handleTabChange={this.handleTabChange} id={this.state.plantCare.plant._id} />
         {this.renderTab()}
       </Container>
+      </Card.ImgOverlay>
+      </Card>
     );
   }
 }
