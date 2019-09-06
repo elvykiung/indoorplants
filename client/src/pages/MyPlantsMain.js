@@ -111,6 +111,8 @@ class MyPlantsMain extends Component {
                           alt={plant.plant.imageAlt}
                           //id is the specific user's plant id in userPlant collection
                           id={plant._id}
+                          commonName={plant.plant.commonName}
+                          scientificName={plant.plant.scientificName}
                         />
                       );
                     }
