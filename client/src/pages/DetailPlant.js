@@ -9,12 +9,10 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
-// import ListItems from "../components/ListItems";
 import API from "../utils/API";
 import Image from "react-bootstrap/Image";
-// import Button from "react-bootstrap/Button";
 import AddPlant from "../components/AddPlant";
-//import { Link } from "react-router-dom";
+import "./style.css";
 
 class DetailPlant extends Component {
   constructor() {
@@ -51,8 +49,7 @@ class DetailPlant extends Component {
     if (this.props.location.state.newPlant) {
       return <AddPlant plant={this.state.plant._id} />;
     }
-  }
-
+  };
 
   render() {
     return (
@@ -71,10 +68,7 @@ class DetailPlant extends Component {
                 </Card>
               </Col>
             </Row>
-            <div>
-              {this.renderAddPlantButton()}
-
-            </div>
+            <div>{this.renderAddPlantButton()}</div>
           </Container>
         </Card.ImgOverlay>
       </Card>

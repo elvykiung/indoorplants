@@ -9,6 +9,7 @@ import DetailPlant from "./DetailPlant";
 import API from "../utils/API";
 import moment from "moment";
 import Card from "react-bootstrap/Card";
+import "./style.css";
 
 class MyPlantsDetail extends Component {
   constructor() {
@@ -17,7 +18,7 @@ class MyPlantsDetail extends Component {
       currentTab: "todo",
       plantCare: {},
       startDate: new Date(),
-      nextWaterDate: "",
+      nextWaterDate: ""
     };
   }
 

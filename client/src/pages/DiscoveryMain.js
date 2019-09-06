@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import { Link } from "react-router-dom";
 import Image from "react-bootstrap/Image";
+import "./style.css";
 
 class DiscoveryMain extends Component {
   state = {};
