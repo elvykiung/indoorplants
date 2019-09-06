@@ -111,7 +111,7 @@ class MyPlantsDetail extends Component {
 
   renderTab = () => {
     if (this.state.currentTab === "todo") {
-      return <UserToDo startDate={this.state.startDate} onChange={date => this.handleChange(date)} onClick={() => this.updateWater()} nextWaterDate={this.state.plantCare.nextWaterDate} />;
+      return <UserToDo startDate={this.state.startDate} onChange={date => this.handleChange(date)} onClick={() => this.updateWater()} nextWaterDate={this.state.plantCare.nextWaterDates} />;
     } else if (this.state.currentTab === "history") {
       return <UserPlantsHistory wateredData={this.state.plantCare.wateredDates} />;
     } else if (this.state.currentTab === "DetailPlant") {

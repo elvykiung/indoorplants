@@ -22,7 +22,7 @@ export function UserPlantsHistory(props) {
           {props.wateredData.map(function(listValue) {
             return (
               <ul className="mx-auto" style={styles1}>
-                Water Date:{" "}
+                Watered On:{" "}
                 <Moment format="MM-DD-YYYY" parse="YYYY-MM-DD">
                   {listValue}
                 </Moment>

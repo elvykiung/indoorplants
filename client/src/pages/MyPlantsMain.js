@@ -6,6 +6,8 @@ import axios from "axios";
 import API from "../utils/API";
 import ToDoItems from "../components/ToDoItems";
 import "./style.css";
+// import Col from "react-bootstrap/Col";
+// import Row from "react-bootstrap/Row";
 
 class MyPlantsMain extends Component {
   constructor() {
@@ -80,9 +82,9 @@ class MyPlantsMain extends Component {
           {this.state.loggedIn && <h1 className="text-primary">Your saved plants, {this.state.username}! </h1>}
         </Jumbotron>
 
-        <div className="card-container">
+        <div>
           {this.state.userPlants.length ? (
-            <Container>
+            <div className="card-container ">
               {this.state.userPlants.map(plant => {
                 if (plant.plant.category && plant.plant.category[0] === "rare") {
                   return (
@@ -112,7 +114,7 @@ class MyPlantsMain extends Component {
                   );
                 }
               })}
-            </Container>
+            </div>
           ) : (
             <h2 className="text-center">No Plants Match Your Criteria</h2>
           )}
