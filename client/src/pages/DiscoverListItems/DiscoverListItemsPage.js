@@ -3,8 +3,12 @@ import Jumbotron from "react-bootstrap/Jumbotron";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-import API from "../utils/API";
-import ListItems from "../components/ListItems";
+import API from "../../utils/API";
+import ListItems from "../../components/ListItems";
+import "./style.css";
+import Image from "react-bootstrap/Image";
+import Card from "react-bootstrap/Card";
+
 
 class Plants extends Component {
   state = {
@@ -27,17 +31,15 @@ class Plants extends Component {
 
   render() {
     return (
+      <Card>
+      <Image src="https://images.wallpaperscraft.com/image/white_rose_petals_flower_bright_68307_1600x1200.jpg" alt="Search" />
+      <Card.ImgOverlay style={{ marginTop: "5%" }}>
       <Container>
-        <Row>
-          <Col size="md-12">
-            <Jumbotron>
-              <h1 className="text-center">
-                <strong>Indoor Plants</strong>
-              </h1>
-              <h2 className="text-center">Discover new plants!</h2>
-            </Jumbotron>
-          </Col>
-        </Row>
+          <div id="container" >
+        <Jumbotron style={{backgroundColor:"transparent"}} fluid className="text-center">
+          <h1 className="text-primary">Discover New Plants!</h1>
+        </Jumbotron>
+        </div>
         <Row>
           <Col size="md-12">
             <div>
@@ -58,6 +60,8 @@ class Plants extends Component {
           </Col>
         </Row>
       </Container>
+      </Card.ImgOverlay>
+      </Card>
     );
   }
 }

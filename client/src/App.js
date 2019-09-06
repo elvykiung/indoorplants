@@ -6,7 +6,7 @@ import Login from "./pages/Forms/Login";
 import Signup from "./pages/Forms/SignUp";
 import SearchMain from "./pages/SearchMain/SearchMain";
 import DiscoveryMain from "./pages/DiscoveryMain/DiscoveryMain";
-import DiscoverListItemsPage from "./pages/DiscoverListItemsPage";
+import DiscoverListItemsPage from "./pages/DiscoverListItems/DiscoverListItemsPage";
 import DetailPlant from "./pages/DetailPlant/DetailPlant";
 import StickyBottom from "./components/Nav";
 import MyPlantsMain from "./pages/MyPlantsMain";

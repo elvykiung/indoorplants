@@ -1,13 +1,13 @@
-/* body {
-    background: url(https://images.wallpaperscraft.com/image/white_rose_petals_flower_bright_68307_1600x1200.jpg) no-repeat;
+/* body { 
+     /* background: url(https://images.wallpaperscraft.com/image/white_rose_petals_flower_bright_68307_1600x1200.jpg) no-repeat; */
     /* Keep the inherited background full size. */
     /* background-attachment: fixed; 
     background-size: cover;
     display: grid;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-} */ 
+    height: 100vh; 
+}  */ 
 
 #container {
     width: 100%;
@@ -19,7 +19,7 @@
     background: inherit;
     overflow: hidden;
     margin-bottom: 10px;
-}
+} 
 
 #container:before {
     content: "";
@@ -34,4 +34,4 @@
     filter: blur(10px);
     margin: -20px;
 }
-
+ 

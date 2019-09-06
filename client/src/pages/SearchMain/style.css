@@ -1,13 +1,13 @@
-body {
+/* body {
     background: url(https://images.unsplash.com/photo-1544306094-e2dcf9479da3) no-repeat;
     /* Keep the inherited background full size. */
-    background-attachment: fixed; 
+    /* background-attachment: fixed; 
     background-size: cover;
     display: grid;
     align-items: center;
     justify-content: center;
     height: 100vh;
-}
+}  */
 
 #container {
     width: 100%;
