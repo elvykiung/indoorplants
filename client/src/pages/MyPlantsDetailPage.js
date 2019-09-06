@@ -8,6 +8,8 @@ import UserPlantsHistory from "../components/UserPlantsHistory";
 import DetailPlant from "./DetailPlant";
 import API from "../utils/API";
 import moment from "moment";
+import Card from "react-bootstrap/Card";
+
 
 class MyPlantsDetail extends Component {
   constructor() {
@@ -119,10 +121,14 @@ class MyPlantsDetail extends Component {
   };
 
   render() {
+    
     if (this.state.plantCare.plant == null) {
       return <p>Loading</p>;
     }
     return (
+      <Card>
+      <Image src="https://images.wallpaperscraft.com/image/white_rose_petals_flower_bright_68307_1600x1200.jpg" alt="Home" />
+     <Card.ImgOverlay style={{ marginTop: "5%" }}>
       <Container className="text-center">
         <Jumbotron>
           <h1>{this.state.plantCare.plant.commonName} </h1>
@@ -132,6 +138,8 @@ class MyPlantsDetail extends Component {
         <NavUser currentTab={this.state.currentTab} handleTabChange={this.handleTabChange} id={this.state.plantCare.plant._id} />
         {this.renderTab()}
       </Container>
+      </Card.ImgOverlay>
+      </Card>
     );
   }
 }

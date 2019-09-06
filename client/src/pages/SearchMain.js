@@ -57,7 +57,7 @@ class SearchMain extends Component {
          <Image src="https://images.wallpaperscraft.com/image/white_rose_petals_flower_bright_68307_1600x1200.jpg" alt="Search" />
          <Card.ImgOverlay style={{ marginTop: "5%" }}>
       <Container>
-        <Jumbotron fluid className="text-center">
+        <Jumbotron style={{backgroundColor:"transparent", backgroundImage:"linear-gradient(120deg, #ada996,#f2f2f2,#dbdbdb,#eaeaea)"}} fluid className="text-center">
           <h1 className="text-primary">Search Your Plants</h1>
         </Jumbotron>
 
