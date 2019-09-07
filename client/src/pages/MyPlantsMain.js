@@ -74,57 +74,66 @@ class MyPlantsMain extends Component {
 
   render() {
     return (
-    
+      <Card>
+        <Image src="https://images.wallpaperscraft.com/image/white_rose_petals_flower_bright_68307_1600x1200.jpg" alt="Home" />
+        <Card.ImgOverlay style={{ marginTop: "5%" }}>
           <Container>
-            <Jumbotron style={{ marginBottom: "5%" }} fluid className="text-center">
-              {/* User's plant if logged in: */}
-              {this.state.loggedIn && <h1 className="text-primary">Your saved plants, {this.state.username}! </h1>}
-            </Jumbotron>
-            <div>
-              {this.state.userPlants.length ? (
-                <Container>
-                  {this.state.userPlants.map(plant => 
-                  {
-                    if (plant.plant.category && plant.plant.category[0] === "rare") {
-                      return (
-                        <ToDoItems
-                        //plant.plant._id is the kind on plant in the plant collection
-                        key={plant._id}
-                        image={plant.plant.image}
-                        alt={plant.plant.imageAlt}
-                        //id is the specific user's plant id in userPlant collection
-                        id={plant._id}
-                        commonName={plant.plant.commonName}
-                        scientificName={plant.plant.scientificName}
-                          />);
-                    } else {
-                      return (
-                        <ToDoItems
-                          //plant.plant._id is the kind on plant in the plant collection
-                          key={plant._id}
-                          image={"http://www.costafarms.com/CostaFarms/" + plant.plant.image}
-                          alt={plant.plant.imageAlt}
-                          //id is the specific user's plant id in userPlant collection
-                          id={plant._id}
-                          commonName={plant.plant.commonName}
-                          scientificName={plant.plant.scientificName}
-                          />)}
-                  }
-                  )}
-                    </Container>
-                  ) : (
-                    <h2 className="text-center">No Plants Match Your Criteria</h2>
-                  )
-                }
+            <div id="container">
+              <Jumbotron fluid className="text-center" style={{ backgroundColor: "transparent" }}>
+                {/* User's plant if logged in: */}
+                {this.state.loggedIn && <h1 className="text-primary">Your saved plants, {this.state.username}! </h1>}
+              </Jumbotron>
             </div>
 
             <div>
-              <Button style={{ fontSize: "20px", marginBottom: "10%" }} onClick={this.logout} variant="primary" type="submit">
-                Log out
-              </Button>
+              <div className="col-10 col-centered card-content mb-4" style={{ color: "green" }}>
+                <div>
+                  {this.state.userPlants.length ? (
+                    <Container>
+                      {this.state.userPlants.map(plant => {
+                        if (plant.plant.category && plant.plant.category[0] === "rare") {
+                          return (
+                            <ToDoItems
+                              //plant.plant._id is the kind on plant in the plant collection
+                              key={plant._id}
+                              image={plant.plant.image}
+                              alt={plant.plant.imageAlt}
+                              //id is the specific user's plant id in userPlant collection
+                              id={plant._id}
+                              commonName={plant.plant.commonName}
+                              scientificName={plant.plant.scientificName}
+                            />
+                          );
+                        } else {
+                          return (
+                            <ToDoItems
+                              //plant.plant._id is the kind on plant in the plant collection
+                              key={plant._id}
+                              image={"http://www.costafarms.com/CostaFarms/" + plant.plant.image}
+                              alt={plant.plant.imageAlt}
+                              //id is the specific user's plant id in userPlant collection
+                              id={plant._id}
+                              commonName={plant.plant.commonName}
+                              scientificName={plant.plant.scientificName}
+                            />
+                          );
+                        }
+                      })}
+                    </Container>
+                  ) : (
+                    <h2 className="text-center">No Plants Match Your Criteria</h2>
+                  )}
+                </div>
+              </div>
+              <div>
+                <Button style={{ fontSize: "20px", marginBottom: "10%", backgroundColor: "transparent" }} onClick={this.logout} variant="primary" type="submit">
+                  Log out
+                </Button>
+              </div>
             </div>
           </Container>
-    
+        </Card.ImgOverlay>
+      </Card>
     );
   }
 }
