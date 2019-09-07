@@ -39,9 +39,11 @@ a{
     /* background-attachment: fixed;  */
    /* background-size: cover; */
    display: grid;
-   align-items: center;
-   justify-content: center;
-   height: 20vh; 
+   align-items: center; 
+   /* justify-content: center; */
+   /* height: 20vh;  */
 
   }	
+
+
 }
