@@ -8,7 +8,8 @@ import UserPlantsHistory from "../components/UserPlantsHistory";
 import DetailPlant from "./DetailPlant/DetailPlant";
 import API from "../utils/API";
 import moment from "moment";
-
+import Button from "react-bootstrap/Button";
+import { withRouter } from "react-router-dom";
 import "./style.css";
 
 class MyPlantsDetail extends Component {
@@ -42,7 +43,15 @@ class MyPlantsDetail extends Component {
         });
       })
       .catch(err => console.log(err));
-  };
+  }
+
+  deleteUserPlant =(plantId)=>{
+    API.deleteMyPlant(plantId)
+    .then(res => {
+      this.props.history.push("/myPlants");
+    })
+    .catch(err => console.log(err));
+  }
   //when user pick date of water auto update next water time
   updateWater = () => {
     API.updateMyPlant({
@@ -50,8 +59,7 @@ class MyPlantsDetail extends Component {
       id: this.state.plantCare._id
     })
       .then(res => {
-        console.log("update watered date now");
-        this.updateNextWaterDate();
+      this.updateNextWaterDate();
       })
       .then(res => {
         this.getUserPlants();
@@ -61,13 +69,7 @@ class MyPlantsDetail extends Component {
 
   calculatedNextWaterDate = () => {
     let lastWateredDate = this.state.startDate;
-
-    console.log("last water date : " + lastWateredDate);
-
     let nextWaterDate = 0;
-
-    console.log(this.state.plantCare.plant.waterReq[0]);
-
     nextWaterDate = moment(lastWateredDate, "YYYY-MM-DD HH:mm:mm");
 
     let waterRequirement = this.state.plantCare.plant.waterReq[0].toLowerCase();
@@ -81,9 +83,6 @@ class MyPlantsDetail extends Component {
     }
 
     nextWaterDate = nextWaterDate.format("YYYY-MM-DD HH:mm:mm");
-
-    console.log("next water date : " + nextWaterDate);
-
     this.setState({
       nextWaterDate: nextWaterDate
     });
@@ -97,12 +96,7 @@ class MyPlantsDetail extends Component {
       recipient: this.state.plantCare.user.email,
       plantName: this.state.plantCare.plant.commonName
     })
-      .then(res => {
-        console.log("next water date update");
-        console.log("user email address is " + this.state.plantCare.user.email);
-        console.log("user plant name is " + this.state.plantCare.plant.commonName);
-      })
-      .catch(err => console.log(err));
+    .catch(err => console.log(err));
   };
 
   handleTabChange = tab => {
@@ -134,9 +128,12 @@ class MyPlantsDetail extends Component {
 
         <NavUser currentTab={this.state.currentTab} handleTabChange={this.handleTabChange} id={this.state.plantCare.plant._id} />
         {this.renderTab()}
+        <Button style={{ backgroundColor: "transparent", width: "15%", fontSize: "20px" }} variant="primary" size="lg" className="mx-auto d-block" onClick={() => this.deleteUserPlant(this.state.plantCare._id)} >
+          Delete Plant
+        </Button>
       </Container>
     );
   }
 }
 
-export default MyPlantsDetail;
+export default withRouter(MyPlantsDetail);

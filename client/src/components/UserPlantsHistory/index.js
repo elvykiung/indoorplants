@@ -10,7 +10,7 @@ const styles1 = {
 };
 
 const styles2 = {
-  marginBottom: "50%",
+  marginBottom: "20%",
   marginTop: "5%"
 };
 

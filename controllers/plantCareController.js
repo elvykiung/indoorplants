@@ -87,7 +87,7 @@ module.exports = {
   },
 
   delete: function(req, res) {
-    const plantCareID = req.body.plantCareID;
+    const plantCareID = req.params.plantId;
     //testing notes - route & db call working
     // const plantCareID = '5d68968ba46db31a50ae2da8';
     db.remove({ _id: plantCareID })
