@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Nav from "react-bootstrap/Nav";
+import { Link } from "react-router-dom";
+import NavContainer from "../NavContainer"
 
 class LogoutButton extends Component {
     constructor() {
@@ -49,6 +51,7 @@ class LogoutButton extends Component {
             .then(response => {
                 console.log(response.data);
                 //this.props.history.push("/");
+                return <NavContainer />;
             })
             .catch(error => {
                 console.log("Logout error:" + error);
@@ -57,7 +60,7 @@ class LogoutButton extends Component {
 
     render() {
         return (
-            <Nav.Link onClick={this.logout()} to='/'>
+            <Nav.Link onClick={this.logout()} as={Link} to='/'>
                 Logout
         </Nav.Link>)
 
