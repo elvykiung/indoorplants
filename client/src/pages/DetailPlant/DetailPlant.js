@@ -66,9 +66,9 @@ class DetailPlant extends Component {
                 <Card style={{ paddingLeft: "5%", paddingRight: "5%", paddingTop: "2%" }}>
                   <Image style={{ width: "400px" }} rounded align="left" className="mx-auto d-block" src={this.state.plant.category && this.state.plant.category[0] === "rare" ? this.state.plant.image : "http://www.costafarms.com/CostaFarms/" + this.state.plant.image} />
                   <h3 className="text-center">{this.state.plant.commonName}</h3>
-                  <h4 id="scientificName" styleclassName="text-center">{this.state.plant.scientificName}</h4>
-                  <h4>Description:{this.state.plant.fullDescription} </h4>
-                  <h4>Care Instructions: {this.state.plant.growInstructions}</h4>
+                  <h4 id="scientificName" styleclassName="text-center">({this.state.plant.scientificName})</h4>
+                  <p>Description:{this.state.plant.fullDescription} </p>
+                  <p>Care Instructions: {this.state.plant.growInstructions}</p>
                 </Card>
               </Col>
             </Row>

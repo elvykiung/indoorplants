@@ -75,7 +75,6 @@ class SearchMain extends Component {
               <div className="col-10 col-centered card-content mb-4">
                 {this.state.ifResults ? (
                   <div>
-                    <h1 className="heading-title mx-sm-3 mb-2 text-center">Search Results</h1>
 
                     {this.state.results.map(plant => {
                       if (plant.category && plant.category[0] === "rare") {

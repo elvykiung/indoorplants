@@ -10,8 +10,8 @@
 
 
 .nav {
-  font-size: 27px;
-
+  font-size: 25px;
+  
 }
 .link {
   margin-right:5%;
@@ -28,3 +28,20 @@ a{
   color: rgb(172, 166, 102);
 }
 
+/* Mobile screen */
+@media screen and (max-width: 426px) {
+
+	.nav{
+    width:100%;
+    font-size:25px;
+	}
+  body { 
+    /* background-attachment: fixed;  */
+   /* background-size: cover; */
+   display: grid;
+   align-items: center;
+   justify-content: center;
+   height: 20vh; 
+
+  }	
+}

@@ -87,8 +87,8 @@ class MyPlantsMain extends Component {
         </div>
 
         <div>
-          <div  className="col-10 col-centered card-content mb-4">
-            <div >
+          <div className="col-10 col-centered card-content mb-4" style={{color:"green"}}>
+            <div>
 
               {this.state.userPlants.length ? (
                 <Container>
