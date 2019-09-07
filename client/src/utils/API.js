@@ -35,8 +35,8 @@ export default {
     return axios.post("/api/updateNextWater/myplant/", nextDate);
   },
   // Deletes the saved plant with the given id
-  deleteMyPlant: function() {
-    return axios.delete("/api/delete/myplant/");
+  deleteMyPlant: function(plantId) {
+    return axios.delete("/api/delete/myplant/"+plantId);
   },
   // Saves a plant to the user
   saveMyPlant: function(savedPlantIdData) {

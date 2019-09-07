@@ -8,8 +8,9 @@ import UserPlantsHistory from "../components/UserPlantsHistory";
 import DetailPlant from "./DetailPlant/DetailPlant";
 import API from "../utils/API";
 import moment from "moment";
-import Card from "react-bootstrap/Card";
-
+import Button from "react-bootstrap/Button";
+import { withRouter } from "react-router-dom";
+import "./style.css";
 
 class MyPlantsDetail extends Component {
   constructor() {
@@ -18,7 +19,7 @@ class MyPlantsDetail extends Component {
       currentTab: "todo",
       plantCare: {},
       startDate: new Date(),
-      nextWaterDate: "",
+      nextWaterDate: ""
     };
   }
 
@@ -42,7 +43,15 @@ class MyPlantsDetail extends Component {
         });
       })
       .catch(err => console.log(err));
-  };
+  }
+
+  deleteUserPlant =(plantId)=>{
+    API.deleteMyPlant(plantId)
+    .then(res => {
+      this.props.history.push("/myPlants");
+    })
+    .catch(err => console.log(err));
+  }
   //when user pick date of water auto update next water time
   updateWater = () => {
     API.updateMyPlant({
@@ -50,8 +59,7 @@ class MyPlantsDetail extends Component {
       id: this.state.plantCare._id
     })
       .then(res => {
-        console.log("update watered date now");
-        this.updateNextWaterDate();
+      this.updateNextWaterDate();
       })
       .then(res => {
         this.getUserPlants();
@@ -61,13 +69,7 @@ class MyPlantsDetail extends Component {
 
   calculatedNextWaterDate = () => {
     let lastWateredDate = this.state.startDate;
-
-    console.log("last water date : " + lastWateredDate);
-
     let nextWaterDate = 0;
-
-    console.log(this.state.plantCare.plant.waterReq[0]);
-
     nextWaterDate = moment(lastWateredDate, "YYYY-MM-DD HH:mm:mm");
 
     let waterRequirement = this.state.plantCare.plant.waterReq[0].toLowerCase();
@@ -81,9 +83,6 @@ class MyPlantsDetail extends Component {
     }
 
     nextWaterDate = nextWaterDate.format("YYYY-MM-DD HH:mm:mm");
-
-    console.log("next water date : " + nextWaterDate);
-
     this.setState({
       nextWaterDate: nextWaterDate
     });
@@ -97,13 +96,7 @@ class MyPlantsDetail extends Component {
       recipient: this.state.plantCare.user.email,
       plantName: this.state.plantCare.plant.commonName
     })
-      .then(res => {
-        console.log("next water date update" );
-        console.log("user email address is " + this.state.plantCare.user.email)
-        console.log("user plant name is " + this.state.plantCare.plant.commonName)
-
-      })
-      .catch(err => console.log(err));
+    .catch(err => console.log(err));
   };
 
   handleTabChange = tab => {
@@ -112,7 +105,7 @@ class MyPlantsDetail extends Component {
 
   renderTab = () => {
     if (this.state.currentTab === "todo") {
-      return <UserToDo startDate={this.state.startDate} onChange={date => this.handleChange(date)} onClick={() => this.updateWater()} nextWaterDate={this.state.plantCare.nextWaterDate[this.state.plantCare.nextWaterDate.length - 1]} />;
+      return <UserToDo startDate={this.state.startDate} onChange={date => this.handleChange(date)} onClick={() => this.updateWater()} nextWaterDate={this.state.plantCare.nextWaterDate} />;
     } else if (this.state.currentTab === "history") {
       return <UserPlantsHistory wateredData={this.state.plantCare.wateredDates} />;
     } else if (this.state.currentTab === "DetailPlant") {
@@ -121,29 +114,26 @@ class MyPlantsDetail extends Component {
   };
 
   render() {
-    
     if (this.state.plantCare.plant == null) {
       return <p>Loading</p>;
     }
     return (
-      <Card>
-      <Image src="https://images.wallpaperscraft.com/image/white_rose_petals_flower_bright_68307_1600x1200.jpg" alt="Home" />
-     <Card.ImgOverlay style={{ marginTop: "5%" }}>
       <Container className="text-center">
-      <div id="container">
-        <Jumbotron style={{backgroundColor:"transparent"}}>
-          <h1>{this.state.plantCare.plant.commonName} </h1>
-        </Jumbotron>
+        <div id="container">
+          <Jumbotron style={{ backgroundColor: "transparent" }}>
+            <h1>{this.state.plantCare.plant.commonName} </h1>
+          </Jumbotron>
         </div>
         <Image rounded style={{ height: "450px" }} src={this.state.plantCare.plant.category && this.state.plantCare.plant.category[0] === "rare" ? this.state.plantCare.plant.image : "http://www.costafarms.com/CostaFarms/" + this.state.plantCare.plant.image} />
 
         <NavUser currentTab={this.state.currentTab} handleTabChange={this.handleTabChange} id={this.state.plantCare.plant._id} />
         {this.renderTab()}
+        <Button style={{ backgroundColor: "transparent", width: "15%", fontSize: "20px" }} variant="primary" size="lg" className="mx-auto d-block" onClick={() => this.deleteUserPlant(this.state.plantCare._id)} >
+          Delete Plant
+        </Button>
       </Container>
-      </Card.ImgOverlay>
-      </Card>
     );
   }
 }
 
-export default MyPlantsDetail;
+export default withRouter(MyPlantsDetail);

@@ -5,8 +5,9 @@ body {
   margin: 0;
   padding: 0;
   background-attachment: fixed;
-  font-family: Raleway;
+  background-image: url("https://images.wallpaperscraft.com/image/white_rose_petals_flower_bright_68307_1600x1200.jpg");
 }
+
 h2 {
   color: #2c3e50;
   margin: 2rem 0 0 2rem;
@@ -25,6 +26,7 @@ h2 {
 .card-container {
   display: flex;
   flex-flow: row;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   width: 100%;

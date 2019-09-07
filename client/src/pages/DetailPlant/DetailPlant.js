@@ -9,13 +9,10 @@ import Container from "react-bootstrap/Container";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Card from "react-bootstrap/Card";
-// import ListItems from "../components/ListItems";
 import API from "../../utils/API";
 import Image from "react-bootstrap/Image";
-// import Button from "react-bootstrap/Button";
 import AddPlant from "../../components/AddPlant";
-//import { Link } from "react-router-dom";
-import "./style.css"
+import "./style.css";
 
 class DetailPlant extends Component {
   constructor() {
@@ -52,8 +49,7 @@ class DetailPlant extends Component {
     if (this.props.location.state.newPlant) {
       return <AddPlant plant={this.state.plant._id} />;
     }
-  }
-
+  };
 
   render() {
     return (
@@ -66,16 +62,15 @@ class DetailPlant extends Component {
                 <Card style={{ paddingLeft: "5%", paddingRight: "5%", paddingTop: "2%" }}>
                   <Image style={{ width: "400px" }} rounded align="left" className="mx-auto d-block" src={this.state.plant.category && this.state.plant.category[0] === "rare" ? this.state.plant.image : "http://www.costafarms.com/CostaFarms/" + this.state.plant.image} />
                   <h3 className="text-center">{this.state.plant.commonName}</h3>
-                  <h4 id="scientificName" styleclassName="text-center">({this.state.plant.scientificName})</h4>
+                  <h4 id="scientificName" className="text-center">
+                    ({this.state.plant.scientificName})
+                  </h4>
                   <p>Description:{this.state.plant.fullDescription} </p>
                   <p>Care Instructions: {this.state.plant.growInstructions}</p>
                 </Card>
               </Col>
             </Row>
-            <div>
-              {this.renderAddPlantButton()}
-
-            </div>
+            <div>{this.renderAddPlantButton()}</div>
           </Container>
         </Card.ImgOverlay>
       </Card>

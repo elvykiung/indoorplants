@@ -12,7 +12,7 @@ export function UserToDo(props) {
     fontSize: "15px"
   };
   return (
-    <Container style={{ marginBottom: "30%" }}>
+    <Container style={{ marginBottom: "20%" }}>
       <h2 className="mt-2">Todo List</h2>
       <Row>
         <Col className="mx-2">
@@ -30,7 +30,7 @@ export function UserToDo(props) {
       <h2 className="mt-2">Next Water Date</h2>
       <Row>
         <Col className="mx-2">
-          <Moment format="YYYY/MM/DD">{props.nextWaterDate}</Moment>
+          <Moment format="MM/DD/YYYY">{props.nextWaterDate}</Moment>
         </Col>
       </Row>
     </Container>

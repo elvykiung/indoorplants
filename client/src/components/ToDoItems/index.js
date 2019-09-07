@@ -1,16 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { TaggedContentCard } from "react-ui-cards";
-import styles from "./styles.css";
+import "../../pages/style.css";
+// import Row from "react-bootstrap/Row";
+// import Col from "react-bootstrap/Col";
 
 function ToDoItems(props) {
   return (
-    <div className={styles["card-container"]}>
-      <Link to={"/myPlants/detail/" + props.id}>
-        <TaggedContentCard thumbnail={props.image} title={props.commonName} description={props.scientificName} tags={["water", "light", "fertilizing"]} />
-      </Link>
+    <div>
+      <TaggedContentCard href={"/myPlants/detail/" + props.id} thumbnail={props.image} title={props.commonName} description={props.scientificName} tags={[props.nextWaterDate]} />
     </div>
   );
 }
-
 export default ToDoItems;

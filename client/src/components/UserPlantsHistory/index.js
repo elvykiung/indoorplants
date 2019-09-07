@@ -5,28 +5,33 @@ import Row from "react-bootstrap/Row";
 import Moment from "react-moment";
 
 const styles1 = {
-  margin: '0px',
-  padding: '0px'
-}
+  margin: "0px",
+  padding: "0px"
+};
 
 const styles2 = {
-  marginBottom: "50%",
+  marginBottom: "20%",
   marginTop: "5%"
-}
+};
 
 export function UserPlantsHistory(props) {
   return (
     <Container style={styles2}>
       <Row>
         <Col className="col-md-12">
-          {props.wateredData.map(function (listValue) {
+          {props.wateredData.map(function(listValue) {
             return (
-              <ul className='mx-auto' style={styles1}>Water Date: <Moment format="MM-DD-YYYY" parse="YYYY-MM-DD">{listValue}</Moment></ul>
-            )
+              <ul key={listValue} className="mx-auto" style={styles1}>
+                Watered On:{" "}
+                <Moment format="MM-DD-YYYY" parse="YYYY-MM-DD">
+                  {listValue}
+                </Moment>
+              </ul>
+            );
           })}
         </Col>
       </Row>
-    </ Container >
+    </Container>
   );
 }
 

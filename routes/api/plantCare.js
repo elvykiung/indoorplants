@@ -18,6 +18,6 @@ router.route("/updateNextWater/myplant/").post(plantCareController.findByIdUpdat
 router.route("/save/myplant/").post(plantCareController.create);
 
 //delete plant
-router.route("/delete/myplant/").delete(plantCareController.delete);
+router.route("/delete/myplant/:plantId").delete(plantCareController.delete);
 
 module.exports = router;

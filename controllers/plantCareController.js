@@ -1,6 +1,6 @@
 const db = require("../models/plantCare");
 const dbUser = require("../models/user");
-const emailer = require("../routes/emailer")
+const emailer = require("../routes/emailer");
 
 module.exports = {
   //display all plants associated with the given user
@@ -48,12 +48,12 @@ module.exports = {
     const recipient = req.body.recipient;
     const plantName = req.body.plantName;
 
-    db.findByIdAndUpdate({ _id: plantCareID }, { $push: { nextWaterDate: nextWaterDate } }, { new: true })
+    db.findByIdAndUpdate({ _id: plantCareID }, { nextWaterDate: nextWaterDate }, { new: true })
       .then(data => {
         res.json(data);
-        emailer(recipient,plantName,nextWaterDate);
-        console.log("email sent!!!")
-        console.log('recipient is ' + recipient + " and water date will be " + nextWaterDate + " for " + plantName)
+        emailer(recipient, plantName, nextWaterDate);
+        console.log("email sent!!!");
+        console.log("recipient is " + recipient + " and water date will be " + nextWaterDate + " for " + plantName);
       })
       .catch(err => res.status(422).json(err));
   },
@@ -87,7 +87,7 @@ module.exports = {
   },
 
   delete: function(req, res) {
-    const plantCareID = req.body.plantCareID;
+    const plantCareID = req.params.plantId;
     //testing notes - route & db call working
     // const plantCareID = '5d68968ba46db31a50ae2da8';
     db.remove({ _id: plantCareID })
