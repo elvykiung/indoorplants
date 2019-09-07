@@ -9,8 +9,16 @@ module.exports = function(recipient, plantName, nextWaterDate) {
     }
   });
 
+  var transporter = nodemailer.createTransport({
+    service: "yahoo",
+    auth: {
+      user: "indoorplants19@yahoo.com",
+      pass: "test123456"
+    }
+  });
+
   var mailOptions = {
-    from: "indoorplants2019@yahoo.com",
+    from: "indoorplants19@yahoo.com",
     to: recipient,
     subject: "Water Plant Reminder",
     text: 'A friendly reminder to water your plant - "' + plantName + '"' + " on " + nextWaterDate
