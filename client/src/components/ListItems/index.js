@@ -13,11 +13,11 @@ function ListItems(props) {
     <Card border="primary" style={{ margin: "2%", padding: "20px 20px 20px 20px" }}>
       <Row>
         <Col xs="12" md="auto">
-          <h4 style={{ fontWeight: "bold" }}>{props.commonName} </h4>
+          <p style={{ fontWeight: "bold" }}>{props.commonName} </p>
           <h6 style={{ fontWeight: "bold" }}>(Scientific Name: {props.scientificName})</h6>
         </Col>
         <Col xs="12" md="auto">
-          <Image align="left" src={props.images} style={{ borderRadius: "4px", border: "1px solid #ddd", padding: "5px", width: "30%", height: "auto" }} />
+          <Image align="left" src={props.images} style={{ borderRadius: "4px", border: "1px solid #ddd", padding: "5px", width: "30%", height: "auto" , marginRight:"10px"}} />
           <p> {props.description}</p>
         </Col>
         <Col xs lg="2">

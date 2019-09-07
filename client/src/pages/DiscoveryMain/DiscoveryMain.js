@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 import Jumbotron from "react-bootstrap/Jumbotron";
 import { Link } from "react-router-dom";
 import Image from "react-bootstrap/Image";
+import "./style.css"
 
 class DiscoveryMain extends Component {
   state = {};
@@ -13,9 +14,11 @@ class DiscoveryMain extends Component {
          <Image src="https://images.wallpaperscraft.com/image/white_rose_petals_flower_bright_68307_1600x1200.jpg" alt="Search" />
          <Card.ImgOverlay style={{ marginTop: "5%" }}>
       <Container>
-        <Jumbotron fluid className="text-center">
+      <div id="container">
+        <Jumbotron style={{backgroundColor:"transparent"}} fluid className="text-center">
           <h1 className="text-primary">Discover Your Plants</h1>
         </Jumbotron>
+        </div>
         <Card as={Link} to="/easy-to-grow" style={{ margin: "auto", maxWidth: "100%" }}>
           <Card.Img src="https://images.wallpaperscraft.com/image/cactus_plant_spiny_139104_3840x2400.jpg" alt="Easy to growth Plants" style={{ height: "500px" }} />
           <Card.ImgOverlay>

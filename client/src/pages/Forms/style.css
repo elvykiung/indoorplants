@@ -1,4 +1,4 @@
-input{
+.formBasicEmail, .formBasicPassword{
    font-size: 24px;
    background-image: linear-gradient(120deg,  #8aaf3a 0%, #1e201f 100%);
    background-color: transparent;
@@ -9,4 +9,6 @@ input{
 color: rgb(170, 209, 107);
 }
 
-
+#SearchInput{
+   background-color: aliceblue;
+}

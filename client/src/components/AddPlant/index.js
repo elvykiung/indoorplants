@@ -16,7 +16,7 @@ const addPlantData = (data) => {
 
 function AddPlant(props) {
     return (
-        <Button as={Link} to="/myPlants" variant="primary" size="lg" className="mx-auto d-block" onClick={() => addPlantData(props.plant)}>
+        <Button style={{backgroundColor:"transparent", width:"15%", fontSize:"20px"}} as={Link} to="/myPlants" variant="primary" size="lg" className="mx-auto d-block" onClick={() => addPlantData(props.plant)}>
             Add Plant
               </Button>
     )

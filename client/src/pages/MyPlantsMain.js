@@ -79,13 +79,15 @@ class MyPlantsMain extends Component {
       <Image src="https://images.wallpaperscraft.com/image/white_rose_petals_flower_bright_68307_1600x1200.jpg" alt="Home" />
      <Card.ImgOverlay style={{ marginTop: "5%" }}>
       <Container>
-        <Jumbotron style={{marginBottom:"5%"}} fluid className="text-center">
+      <div id="container">
+       <Jumbotron fluid className="text-center" style={{backgroundColor:"transparent"}}>
           {/* User's plant if logged in: */}
           {this.state.loggedIn && <h1 className="text-primary">Your saved plants, {this.state.username}! </h1>}
         </Jumbotron>
+        </div>
 
         <div>
-          <div className="col-10 col-centered card-content mb-4">
+          <div className="col-10 col-centered card-content mb-4" style={{color:"green"}}>
             <div>
 
               {this.state.userPlants.length ? (
@@ -123,7 +125,7 @@ class MyPlantsMain extends Component {
               )}
 
               <div>
-                <Button style={{ fontSize: "20px", marginBottom: "10%" }} onClick={this.logout} variant="primary" type="submit">
+                <Button style={{ fontSize: "20px", marginBottom: "10%", backgroundColor:"transparent" }} onClick={this.logout} variant="primary" type="submit">
                   Log out
                 </Button>
               </div>
