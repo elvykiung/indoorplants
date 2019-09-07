@@ -6,8 +6,7 @@ import axios from "axios";
 import API from "../utils/API";
 import ToDoItems from "../components/ToDoItems";
 import "./style.css";
-// import Col from "react-bootstrap/Col";
-// import Row from "react-bootstrap/Row";
+import moment from "moment";
 
 class MyPlantsMain extends Component {
   constructor() {
@@ -16,7 +15,7 @@ class MyPlantsMain extends Component {
     this.state = {
       loggedIn: false,
       username: null,
-      userPlants: {}
+      userPlants: []
     };
 
     this.getUser = this.getUser.bind(this);
@@ -52,10 +51,15 @@ class MyPlantsMain extends Component {
   getUserPlants = () => {
     API.getMyPlants()
       .then(res => {
-        console.log(res.data);
+        let sortWater = res.data.sort((a, b) => {
+          const sortA = a.nextWaterDate ? a.nextWaterDate : "1900-01-01 12:00:00";
+          const sortB = b.nextWaterDate ? b.nextWaterDate : "1900-01-01 12:00:00";
+          return sortA.localeCompare(sortB);
+        });
+
         this.setState({
           ifResults: true,
-          userPlants: res.data
+          userPlants: sortWater
         });
       })
       .catch(err => console.log(err));
@@ -78,6 +82,7 @@ class MyPlantsMain extends Component {
     if (this.state.userPlants == null) {
       return <p>Loading</p>;
     }
+
     return (
       <Container>
         <Jumbotron style={{ marginBottom: "5%" }} fluid className="text-center">
@@ -89,6 +94,15 @@ class MyPlantsMain extends Component {
           {this.state.userPlants.length ? (
             <div className="card-container ">
               {this.state.userPlants.map(plant => {
+                let now = moment();
+                let nextWaterDate = moment();
+                if (plant.nextWaterDate !== undefined) {
+                  nextWaterDate = moment(plant.nextWaterDate, "YYYY-MM-DD HH:mm:mm");
+                }
+                // debugger;
+                const duration = moment.duration(nextWaterDate.diff(now)).days();
+                // const duration = now.subtract(nextWaterDate).days();
+
                 return (
                   <ToDoItems
                     //plant.plant._id is the kind on plant in the plant collection
@@ -99,6 +113,9 @@ class MyPlantsMain extends Component {
                     id={plant._id}
                     commonName={plant.plant.commonName}
                     scientificName={plant.plant.scientificName}
+                    // waterReq={plant.plant.waterReq[0]}
+                    // lightReq={plant.plant.lightReq[0]}
+                    nextWaterDate={duration <= 0 ? "Water Now!" : "Water in " + duration + " days!"}
                   />
                 );
               })}

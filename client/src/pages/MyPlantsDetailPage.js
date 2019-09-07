@@ -111,7 +111,7 @@ class MyPlantsDetail extends Component {
 
   renderTab = () => {
     if (this.state.currentTab === "todo") {
-      return <UserToDo startDate={this.state.startDate} onChange={date => this.handleChange(date)} onClick={() => this.updateWater()} nextWaterDate={this.state.plantCare.nextWaterDates} />;
+      return <UserToDo startDate={this.state.startDate} onChange={date => this.handleChange(date)} onClick={() => this.updateWater()} nextWaterDate={this.state.plantCare.nextWaterDate} />;
     } else if (this.state.currentTab === "history") {
       return <UserPlantsHistory wateredData={this.state.plantCare.wateredDates} />;
     } else if (this.state.currentTab === "DetailPlant") {
@@ -125,10 +125,10 @@ class MyPlantsDetail extends Component {
     }
     return (
       <Container className="text-center">
-      <div id="container">
-        <Jumbotron style={{backgroundColor:"transparent"}}>
-          <h1>{this.state.plantCare.plant.commonName} </h1>
-        </Jumbotron>
+        <div id="container">
+          <Jumbotron style={{ backgroundColor: "transparent" }}>
+            <h1>{this.state.plantCare.plant.commonName} </h1>
+          </Jumbotron>
         </div>
         <Image rounded style={{ height: "450px" }} src={this.state.plantCare.plant.category && this.state.plantCare.plant.category[0] === "rare" ? this.state.plantCare.plant.image : "http://www.costafarms.com/CostaFarms/" + this.state.plantCare.plant.image} />
 

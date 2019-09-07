@@ -21,7 +21,7 @@ export function UserPlantsHistory(props) {
         <Col className="col-md-12">
           {props.wateredData.map(function(listValue) {
             return (
-              <ul className="mx-auto" style={styles1}>
+              <ul key={listValue} className="mx-auto" style={styles1}>
                 Watered On:{" "}
                 <Moment format="MM-DD-YYYY" parse="YYYY-MM-DD">
                   {listValue}

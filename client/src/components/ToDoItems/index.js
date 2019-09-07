@@ -6,8 +6,8 @@ import "../../pages/style.css";
 
 function ToDoItems(props) {
   return (
-    <div >
-      <TaggedContentCard  href={"/myPlants/detail/" + props.id} thumbnail={props.image} title={props.commonName} description={props.scientificName} tags={["water", "light", "fertilizing"]} />
+    <div>
+      <TaggedContentCard href={"/myPlants/detail/" + props.id} thumbnail={props.image} title={props.commonName} description={props.scientificName} tags={[props.nextWaterDate]} />
     </div>
   );
 }
