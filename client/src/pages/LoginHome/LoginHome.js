@@ -15,7 +15,6 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
         <Card>
         <Image src="https://images.wallpaperscraft.com/image/leaves_plant_green_130446_3840x2400.jpg" alt="Home" />
 
@@ -34,7 +33,7 @@ class Login extends Component {
             </div>
           </Card.ImgOverlay>
         </Card>
-      </div>
+    
     );
   }
 }

@@ -7,10 +7,11 @@ import { useMediaQuery } from "react-responsive";
 import "./style.css";
 
 function StickyBottom() {
-  const isMobile = useMediaQuery({ query: "(max-width: 426px)" });
+  const isMobile = useMediaQuery({ query: "(max-width: 426px)"  });
 
   return (
     <div className={isMobile ? "fixed-bottom" : "fixed-top"}>
+    
       <Nav className="navbar justify-content-center font-weight-bold">
       <Nav.Item className="home">
           <Nav.Link  as={Link} to="/">

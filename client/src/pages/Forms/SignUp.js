@@ -63,7 +63,7 @@ class SignUp extends Component {
 
             <Form style={{ textAlign: "center", paddingTop: "2%" }}>
             <Form.Group >
-                <Form.Control type="text" placeholder="User Name" style={{ width: "50%", marginLeft: "25%", backgroundColor: "transparent"}}
+                <Form.Control className="formBasicEmail" type="text" placeholder="User Name" style={{ width: "50%", marginLeft: "25%", backgroundColor: "transparent"}}
                                            id="username"
                                            name="username"
                                            value={this.state.username}
@@ -73,7 +73,7 @@ class SignUp extends Component {
               </Form.Text>
               </Form.Group>
 
-              <Form.Group className="formBasicEmail">
+              <Form.Group >
                 <Form.Control type="Email" placeholder="Email" className="formBasicEmail" style={{ width: "50%", marginLeft: "25%", backgroundColor: "transparent"}}
                          id="email"
                          name="email"
@@ -83,7 +83,7 @@ class SignUp extends Component {
               </Form.Group>
 
               <Form.Group >
-                <Form.Control style={{ width: "50%", marginLeft: "25%",backgroundColor: "transparent"}} type="password" placeholder="Password" 
+                <Form.Control className="formBasicPassword" style={{ width: "50%", marginLeft: "25%",backgroundColor: "transparent"}} type="password" placeholder="Password" 
                    name="password"
                    value={this.state.password}
                    onChange={this.handleChange}                />
