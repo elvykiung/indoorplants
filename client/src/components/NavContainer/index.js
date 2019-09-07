@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Nav from "react-bootstrap/Nav";
+import StickyBottom from "../Nav";
 
-class LogoutButton extends Component {
+
+class NavContainer extends Component {
     constructor() {
         super();
-        this.logout = this.logout.bind(this);
         this.state = {
             loggedIn: false,
             username: null,
@@ -42,27 +42,13 @@ class LogoutButton extends Component {
     }
 
 
-    logout() {
-        //event.preventDefault();
-        axios
-            .post("/api/user/logout")
-            .then(response => {
-                console.log(response.data);
-                //this.props.history.push("/");
-            })
-            .catch(error => {
-                console.log("Logout error:" + error);
-            });
-    }
-
     render() {
         return (
-            <Nav.Link onClick={this.logout()} to='/'>
-                Logout
-        </Nav.Link>)
-
-
+            <StickyBottom loggedIn={this.state.loggedIn} />
+        )
     }
 }
 
-export default LogoutButton;
+export default NavContainer;
+
+

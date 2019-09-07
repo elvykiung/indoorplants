@@ -23,6 +23,9 @@
   /* margin-right:45%; */
   position: absolute; left: 0;
 }
+.log{
+  position: absolute; right: 0;
+}
 
 a{
   color: rgb(172, 166, 102);

@@ -8,7 +8,7 @@ import SearchMain from "./pages/SearchMain/SearchMain";
 import DiscoveryMain from "./pages/DiscoveryMain/DiscoveryMain";
 import DiscoverListItemsPage from "./pages/DiscoverListItems/DiscoverListItemsPage";
 import DetailPlant from "./pages/DetailPlant/DetailPlant";
-import StickyBottom from "./components/Nav";
+import NavContainer from "./components/NavContainer";
 import MyPlantsMain from "./pages/MyPlantsMain";
 import MyPlantsDetail from "./pages/MyPlantsDetailPage";
 
@@ -31,7 +31,7 @@ function App() {
           <Route exact path={"/signup"} component={Signup} />
           <Route path="*" component={() => "404 NOT FOUND"} />
         </Switch>
-        <StickyBottom />
+        <NavContainer />
       </div>
     </Router>
   );
