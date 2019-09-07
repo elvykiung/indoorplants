@@ -1,25 +1,25 @@
 import React from "react";
-import Button from 'react-bootstrap/Button';
+import Button from "react-bootstrap/Button";
 import API from "../../utils/API";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
-const addPlantData = (data) => {
-    API.saveMyPlant({
-        plant: data
+const addPlantData = props => {
+  API.saveMyPlant({
+    plant: props.plant
+  })
+    .then(res => {
+      console.log(res);
+      props.history.push("/myPlants");
     })
-        .then(res => {
-            console.log(res);
-            this.props.history.push("/myPlants");
-        })
-        .catch(err => console.log(err));
+    .catch(err => console.log(err));
 };
 
 function AddPlant(props) {
-    return (
-        <Button style={{backgroundColor:"transparent", width:"15%", fontSize:"20px"}} as={Link} to="/myPlants" variant="primary" size="lg" className="mx-auto d-block" onClick={() => addPlantData(props.plant)}>
-            Add Plant
-              </Button>
-    )
+  return (
+    <Button style={{ backgroundColor: "transparent", width: "15%", fontSize: "20px" }} variant="primary" size="lg" className="mx-auto d-block" onClick={() => addPlantData(props)}>
+      Add Plant
+    </Button>
+  );
 }
 
-export default AddPlant;
+export default withRouter(AddPlant);

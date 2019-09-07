@@ -75,6 +75,9 @@ class MyPlantsMain extends Component {
   }
 
   render() {
+    if (this.state.userPlants == null) {
+      return <p>Loading</p>;
+    }
     return (
       <Container>
         <Jumbotron style={{ marginBottom: "5%" }} fluid className="text-center">
@@ -86,37 +89,22 @@ class MyPlantsMain extends Component {
           {this.state.userPlants.length ? (
             <div className="card-container ">
               {this.state.userPlants.map(plant => {
-                if (plant.plant.category && plant.plant.category[0] === "rare") {
-                  return (
-                    <ToDoItems
-                      //plant.plant._id is the kind on plant in the plant collection
-                      key={plant._id}
-                      image={plant.plant.image}
-                      alt={plant.plant.imageAlt}
-                      //id is the specific user's plant id in userPlant collection
-                      id={plant._id}
-                      commonName={plant.plant.commonName}
-                      scientificName={plant.plant.scientificName}
-                    />
-                  );
-                } else {
-                  return (
-                    <ToDoItems
-                      //plant.plant._id is the kind on plant in the plant collection
-                      key={plant._id}
-                      image={"http://www.costafarms.com/CostaFarms/" + plant.plant.image}
-                      alt={plant.plant.imageAlt}
-                      //id is the specific user's plant id in userPlant collection
-                      id={plant._id}
-                      commonName={plant.plant.commonName}
-                      scientificName={plant.plant.scientificName}
-                    />
-                  );
-                }
+                return (
+                  <ToDoItems
+                    //plant.plant._id is the kind on plant in the plant collection
+                    key={plant._id}
+                    image={plant.plant.category && plant.plant.category[0] === "rare" ? plant.plant.image : "http://www.costafarms.com/CostaFarms/" + plant.plant.image}
+                    alt={plant.plant.imageAlt}
+                    //id is the specific user's plant id in userPlant collection
+                    id={plant._id}
+                    commonName={plant.plant.commonName}
+                    scientificName={plant.plant.scientificName}
+                  />
+                );
               })}
             </div>
           ) : (
-            <h2 className="text-center">No Plants Match Your Criteria</h2>
+            <h2 className="text-center">You Don't Have Plant Yet</h2>
           )}
         </div>
 
